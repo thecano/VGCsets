@@ -1,0 +1,53 @@
+<h1>Listing pokemonsets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Specie</th>
+      <th>Hp</th>
+      <th>Atk</th>
+      <th>Def</th>
+      <th>Spatk</th>
+      <th>Spdef</th>
+      <th>Spd</th>
+      <th>Item</th>
+      <th>Nature</th>
+      <th>Ability</th>
+      <th>Atk1</th>
+      <th>Atk2</th>
+      <th>Atk3</th>
+      <th>Atk4</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pokemonsets.each do |pokemonset| %>
+      <tr>
+        <td><%= pokemonset.specie %></td>
+        <td><%= pokemonset.hp %></td>
+        <td><%= pokemonset.atk %></td>
+        <td><%= pokemonset.def %></td>
+        <td><%= pokemonset.spatk %></td>
+        <td><%= pokemonset.spdef %></td>
+        <td><%= pokemonset.spd %></td>
+        <td><%= pokemonset.item %></td>
+        <td><%= pokemonset.nature %></td>
+        <td><%= pokemonset.ability %></td>
+        <td><%= pokemonset.atk1 %></td>
+        <td><%= pokemonset.atk2 %></td>
+        <td><%= pokemonset.atk3 %></td>
+        <td><%= pokemonset.atk4 %></td>
+        <td><%= pokemonset.comment %></td>
+        <td><%= link_to 'Show', pokemonset %></td>
+        <td><%= link_to 'Edit', edit_pokemonset_path(pokemonset) %></td>
+        <td><%= link_to 'Destroy', pokemonset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pokemonset', new_pokemonset_path %>

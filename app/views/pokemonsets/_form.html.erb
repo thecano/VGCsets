@@ -1,0 +1,77 @@
+<%= form_for(@pokemonset) do |f| %>
+  <% if @pokemonset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pokemonset.errors.count, "error") %> prohibited this pokemonset from being saved:</h2>
+
+      <ul>
+      <% @pokemonset.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :specie %><br>
+    <%= f.text_field :specie %>
+  </div>
+  <div class="field">
+    <%= f.label :hp %><br>
+    <%= f.number_field :hp %>
+  </div>
+  <div class="field">
+    <%= f.label :atk %><br>
+    <%= f.number_field :atk %>
+  </div>
+  <div class="field">
+    <%= f.label :def %><br>
+    <%= f.number_field :def %>
+  </div>
+  <div class="field">
+    <%= f.label :spatk %><br>
+    <%= f.number_field :spatk %>
+  </div>
+  <div class="field">
+    <%= f.label :spdef %><br>
+    <%= f.number_field :spdef %>
+  </div>
+  <div class="field">
+    <%= f.label :spd %><br>
+    <%= f.number_field :spd %>
+  </div>
+  <div class="field">
+    <%= f.label :item %><br>
+    <%= f.text_field :item %>
+  </div>
+  <div class="field">
+    <%= f.label :nature %><br>
+    <%= f.text_field :nature %>
+  </div>
+  <div class="field">
+    <%= f.label :ability %><br>
+    <%= f.text_field :ability %>
+  </div>
+  <div class="field">
+    <%= f.label :atk1 %><br>
+    <%= f.text_field :atk1 %>
+  </div>
+  <div class="field">
+    <%= f.label :atk2 %><br>
+    <%= f.text_field :atk2 %>
+  </div>
+  <div class="field">
+    <%= f.label :atk3 %><br>
+    <%= f.text_field :atk3 %>
+  </div>
+  <div class="field">
+    <%= f.label :atk4 %><br>
+    <%= f.text_field :atk4 %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br>
+    <%= f.text_field :comment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
