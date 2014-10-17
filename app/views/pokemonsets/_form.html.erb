@@ -5,12 +5,34 @@
 <div class="control-group">
   <%= f.label :specie , :class => 'control-label' %>
       <div class="controls">
-  <%= f.select :specie, options_for_select(Pokemon.order('identifier').all.map{|s|[s.identifier, s.id]}) , :class => 'text_field' %>
+  <%= f.select :specie, options_for_select(Pokemon.order('name').where(:local_language_id => 9).map{|s|[s.name, s.pokemon_species_id]}) , :class => 'text_field' %>
+      </div>
+</div>
+ <div class="control-group">
+  <%= f.label :ability , :class => 'control-label' %>
+      <div class="controls">
+  <%= f.select :ability, options_for_select(Ability.order('name').where(:local_language_id => 9).map{|s|[s.name, s.ability_id]}) , :class => 'text_field' %>
+      </div>
+</div>
+
+ 
+<div class="control-group">
+  <%= f.label :item , :class => 'control-label' %>
+      <div class="controls">
+  <%= f.select :item, options_for_select(Item.order('name').where(:local_language_id => 9).map{|s|[s.name, s.item_id]}) , :class => 'text_field' %>
+      </div>
+</div>
+  
+  <div class="control-group">
+  <%= f.label :nature , :class => 'control-label' %>
+      <div class="controls">
+  <%= f.select :nature, options_for_select(Nature.order('name').where(:local_language_id => 9).map{|s|[s.name, s.nature_id]}) , :class => 'text_field' %>
       </div>
 </div>
 
 
-  <div class="control-group">
+
+ <div class="control-group">
     <%= f.label :hp, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :hp, :class => 'text_field' %>
@@ -46,49 +68,30 @@
       <%= f.text_field :spd, :class => 'text_field' %>
     </div>
   </div>
-<div class="control-group">
-  <%= f.label :item , :class => 'control-label' %>
+  <div class="control-group">
+  <%= f.label :atk1 , :class => 'control-label' %>
       <div class="controls">
-  <%= f.select :item, options_for_select(Item.order('identifier').all.map{|s|[s.identifier, s.id]}) , :class => 'text_field' %>
+  <%= f.select :atk1, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
       </div>
 </div>
-  
   <div class="control-group">
-    <%= f.label :nature, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :nature, :class => 'text_field' %>
-    </div>
-  </div>
+  <%= f.label :atk2 , :class => 'control-label' %>
+      <div class="controls">
+  <%= f.select :atk2, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
+      </div>
+</div>
+ <div class="control-group">
+  <%= f.label :atk3 , :class => 'control-label' %>
+      <div class="controls">
+  <%= f.select :atk3, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
+      </div>
+</div>
   <div class="control-group">
-    <%= f.label :ability, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :ability, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :atk1, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :atk1, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :atk2, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :atk2, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :atk3, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :atk3, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :atk4, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :atk4, :class => 'text_field' %>
-    </div>
-  </div>
+  <%= f.label :atk4 , :class => 'control-label' %>
+      <div class="controls">
+  <%= f.select :atk4, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
+      </div>
+</div>
   <div class="control-group">
     <%= f.label :comment, :class => 'control-label' %>
     <div class="controls">

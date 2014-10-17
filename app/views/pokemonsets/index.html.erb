@@ -29,20 +29,20 @@
     <% @pokemonsets.each do |pokemonset| %>
       <tr>
         <td><%= link_to pokemonset.id, pokemonset_path(pokemonset) %></td>
-        <td><%= Pokemon.find(pokemonset.specie).identifier %></td>
+        <td><%= Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name %></td>
         <td><%= pokemonset.hp %></td>
         <td><%= pokemonset.atk %></td>
         <td><%= pokemonset.def %></td>
         <td><%= pokemonset.spatk %></td>
         <td><%= pokemonset.spdef %></td>
         <td><%= pokemonset.spd %></td>
-        <td><%= pokemonset.item %></td>
-        <td><%= pokemonset.nature %></td>
-        <td><%= pokemonset.ability %></td>
-        <td><%= pokemonset.atk1 %></td>
-        <td><%= pokemonset.atk2 %></td>
-        <td><%= pokemonset.atk3 %></td>
-        <td><%= pokemonset.atk4 %></td>
+        <td><%= Item.find_by(:local_language_id => 9, :item_id => pokemonset.item).name %></td>
+        <td><%= Nature.find_by(:local_language_id => 9, :nature_id => pokemonset.nature).name %></td>
+        <td><%= Ability.find_by(:local_language_id => 9, :ability_id => pokemonset.ability).name %></td>
+        <td><%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.atk1).name %></td>
+       <td><%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.atk2).name %></td>
+       <td><%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.atk3).name %></td>
+       <td><%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.atk4).name %></td>
         <td><%= pokemonset.comment %></td>
         <td><%=l pokemonset.created_at %></td>
         <td>
