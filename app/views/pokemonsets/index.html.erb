@@ -29,7 +29,7 @@
     <% @pokemonsets.each do |pokemonset| %>
       <tr>
         <td><%= link_to pokemonset.id, pokemonset_path(pokemonset) %></td>
-        <td><%= pokemonset.specie %></td>
+        <td><%= Pokemon.find(pokemonset.specie).identifier %></td>
         <td><%= pokemonset.hp %></td>
         <td><%= pokemonset.atk %></td>
         <td><%= pokemonset.def %></td>

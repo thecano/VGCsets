@@ -1,10 +1,15 @@
 <%= form_for @pokemonset, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :specie, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :specie, :class => 'text_field' %>
-    </div>
-  </div>
+  
+
+
+<div class="control-group">
+  <%= f.label :specie , :class => 'control-label' %>
+      <div class="controls">
+  <%= f.select :specie, options_for_select(Pokemon.order('identifier').all.map{|s|[s.identifier, s.id]}) , :class => 'text_field' %>
+      </div>
+</div>
+
+
   <div class="control-group">
     <%= f.label :hp, :class => 'control-label' %>
     <div class="controls">
@@ -41,12 +46,13 @@
       <%= f.text_field :spd, :class => 'text_field' %>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label :item, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :item, :class => 'text_field' %>
-    </div>
-  </div>
+<div class="control-group">
+  <%= f.label :item , :class => 'control-label' %>
+      <div class="controls">
+  <%= f.select :item, options_for_select(Item.order('identifier').all.map{|s|[s.identifier, s.id]}) , :class => 'text_field' %>
+      </div>
+</div>
+  
   <div class="control-group">
     <%= f.label :nature, :class => 'control-label' %>
     <div class="controls">

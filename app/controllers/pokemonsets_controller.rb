@@ -14,6 +14,7 @@ class PokemonsetsController < ApplicationController
 
   # GET /pokemonsets/new
   def new
+    #@species=Pokemon_specie.all
     @pokemonset = Pokemonset.new
   end
 
