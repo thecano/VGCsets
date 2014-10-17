@@ -1,77 +1,98 @@
-<%= form_for(@pokemonset) do |f| %>
-  <% if @pokemonset.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pokemonset.errors.count, "error") %> prohibited this pokemonset from being saved:</h2>
-
-      <ul>
-      <% @pokemonset.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @pokemonset, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :specie, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :specie, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :hp, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :hp, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :atk, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :atk, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :def, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :def, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :spatk, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :spatk, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :spdef, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :spdef, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :spd, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :spd, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :item, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :item, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :nature, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :nature, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ability, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ability, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :atk1, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :atk1, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :atk2, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :atk2, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :atk3, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :atk3, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :atk4, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :atk4, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :comment, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :comment, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :specie %><br>
-    <%= f.text_field :specie %>
-  </div>
-  <div class="field">
-    <%= f.label :hp %><br>
-    <%= f.number_field :hp %>
-  </div>
-  <div class="field">
-    <%= f.label :atk %><br>
-    <%= f.number_field :atk %>
-  </div>
-  <div class="field">
-    <%= f.label :def %><br>
-    <%= f.number_field :def %>
-  </div>
-  <div class="field">
-    <%= f.label :spatk %><br>
-    <%= f.number_field :spatk %>
-  </div>
-  <div class="field">
-    <%= f.label :spdef %><br>
-    <%= f.number_field :spdef %>
-  </div>
-  <div class="field">
-    <%= f.label :spd %><br>
-    <%= f.number_field :spd %>
-  </div>
-  <div class="field">
-    <%= f.label :item %><br>
-    <%= f.text_field :item %>
-  </div>
-  <div class="field">
-    <%= f.label :nature %><br>
-    <%= f.text_field :nature %>
-  </div>
-  <div class="field">
-    <%= f.label :ability %><br>
-    <%= f.text_field :ability %>
-  </div>
-  <div class="field">
-    <%= f.label :atk1 %><br>
-    <%= f.text_field :atk1 %>
-  </div>
-  <div class="field">
-    <%= f.label :atk2 %><br>
-    <%= f.text_field :atk2 %>
-  </div>
-  <div class="field">
-    <%= f.label :atk3 %><br>
-    <%= f.text_field :atk3 %>
-  </div>
-  <div class="field">
-    <%= f.label :atk4 %><br>
-    <%= f.text_field :atk4 %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %><br>
-    <%= f.text_field :comment %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                pokemonsets_path, :class => 'btn' %>
   </div>
 <% end %>
