@@ -15,6 +15,13 @@
 			</a>
 			<a class="brand" href="#">Algo</a>
 		</div>
+		<% if current_user %>
+  Welcome <%= current_user.name %>!
+  <%= link_to "Sign Out", "logout" %>
+<% else %>
+  <%= link_to "Sign in with face", "/auth/facebook" %>
+   <%= link_to "Sign in with twitter", "/auth/twitter" %>
+<% end %>
 	</div>
 
 </div>

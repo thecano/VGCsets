@@ -11,9 +11,12 @@
   </thead>
   <tbody>
     <% @pokemonsets.each do |pokemonset| %>
-
+<%= link_to "like poke",  likes_pokemonset_path(pokemonset.id),  remote: true %>
+<%= pokemonset.get_upvotes.size %>
+<%= pokemonset.get_downvotes.size%>
  <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %><br>
-<%= Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name %>@ <%= Item.find_by(:local_language_id => 9, :item_id => pokemonset.item).name %><br>
+
+<%= Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name %> @ <%= Item.find_by(:local_language_id => 9, :item_id => pokemonset.item).name %><br>
 Ability: <%= Ability.find_by(:local_language_id => 9, :ability_id => pokemonset.ability).name %><br>
 EVs: 
 <% if pokemonset.hp != nil %>

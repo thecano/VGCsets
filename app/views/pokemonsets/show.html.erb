@@ -4,36 +4,36 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:specie) %>:</strong></dt>
-  <dd><%= @pokemonset.specie %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:hp) %>:</strong></dt>
-  <dd><%= @pokemonset.hp %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:atk) %>:</strong></dt>
-  <dd><%= @pokemonset.atk %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:def) %>:</strong></dt>
-  <dd><%= @pokemonset.def %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:spatk) %>:</strong></dt>
-  <dd><%= @pokemonset.spatk %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:spdef) %>:</strong></dt>
-  <dd><%= @pokemonset.spdef %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:spd) %>:</strong></dt>
-  <dd><%= @pokemonset.spd %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:item) %>:</strong></dt>
-  <dd><%= @pokemonset.item %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:nature) %>:</strong></dt>
-  <dd><%= @pokemonset.nature %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ability) %>:</strong></dt>
-  <dd><%= @pokemonset.ability %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:move1) %>:</strong></dt>
-  <dd><%= @pokemonset.move1 %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:move2) %>:</strong></dt>
-  <dd><%= @pokemonset.move2 %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:move3) %>:</strong></dt>
-  <dd><%= @pokemonset.move3 %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:move4) %>:</strong></dt>
-  <dd><%= @pokemonset.move4 %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:comment) %>:</strong></dt>
-  <dd><%= @pokemonset.comment %></dd>
+  <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @pokemonset.specie).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %><br>
+<%= Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @pokemonset.specie).name %>@ <%= Item.find_by(:local_language_id => 9, :item_id => @pokemonset.item).name %><br>
+Ability: <%= Ability.find_by(:local_language_id => 9, :ability_id => @pokemonset.ability).name %><br>
+EVs: 
+<% if @pokemonset.hp != nil %>
+<%= @pokemonset.hp %> <%= model_class.human_attribute_name(:hp) %> / 
+<% end %>
+<% if @pokemonset.atk != nil %>
+<%= @pokemonset.atk %> <%= model_class.human_attribute_name(:atk) %> /
+<% end %>
+<% if @pokemonset.def != nil %>
+ <%= @pokemonset.def %> <%= model_class.human_attribute_name(:def) %> /
+  <% end %>
+  <% if @pokemonset.spatk != nil %>
+  <%= @pokemonset.spatk %> <%= model_class.human_attribute_name(:spatk) %> /
+  <% end %>
+  <% if @pokemonset.spdef != nil %>
+   <%= @pokemonset.spdef %> <%= model_class.human_attribute_name(:spdef) %> /
+   <% end %>
+   <% if @pokemonset.spd != nil %>
+    <%= @pokemonset.spd %> <%= model_class.human_attribute_name(:spd) %>
+    <% end %>
+<br>
+<%= Nature.find_by(:local_language_id => 9, :nature_id => @pokemonset.nature).name %> <%= model_class.human_attribute_name(:nature) %><br>
+- <%= Move.find_by(:local_language_id => 9, :move_id => @pokemonset.move1).name %><br>
+- <%= Move.find_by(:local_language_id => 9, :move_id => @pokemonset.move2).name %><br>
+- <%= Move.find_by(:local_language_id => 9, :move_id => @pokemonset.move3).name %><br>
+- <%= Move.find_by(:local_language_id => 9, :move_id => @pokemonset.move4).name %><br>
+  <strong><%= model_class.human_attribute_name(:comment) %>:</strong>
+  <%= @pokemonset.comment %>
 </dl>
 
 <div class="form-actions">

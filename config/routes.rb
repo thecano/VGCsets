@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :pokemonsets
+  resources :pokemonsets 
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -7,6 +8,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'pokemonsets#index'
 
+   get 'pokemonsets/likes/:id' => 'pokemonsets#likes' , as: 'likes_pokemonset'
+  
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
