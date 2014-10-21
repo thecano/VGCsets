@@ -1172,6 +1172,7 @@ ActiveRecord::Schema.define(version: 20141016233555) do
   add_index "pokemon_types", ["pokemon_id", "slot"], name: "sqlite_autoindex_pokemon_types_1", unique: true
 
   create_table "pokemonsets", force: true do |t|
+    t.string   "title"
     t.integer  "specie"
     t.integer  "hp"
     t.integer  "atk"
@@ -1182,11 +1183,12 @@ ActiveRecord::Schema.define(version: 20141016233555) do
     t.integer  "item"
     t.integer  "nature"
     t.integer  "ability"
-    t.integer  "atk1"
-    t.integer  "atk2"
-    t.integer  "atk3"
-    t.integer  "atk4"
+    t.integer  "move1"
+    t.integer  "move2"
+    t.integer  "move3"
+    t.integer  "move4"
     t.string   "comment"
+    t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

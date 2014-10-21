@@ -18,7 +18,7 @@ class PokemonsetsControllerTest < ActionController::TestCase
 
   test "should create pokemonset" do
     assert_difference('Pokemonset.count') do
-      post :create, pokemonset: { ability: @pokemonset.ability, atk1: @pokemonset.atk1, atk2: @pokemonset.atk2, atk3: @pokemonset.atk3, atk4: @pokemonset.atk4, atk: @pokemonset.atk, comment: @pokemonset.comment, def: @pokemonset.def, hp: @pokemonset.hp, item: @pokemonset.item, nature: @pokemonset.nature, spatk: @pokemonset.spatk, spd: @pokemonset.spd, spdef: @pokemonset.spdef, specie: @pokemonset.specie }
+      post :create, pokemonset: { ability: @pokemonset.ability, move1: @pokemonset.move1, move2: @pokemonset.move2, move3: @pokemonset.move3, move4: @pokemonset.move4, atk: @pokemonset.atk, comment: @pokemonset.comment, def: @pokemonset.def, hp: @pokemonset.hp, item: @pokemonset.item, nature: @pokemonset.nature, spatk: @pokemonset.spatk, spd: @pokemonset.spd, spdef: @pokemonset.spdef, specie: @pokemonset.specie }
     end
 
     assert_redirected_to pokemonset_path(assigns(:pokemonset))
@@ -35,7 +35,7 @@ class PokemonsetsControllerTest < ActionController::TestCase
   end
 
   test "should update pokemonset" do
-    patch :update, id: @pokemonset, pokemonset: { ability: @pokemonset.ability, atk1: @pokemonset.atk1, atk2: @pokemonset.atk2, atk3: @pokemonset.atk3, atk4: @pokemonset.atk4, atk: @pokemonset.atk, comment: @pokemonset.comment, def: @pokemonset.def, hp: @pokemonset.hp, item: @pokemonset.item, nature: @pokemonset.nature, spatk: @pokemonset.spatk, spd: @pokemonset.spd, spdef: @pokemonset.spdef, specie: @pokemonset.specie }
+    patch :update, id: @pokemonset, pokemonset: { ability: @pokemonset.ability, move1: @pokemonset.move1, move2: @pokemonset.move2, move3: @pokemonset.move3, move4: @pokemonset.move4, atk: @pokemonset.atk, comment: @pokemonset.comment, def: @pokemonset.def, hp: @pokemonset.hp, item: @pokemonset.item, nature: @pokemonset.nature, spatk: @pokemonset.spatk, spd: @pokemonset.spd, spdef: @pokemonset.spdef, specie: @pokemonset.specie }
     assert_redirected_to pokemonset_path(assigns(:pokemonset))
   end
 

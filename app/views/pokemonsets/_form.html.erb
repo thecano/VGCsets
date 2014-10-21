@@ -69,27 +69,27 @@
     </div>
   </div>
   <div class="control-group">
-  <%= f.label :atk1 , :class => 'control-label' %>
+  <%= f.label :move1 , :class => 'control-label' %>
       <div class="controls">
-  <%= f.select :atk1, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
+  <%= f.select :move1, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
       </div>
 </div>
   <div class="control-group">
-  <%= f.label :atk2 , :class => 'control-label' %>
+  <%= f.label :move2 , :class => 'control-label' %>
       <div class="controls">
-  <%= f.select :atk2, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
+  <%= f.select :move2, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
       </div>
 </div>
  <div class="control-group">
-  <%= f.label :atk3 , :class => 'control-label' %>
+  <%= f.label :move3 , :class => 'control-label' %>
       <div class="controls">
-  <%= f.select :atk3, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
+  <%= f.select :move3, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
       </div>
 </div>
   <div class="control-group">
-  <%= f.label :atk4 , :class => 'control-label' %>
+  <%= f.label :move4 , :class => 'control-label' %>
       <div class="controls">
-  <%= f.select :atk4, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
+  <%= f.select :move4, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
       </div>
 </div>
   <div class="control-group">

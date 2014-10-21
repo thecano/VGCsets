@@ -70,6 +70,6 @@ class PokemonsetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pokemonset_params
-      params.require(:pokemonset).permit(:specie, :hp, :atk, :def, :spatk, :spdef, :spd, :item, :nature, :ability, :atk1, :atk2, :atk3, :atk4, :comment)
+      params.require(:pokemonset).permit(:specie, :hp, :atk, :def, :spatk, :spdef, :spd, :item, :nature, :ability, :move1, :move2, :move3, :move4, :comment)
     end
 end

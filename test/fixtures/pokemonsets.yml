@@ -11,10 +11,10 @@ one:
   item: MyString
   nature: MyString
   ability: MyString
-  atk1: MyString
-  atk2: MyString
-  atk3: MyString
-  atk4: MyString
+  move1: MyString
+  move2: MyString
+  move3: MyString
+  move4: MyString
   comment: MyString
 
 two:
@@ -28,8 +28,8 @@ two:
   item: MyString
   nature: MyString
   ability: MyString
-  atk1: MyString
-  atk2: MyString
-  atk3: MyString
-  atk4: MyString
+  move1: MyString
+  move2: MyString
+  move3: MyString
+  move4: MyString
   comment: MyString
