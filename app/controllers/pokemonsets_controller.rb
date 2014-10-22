@@ -65,6 +65,18 @@ class PokemonsetsController < ApplicationController
   def likes
   @pokemonset = Pokemonset.find(params[:id])
   @pokemonset.liked_by current_user
+  respond_to do |format|
+    format.html {redirect_to :back}
+    format.js
+              end
+  end
+  def dislikes
+  @pokemonset = Pokemonset.find(params[:id])
+  @pokemonset.disliked_by current_user
+  respond_to do |format|
+    format.html {redirect_to :back}
+    format.js
+              end
   end
 
   private

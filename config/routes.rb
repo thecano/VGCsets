@@ -9,6 +9,7 @@ Rails.application.routes.draw do
    root 'pokemonsets#index'
 
    get 'pokemonsets/likes/:id' => 'pokemonsets#likes' , as: 'likes_pokemonset'
+    get 'pokemonsets/dislikes/:id' => 'pokemonsets#dislikes' , as: 'dislikes_pokemonset'
   
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
