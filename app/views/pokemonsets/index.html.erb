@@ -11,9 +11,9 @@
   </thead>
   <tbody>
     <% @pokemonsets.each do |pokemonset| %>
-<%= link_to "like poke ",  likes_pokemonset_path(pokemonset.id), :remote => true %>
+<%= link_to "likes ",  likes_pokemonset_path(pokemonset.id), :remote => true %>
  <span></span>
- <%= link_to "dislike poke",  dislikes_pokemonset_path(pokemonset.id), :remote => true %>
+ <%= link_to "dislikes",  dislikes_pokemonset_path(pokemonset.id), :remote => true %>
 <div class="<%= pokemonset.id %>">
 +<%=  pokemonset.get_upvotes.size %>
 -<%=  pokemonset.get_downvotes.size%>

@@ -5,13 +5,13 @@
 <div class="control-group">
   <%= f.label :specie , :class => 'control-label' %>
       <div class="controls">
-  <%= f.select :specie, options_for_select(Pokemon.order('name').where(:local_language_id => 9).map{|s|[s.name, s.pokemon_species_id]}) , :class => 'text_field' %>
+  <%= f.select :specie, options_for_select(Pokemon.order('name').where(:local_language_id => 9).map{|s|[s.name, s.pokemon_species_id]}), include_blank: true , :class => 'text_field' %>
       </div>
 </div>
  <div class="control-group">
   <%= f.label :ability , :class => 'control-label' %>
       <div class="controls">
-  <%= f.select :ability, options_for_select(Ability.order('name').where(:local_language_id => 9).map{|s|[s.name, s.ability_id]}) , :class => 'text_field' %>
+  <%= f.select :ability, options_for_select(Ability.order('name').where(:local_language_id => 9).map{|s|[s.name, s.ability_id]}), include_blank: true , :class => 'text_field' %>
       </div>
 </div>
 
@@ -19,83 +19,99 @@
 <div class="control-group">
   <%= f.label :item , :class => 'control-label' %>
       <div class="controls">
-  <%= f.select :item, options_for_select(Item.order('name').where(:local_language_id => 9).map{|s|[s.name, s.item_id]}) , :class => 'text_field' %>
+  <%= f.select :item, options_for_select(Item.order('name').where(:local_language_id => 9).map{|s|[s.name, s.item_id]}), include_blank: true , :class => 'text_field' %>
       </div>
 </div>
   
   <div class="control-group">
   <%= f.label :nature , :class => 'control-label' %>
       <div class="controls">
-  <%= f.select :nature, options_for_select(Nature.order('name').where(:local_language_id => 9).map{|s|[s.name, s.nature_id]}) , :class => 'text_field' %>
+  <%= f.select :nature, options_for_select(Nature.order('name').where(:local_language_id => 9).map{|s|[s.name, s.nature_id]}), include_blank: true , :class => 'text_field' %>
       </div>
 </div>
 
 
 
- <div class="control-group">
+ 
+
+            <div class="control-group">
     <%= f.label :hp, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :hp, :class => 'text_field' %>
+      <%= f.text_field :hp, :style => "width:30px;", :class => 'text_field' %>
     </div>
-  </div>
+    </div>
   <div class="control-group">
     <%= f.label :atk, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :atk, :class => 'text_field' %>
+      <%= f.text_field :atk, :style => "width:30px;" ,:class => 'text_field' %>
     </div>
-  </div>
+ </div>
   <div class="control-group">
     <%= f.label :def, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :def, :class => 'text_field' %>
+      <%= f.text_field :def, :style => "width:30px;" ,:class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :spatk, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :spatk, :class => 'text_field' %>
+      <%= f.text_field :spatk, :style => "width:30px;" ,:class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :spdef, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :spdef, :class => 'text_field' %>
+      <%= f.text_field :spdef,:style => "width:30px;" , :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :spd, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :spd, :class => 'text_field' %>
+      <%= f.text_field :spd, :style => "width:30px;" ,:class => 'text_field' %>
     </div>
   </div>
+     
+        
+
+
+
+
+
+
+ 
+ 
+  
+  
+  
+ 
   <div class="control-group">
   <%= f.label :move1 , :class => 'control-label' %>
       <div class="controls">
-  <%= f.select :move1, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
+  <%= f.select :move1, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , include_blank: true, :class => 'text_field' %>
       </div>
 </div>
   <div class="control-group">
   <%= f.label :move2 , :class => 'control-label' %>
       <div class="controls">
-  <%= f.select :move2, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
+  <%= f.select :move2, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}), include_blank: true , :class => 'text_field' %>
       </div>
 </div>
  <div class="control-group">
   <%= f.label :move3 , :class => 'control-label' %>
       <div class="controls">
-  <%= f.select :move3, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
+  <%= f.select :move3, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , include_blank: true, :class => 'text_field' %>
       </div>
 </div>
   <div class="control-group">
   <%= f.label :move4 , :class => 'control-label' %>
       <div class="controls">
-  <%= f.select :move4, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , :class => 'text_field' %>
+  <%= f.select :move4, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , include_blank: true, :class => 'text_field' %>
       </div>
 </div>
   <div class="control-group">
     <%= f.label :comment, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :comment, :class => 'text_field' %>
+      <%= f.text_area :comment, :rows => 5, :class => 'text_area' %>
     </div>
   </div>
 
