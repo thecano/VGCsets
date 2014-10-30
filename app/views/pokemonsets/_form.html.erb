@@ -1,7 +1,26 @@
+
 <%= form_for @pokemonset, :html => { :class => 'form-horizontal' } do |f| %>
   
 
+<% if @pokemonset.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@pokemonset.errors.count, "error") %> impidieron que se guardara el set:</h2>
+ 
+    <ul>
+    <% @pokemonset.errors.full_messages.each do |msg| %>
+      <li><%=  msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
+ <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field' %>
+    </div>
+  </div>
+  <br>
 <div class="control-group">
   <%= f.label :specie , :class => 'control-label' %>
       <div class="controls">
@@ -108,16 +127,18 @@
   <%= f.select :move4, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , include_blank: true, :class => 'text_field' %>
       </div>
 </div>
-  <div class="control-group">
+  
     <%= f.label :comment, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :comment, :rows => 5, :class => 'text_area' %>
+      <%= f.text_area :comment, :rows => 5, :style => "width:100%;" , :class => 'text_area' %>
     </div>
-  </div>
+  
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 pokemonsets_path, :class => 'btn' %>
   </div>
+
 <% end %>
+
