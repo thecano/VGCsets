@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021185543) do
+ActiveRecord::Schema.define(version: 20141030044728) do
 
   create_table "abilities", force: true do |t|
     t.string  "identifier",     limit: 79, null: false
@@ -1191,7 +1191,22 @@ ActiveRecord::Schema.define(version: 20141021185543) do
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cached_votes_total",      default: 0
+    t.integer  "cached_votes_score",      default: 0
+    t.integer  "cached_votes_up",         default: 0
+    t.integer  "cached_votes_down",       default: 0
+    t.integer  "cached_weighted_score",   default: 0
+    t.integer  "cached_weighted_total",   default: 0
+    t.float    "cached_weighted_average", default: 0.0
   end
+
+  add_index "pokemonsets", ["cached_votes_down"], name: "index_pokemonsets_on_cached_votes_down"
+  add_index "pokemonsets", ["cached_votes_score"], name: "index_pokemonsets_on_cached_votes_score"
+  add_index "pokemonsets", ["cached_votes_total"], name: "index_pokemonsets_on_cached_votes_total"
+  add_index "pokemonsets", ["cached_votes_up"], name: "index_pokemonsets_on_cached_votes_up"
+  add_index "pokemonsets", ["cached_weighted_average"], name: "index_pokemonsets_on_cached_weighted_average"
+  add_index "pokemonsets", ["cached_weighted_score"], name: "index_pokemonsets_on_cached_weighted_score"
+  add_index "pokemonsets", ["cached_weighted_total"], name: "index_pokemonsets_on_cached_weighted_total"
 
   create_table "region_names", primary_key: "region_id", force: true do |t|
     t.integer "local_language_id",            null: false

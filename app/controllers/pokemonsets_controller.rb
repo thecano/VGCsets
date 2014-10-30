@@ -1,12 +1,24 @@
 class PokemonsetsController < ApplicationController
   before_action :set_pokemonset, only: [:show, :edit, :update, :destroy]
 
+
+before_filter :authorize, :only => [:new]
+
+  def authorize
+    redirect_to "/" if !current_user
+    flash[:notice] = 'Necesitas iniciar sesión para crear un set'
+  end
+  
+
   # GET /pokemonsets
   # GET /pokemonsets.json
   def index
-    @pokemonsets = Pokemonset.all
+    @pokemonsets = Pokemonset.all.order("created_at desc")
   end
 
+  def best
+    @pokemonsets = Pokemonset.all.order(:cached_weighted_average => :desc)
+  end
   # GET /pokemonsets/1
   # GET /pokemonsets/1.json
   def show
@@ -18,9 +30,7 @@ class PokemonsetsController < ApplicationController
     @pokemonset = Pokemonset.new
   end
 
-  # GET /pokemonsets/1/edit
-  def edit
-  end
+  
 
   # POST /pokemonsets
   # POST /pokemonsets.json
@@ -38,29 +48,8 @@ class PokemonsetsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /pokemonsets/1
-  # PATCH/PUT /pokemonsets/1.json
-  def update
-    respond_to do |format|
-      if @pokemonset.update(pokemonset_params)
-        format.html { redirect_to @pokemonset, notice: 'Pokemonset was successfully updated.' }
-        format.json { render :show, status: :ok, location: @pokemonset }
-      else
-        format.html { render :edit }
-        format.json { render json: @pokemonset.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  
 
-  # DELETE /pokemonsets/1
-  # DELETE /pokemonsets/1.json
-  def destroy
-    @pokemonset.destroy
-    respond_to do |format|
-      format.html { redirect_to pokemonsets_url, notice: 'Pokemonset was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   def likes
   @pokemonset = Pokemonset.find(params[:id])

@@ -6,11 +6,11 @@ class Pokemonset < ActiveRecord::Base
  validates :specie, :presence => { :message => ": Se debe ingresar una especie" }
  validates :move1, :presence => { :message => ": Se debe ingresar por lo menos un movimiento" }
  validates :hp, numericality: { only_integer: true, :less_than_or_equal_to => 255 }, allow_nil: true
- validates :atk, numericality: { only_integer: true }, allow_nil: true
- validates :defe, numericality: { only_integer: true }, allow_nil: true
- validates :spatk, numericality: { only_integer: true }, allow_nil: true
- validates :spdef, numericality: { only_integer: true }, allow_nil: true
- validates :spd, numericality: { only_integer: true }, allow_nil: true
+ validates :atk, numericality: { only_integer: true, :less_than_or_equal_to => 255 }, allow_nil: true
+ validates :defe, numericality: { only_integer: true, :less_than_or_equal_to => 255 }, allow_nil: true
+ validates :spatk, numericality: { only_integer: true, :less_than_or_equal_to => 255 }, allow_nil: true
+ validates :spdef, numericality: { only_integer: true ,:less_than_or_equal_to => 255 }, allow_nil: true
+ validates :spd, numericality: { only_integer: true, :less_than_or_equal_to => 255 }, allow_nil: true
  validate :EV_sum
  def EV_sum
  	count=0
@@ -31,7 +31,6 @@ class Pokemonset < ActiveRecord::Base
  	end
  	if not spd.nil?
  		count=count+spd
- 		print count
  	end
     if count > 510
       errors.add("EV", ": Los EVs no pueden sumar mas de 510")

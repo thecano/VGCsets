@@ -4,13 +4,24 @@
 </div>
 <table class="table table-striped">
   <thead>
-    
+
+  <% if flash[:notice] %>
+ <div class="notice alert">
+  <button type="button" class="close" data-dismiss="alert">&times;</button> 
+  <%= flash[:notice] %>
+ </div>
+<% end %>
+
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_pokemonset_path,
             :class => 'btn btn-primary' %><br>
   </thead>
   <tbody>
+
+ 
+
     <% @pokemonsets.each do |pokemonset| %>
+    <%=  pokemonset.title  %><br>
 <%= link_to "likes ",  likes_pokemonset_path(pokemonset.id), :remote => true %>
  <span></span>
  <%= link_to "dislikes",  dislikes_pokemonset_path(pokemonset.id), :remote => true %>
@@ -44,9 +55,15 @@ EVs:
 <br>
 <%= Nature.find_by(:local_language_id => 9, :nature_id => pokemonset.nature).name %> <%= model_class.human_attribute_name(:nature) %><br>
 - <%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.move1).name %><br>
+<% if not pokemonset.move2.nil? %>
 - <%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.move2).name %><br>
+<% end %>
+<% if not pokemonset.move3.nil? %>
 - <%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.move3).name %><br>
+<% end %>
+<% if not pokemonset.move4.nil? %>
 - <%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.move4).name %><br>
+<% end %>
 <%= link_to "Ver detalle del set", pokemonset_path(pokemonset) %>
 <br><br>
 

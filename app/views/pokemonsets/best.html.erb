@@ -1,0 +1,75 @@
+<%- model_class = Pokemonset -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+
+  <% if flash[:notice] %>
+ <div class="notice alert">
+  <button type="button" class="close" data-dismiss="alert">&times;</button> 
+  <%= flash[:notice] %>
+ </div>
+<% end %>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_pokemonset_path,
+            :class => 'btn btn-primary' %><br>
+  </thead>
+  <tbody>
+
+ 
+
+    <% @pokemonsets.each do |pokemonset| %>
+    <%=  pokemonset.title  %><br>
+<%= link_to "likes ",  likes_pokemonset_path(pokemonset.id), :remote => true %>
+ <span></span>
+ <%= link_to "dislikes",  dislikes_pokemonset_path(pokemonset.id), :remote => true %>
+<div class="<%= pokemonset.id %>">
++<%=  pokemonset.get_upvotes.size %>
+-<%=  pokemonset.get_downvotes.size%>
+</div>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %><br>
+
+<%= Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name %> @ <%= Item.find_by(:local_language_id => 9, :item_id => pokemonset.item).name %><br>
+Ability: <%= Ability.find_by(:local_language_id => 9, :ability_id => pokemonset.ability).name %><br>
+EVs: 
+<% if pokemonset.hp != nil %>
+<%= pokemonset.hp %> <%= model_class.human_attribute_name(:hp) %> / 
+<% end %>
+<% if pokemonset.atk != nil %>
+<%= pokemonset.atk %> <%= model_class.human_attribute_name(:atk) %> /
+<% end %>
+<% if pokemonset.defe != nil %>
+ <%= pokemonset.defe %> <%= model_class.human_attribute_name(:def) %> /
+  <% end %>
+  <% if pokemonset.spatk != nil %>
+  <%= pokemonset.spatk %> <%= model_class.human_attribute_name(:spatk) %> /
+  <% end %>
+  <% if pokemonset.spdef != nil %>
+   <%= pokemonset.spdef %> <%= model_class.human_attribute_name(:spdef) %> /
+   <% end %>
+   <% if pokemonset.spd != nil %>
+    <%= pokemonset.spd %> <%= model_class.human_attribute_name(:spd) %>
+    <% end %>
+<br>
+<%= Nature.find_by(:local_language_id => 9, :nature_id => pokemonset.nature).name %> <%= model_class.human_attribute_name(:nature) %><br>
+- <%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.move1).name %><br>
+<% if not pokemonset.move2.nil? %>
+- <%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.move2).name %><br>
+<% end %>
+<% if not pokemonset.move3.nil? %>
+- <%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.move3).name %><br>
+<% end %>
+<% if not pokemonset.move4.nil? %>
+- <%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.move4).name %><br>
+<% end %>
+<%= link_to "Ver detalle del set", pokemonset_path(pokemonset) %>
+<br><br>
+
+
+
+    <% end %>
+  </tbody>
+</table>
+

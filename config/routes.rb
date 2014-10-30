@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pokemonsets/best' => 'pokemonsets#best' , as: 'best_pokemonset'
   resources :pokemonsets 
   
 
