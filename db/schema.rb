@@ -1176,7 +1176,7 @@ ActiveRecord::Schema.define(version: 20141021185543) do
     t.integer  "specie"
     t.integer  "hp"
     t.integer  "atk"
-    t.integer  "def"
+    t.integer  "defe"
     t.integer  "spatk"
     t.integer  "spdef"
     t.integer  "spd"

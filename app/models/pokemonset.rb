@@ -7,7 +7,7 @@ class Pokemonset < ActiveRecord::Base
  validates :move1, :presence => { :message => ": Se debe ingresar por lo menos un movimiento" }
  validates :hp, numericality: { only_integer: true, :less_than_or_equal_to => 255 }, allow_nil: true
  validates :atk, numericality: { only_integer: true }, allow_nil: true
- validates :def, numericality: { only_integer: true }, allow_nil: true
+ validates :defe, numericality: { only_integer: true }, allow_nil: true
  validates :spatk, numericality: { only_integer: true }, allow_nil: true
  validates :spdef, numericality: { only_integer: true }, allow_nil: true
  validates :spd, numericality: { only_integer: true }, allow_nil: true
@@ -20,8 +20,8 @@ class Pokemonset < ActiveRecord::Base
  	if not atk.nil?
  		count=count+atk
  	end
- 	if not (def.nil?)
- 		count=count+def
+ 	if not defe.nil?
+ 		count=count+defe
  	end
  	if not spatk.nil?
  		count=count+spatk
