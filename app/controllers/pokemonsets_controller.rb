@@ -13,11 +13,16 @@ before_filter :authorize, :only => [:new]
   # GET /pokemonsets
   # GET /pokemonsets.json
   def index
-    @pokemonsets = Pokemonset.all.order("created_at desc").page(params[:page]).per(2)
+    @pokemonsets = Pokemonset.all.order("created_at desc").page(params[:page]).per(10)
   end
 
   def best
-    @pokemonsets = Pokemonset.all.order(:cached_weighted_average => :desc)
+    @pokemonsets = Pokemonset.all.order(:cached_votes_score => :desc).page(params[:page]).per(10)
+    render 'index'
+  end
+  def specie
+    @pokemonsets = Pokemonset.where(:specie => params[:specie]).order(:cached_votes_score => :desc).page(params[:page]).per(10)
+    render 'index'
   end
   # GET /pokemonsets/1
   # GET /pokemonsets/1.json

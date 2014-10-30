@@ -17,7 +17,7 @@
 		</div>
 		<% if current_user %>
   Welcome <%= current_user.name %>!
-  <%= link_to "Sign Out", "logout" %>
+  <%= link_to "Sign Out", "/logout" %>
 <% else %>
   <%= link_to "Sign in with face", "/auth/facebook" %>
    <%= link_to "Sign in with twitter", "/auth/twitter" %>

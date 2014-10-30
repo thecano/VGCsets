@@ -28,6 +28,7 @@
 <div class="<%= pokemonset.id %>">
 +<%=  pokemonset.get_upvotes.size %>
 -<%=  pokemonset.get_downvotes.size%>
+
 </div>
  <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %><br>
 
