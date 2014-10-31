@@ -21,15 +21,27 @@
  
 
     <% @pokemonsets.each do |pokemonset| %>
+    
     <%=  pokemonset.title  %><br>
-<%= link_to "likes ",  likes_pokemonset_path(pokemonset.id), :remote => true %>
- <span></span>
- <%= link_to "dislikes",  dislikes_pokemonset_path(pokemonset.id), :remote => true %>
-<div class="<%= pokemonset.id %>">
-+<%=  pokemonset.get_upvotes.size %>
--<%=  pokemonset.get_downvotes.size%>
+<%= link_to likes_pokemonset_path(pokemonset.id), :remote => true, class: "btn btn-default" do %>
 
+<div class="id<%= pokemonset.id %>">
+<i class="fa fa-thumbs-up"> 
++<%=  pokemonset.get_upvotes.size %> 
+</i>
 </div>
+
+<% end %>
+
+ <%= link_to dislikes_pokemonset_path(pokemonset.id), :remote => true , class: "btn btn-default" do %>
+<div class="2id<%= pokemonset.id %>">
+<i class="fa fa-thumbs-down">  
+-<%=  pokemonset.get_downvotes.size%>
+ </i>
+ </div>
+<% end %>
+<br>
+
  <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %><br>
 
 <%= Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name %> @ <%= Item.find_by(:local_language_id => 9, :item_id => pokemonset.item).name %><br>

@@ -20,7 +20,7 @@
 
 
 			 <div class="input-group">
-<%= autocomplete_field_tag :search, params[:search], autocomplete_pokemon_name_pokemonsets_path, {class: "form-control", placeholder: "Busca un Pokémon", type: "search"} %>  
+
 </div>
 
 
@@ -41,7 +41,8 @@
 <div class="row">
 
 <div class="span9">
-
+Buscador: <%= autocomplete_field_tag :search, params[:search], autocomplete_pokemon_name_pokemonsets_path, {class: "form-control", placeholder: "Busca un Pokémon", type: "search"} %>  
+<br>
 <%= yield %>
 
 </div>

@@ -1,1 +1,2 @@
-$(".<%= @pokemonset.id %>").html("+<%= @pokemonset.get_upvotes.size %> -<%= @pokemonset.get_downvotes.size %>")
+$(".id<%= @pokemonset.id %>").html('<i class="fa fa-thumbs-up">  +<%= @pokemonset.get_upvotes.size %></i>')
+$(".2id<%= @pokemonset.id %>").html('<i class="fa fa-thumbs-down">  -<%= @pokemonset.get_downvotes.size %></i>')
