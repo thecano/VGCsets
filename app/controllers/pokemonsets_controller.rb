@@ -30,12 +30,27 @@ autocomplete :pokemon, :name, :scopes => [:english]
     render 'index'
   end
   def specie
-    @pokemonsets = Pokemonset.where(:specie => params[:specie]).order(:cached_votes_score => :desc).page(params[:page]).per(10)
+    newname = params[:specie].slice(0,1).capitalize + params[:specie].slice(1..-1)
+    @pk_index=Pokemon.where(:name => newname).first
+    if @pk_index.nil?
+      raise ActionController::RoutingError.new('Not Found')
+      return
+    end
+    @pokemonsets = Pokemonset.where(:specie => @pk_index.id).order(:cached_votes_score => :desc).page(params[:page]).per(10)
     render 'index'
   end
   # GET /pokemonsets/1
   # GET /pokemonsets/1.json
   def show
+  end
+
+  def search
+     @pokemon = Pokemon.new
+  end
+
+  def process_search
+     name=params[:specie]
+     redirect_to "/pokemonsets/specie/"+name
   end
 
   # GET /pokemonsets/new

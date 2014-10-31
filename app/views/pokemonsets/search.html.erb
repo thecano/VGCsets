@@ -1,0 +1,9 @@
+<%= javascript_include_tag 'autocomplete' %>
+
+<%= form_tag process_search_pokemonset_path(), :method => 'get' do %>
+  <p>
+    <%= autocomplete_field_tag :specie, params[:id], autocomplete_pokemon_name_pokemonsets_path, {class: "search query", placeholder: "Busca un Pokémon", type: "search"} %>  
+
+    <%= submit_tag "Buscar", :name => nil, :class => "search-me btn btn-primary" %>
+  </p>
+<% end %>

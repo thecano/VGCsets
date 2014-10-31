@@ -10,39 +10,57 @@
 </head>
 <body>
 
+
+
 <div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<a class="btn btn-navbar" data-toogle="collapse" data-target=".nav-collapse">
-			<span class="icon-bar"></span>
-			</a>
-			<a class="brand" href="/">Algo</a>
+ <div class="navbar-inner">  
+ <div class="container">  
+
+<div class="navbar-header">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+   
+   <a class="navbar-brand">
+     <%= link_to "Home", root_path, :class => 'brand' %>
+   </a> </div>
 
 
-			 <div class="input-group">
 
+
+    <div class="nav-collapse">
+<ul class="nav navbar-nav">  
+        <li><a href="/pokemonsets/best">Top Rated</a></li>
+            <li><a href="/pokemonsets/search">Busqueda</a></li>
+
+</ul> 
 </div>
-
-
-			
-
-		</div>
+   <ul class = "nav pull-right">
+     <li><a href="#about">About us</a></li>
+      <li><a href="/contacts">Contacto</a></li>
+    
 		<% if current_user %>
-  Welcome <%= current_user.name %>!
-  <%= link_to "Sign Out", "/logout" %>
+<li><a href="#">	<%= image_tag(current_user.image, size: '32x32', class: "img-rounded") %></a></li>
+ <li><a href="#"> <%= current_user.name %></a></li>
+ <li> <%= link_to "Sign Out", "/logout" %></li>
 <% else %>
-  <%= link_to "Sign in with face", "/auth/facebook" %>
-   <%= link_to "Sign in with twitter", "/auth/twitter" %>
-<% end %>
-	</div>
+  <li><%= link_to "Sign in with face", "/auth/facebook" %></li>
+   <li><%= link_to "Sign in with twitter", "/auth/twitter" %></li>
+<% end %></li>
+   </ul>
 
-</div>
+</div></div></div>
+
+
+
+
+
 <div class="container-fluid">
 <div class="row">
 
 <div class="span9">
-Buscador: <%= autocomplete_field_tag :search, params[:search], autocomplete_pokemon_name_pokemonsets_path, {class: "form-control", placeholder: "Busca un Pokémon", type: "search"} %>  
-<br>
+
 <%= yield %>
 
 </div>

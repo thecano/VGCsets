@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
+  get 'contact_form/new'
+
+  get 'contact_form/create'
+
   get 'pokemonsets/best' => 'pokemonsets#best' , as: 'best_pokemonset'
+  get 'pokemonsets/search' => 'pokemonsets#search' , as: 'search_pokemonset'
+  get 'pokemonsets/process_search' => 'pokemonsets#process_search' , as: 'process_search_pokemonset'
   get 'pokemonsets/specie/:specie' => 'pokemonsets#specie' , as: 'specie_pokemonset'
   resources :pokemonsets do
   get :autocomplete_pokemon_name, :on => :collection
 end
-  
+match '/contacts',     to: 'contacts#new',             via: 'get'
+resources "contacts", only: [:new, :create]
+  resources :pokemons
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

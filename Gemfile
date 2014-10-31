@@ -36,7 +36,9 @@ gem 'bootstrap-kaminari-views'
 gem 'jquery-turbolinks'
 gem 'jquery-ui-rails'
 gem 'rails4-autocomplete'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'mail_form'
+gem 'simple_form'
 #gem 'twitter-typeahead-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

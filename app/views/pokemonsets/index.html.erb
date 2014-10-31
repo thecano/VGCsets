@@ -23,6 +23,7 @@
     <% @pokemonsets.each do |pokemonset| %>
     
     <%=  pokemonset.title  %><br>
+
 <%= link_to likes_pokemonset_path(pokemonset.id), :remote => true, class: "btn btn-default" do %>
 
 <div class="id<%= pokemonset.id %>">
@@ -48,21 +49,36 @@
 Ability: <%= Ability.find_by(:local_language_id => 9, :ability_id => pokemonset.ability).name %><br>
 EVs: 
 <% if pokemonset.hp != nil %>
-<%= pokemonset.hp %> <%= model_class.human_attribute_name(:hp) %> / 
+<%= pokemonset.hp %> <%= model_class.human_attribute_name(:hp) %> 
 <% end %>
 <% if pokemonset.atk != nil %>
-<%= pokemonset.atk %> <%= model_class.human_attribute_name(:atk) %> /
+    <% if pokemonset.hp != nil %>
+       / 
+    <% end %>
+ <%= pokemonset.atk %> <%= model_class.human_attribute_name(:atk) %>
 <% end %>
 <% if pokemonset.defe != nil %>
- <%= pokemonset.defe %> <%= model_class.human_attribute_name(:def) %> /
+  <% if pokemonset.hp != nil or pokemonset.atk != nil %>
+       / 
+    <% end %>
+  <%= pokemonset.defe %> <%= model_class.human_attribute_name(:def) %>
   <% end %>
   <% if pokemonset.spatk != nil %>
-  <%= pokemonset.spatk %> <%= model_class.human_attribute_name(:spatk) %> /
+        <% if pokemonset.hp != nil or pokemonset.atk != nil or pokemonset.defe != nil %>
+         / 
+        <% end %>
+   <%= pokemonset.spatk %> <%= model_class.human_attribute_name(:spatk) %> 
   <% end %>
   <% if pokemonset.spdef != nil %>
-   <%= pokemonset.spdef %> <%= model_class.human_attribute_name(:spdef) %> /
+        <% if pokemonset.hp != nil or pokemonset.atk != nil or pokemonset.defe != nil or pokemonset.spatk != nil %>
+         / 
+        <% end %>
+   <%= pokemonset.spdef %> <%= model_class.human_attribute_name(:spdef) %>
    <% end %>
    <% if pokemonset.spd != nil %>
+        <% if pokemonset.hp != nil or pokemonset.atk != nil or pokemonset.defe != nil or pokemonset.spatk != nil or pokemonset.spdef != nil %>
+         / 
+        <% end %>
     <%= pokemonset.spd %> <%= model_class.human_attribute_name(:spd) %>
     <% end %>
 <br>
