@@ -7,3 +7,13 @@
     <%= submit_tag "Buscar", :name => nil, :class => "search-me btn btn-primary" %>
   </p>
 <% end %>
+
+ <% @existing_pokemon.each do |pokemon| %>
+    
+ <%= link_to(
+ image_tag("/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemon.pokemon_species_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png"), "/pokemonsets/process_search?specie="+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemon.pokemon_species_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e") )%>
+<% end %>
+
+
+ <%= paginate @existing_pokemon , :theme => 'twitter-bootstrap',
+                   :pagination_class => "pagination-centered" %>

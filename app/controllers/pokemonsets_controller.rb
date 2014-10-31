@@ -29,7 +29,44 @@ autocomplete :pokemon, :name, :scopes => [:english]
     @pokemonsets = Pokemonset.all.order(:cached_votes_score => :desc).page(params[:page]).per(10)
     render 'index'
   end
+  
+  # GET /pokemonsets/1
+  # GET /pokemonsets/1.json
+  def show
+  end
+
+  def search
+     
+     @existing_species_index = Pokemonset.select(:specie).uniq.page(params[:page]).per(50)
+     @existing_pokemon= Pokemon.where(:pokemon_species_id => @existing_species_index).where(:local_language_id => 9).page(params[:page]).per(50)
+
+  end
+
+  def process_search
+     name=params[:specie].tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")
+     if name == "Nidoran♂" or name == "nidoran♂"
+      name="Nidoran-m"
+     elsif name == "Nidoran♀" or name == "nidoran♀"
+     name="Nidoran-f"
+     end
+
+     logger.info name
+     redirect_to "/pokemonsets/specie/"+name
+  end
   def specie
+    if params[:specie] == "Mr-Mime" or params[:specie] == "Mr-mime" or params[:specie] == "mr-mime"
+      params[:specie] = "Mr. Mime"
+    elsif params[:specie] == "Mime-Jr" or params[:specie] == "Mime-jr" or params[:specie] == "mime-jr"
+    params[:specie] = "Mime Jr."  
+    elsif params[:specie] == "Farfetchd" or params[:specie] == "farfetchd"
+    params[:specie] = "Farfetch'd"  
+    elsif params[:specie] == "Flabebe" or params[:specie] == "flabebe"
+    params[:specie] = "Flabébé"
+  elsif params[:specie] == "Nidoran-f" or params[:specie] == "nidoran-f"
+    params[:specie]= "Nidoran♀"
+  elsif params[:specie] == "Nidoran-m" or params[:specie] == "nidoran-m"
+    params[:specie]= "Nidoran♂"     
+    end
     newname = params[:specie].slice(0,1).capitalize + params[:specie].slice(1..-1)
     @pk_index=Pokemon.where(:name => newname).first
     if @pk_index.nil?
@@ -38,19 +75,6 @@ autocomplete :pokemon, :name, :scopes => [:english]
     end
     @pokemonsets = Pokemonset.where(:specie => @pk_index.id).order(:cached_votes_score => :desc).page(params[:page]).per(10)
     render 'index'
-  end
-  # GET /pokemonsets/1
-  # GET /pokemonsets/1.json
-  def show
-  end
-
-  def search
-     @pokemon = Pokemon.new
-  end
-
-  def process_search
-     name=params[:specie]
-     redirect_to "/pokemonsets/specie/"+name
   end
 
   # GET /pokemonsets/new
