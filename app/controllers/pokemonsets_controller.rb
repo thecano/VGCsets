@@ -3,12 +3,21 @@ class PokemonsetsController < ApplicationController
 
 
 before_filter :authorize, :only => [:new]
+autocomplete :pokemon, :name, :scopes => [:english]
 
   def authorize
     redirect_to "/" if !current_user
     flash[:notice] = 'Necesitas iniciar sesión para crear un set'
   end
+
   
+   
+  #def load_suggestions
+  #logger.info "debugeando"
+  #@suggestions = Pokemon.where(:local_language_id => 9).map(&:name) #or MyModel.find(:all, conditions: [...]) #Select the data you want to load on the typeahead.
+  #render json: @suggestions
+  #end
+ 
 
   # GET /pokemonsets
   # GET /pokemonsets.json

@@ -14,4 +14,11 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require jquery.turbolinks
+//= require jquery-ui/autocomplete
+//= require autocomplete-rails
 //= require_tree .
+
+// constructs the suggestion engine
+
+

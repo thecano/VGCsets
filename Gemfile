@@ -33,6 +33,10 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'jquery-turbolinks'
+gem 'jquery-ui-rails'
+gem 'rails4-autocomplete'
+#gem 'twitter-typeahead-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

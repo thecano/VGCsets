@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'pokemonsets/best' => 'pokemonsets#best' , as: 'best_pokemonset'
   get 'pokemonsets/specie/:specie' => 'pokemonsets#specie' , as: 'specie_pokemonset'
-  resources :pokemonsets 
+  resources :pokemonsets do
+  get :autocomplete_pokemon_name, :on => :collection
+end
   
 
   # The priority is based upon order of creation: first created -> highest priority.
