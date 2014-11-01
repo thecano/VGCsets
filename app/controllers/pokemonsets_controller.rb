@@ -129,6 +129,6 @@ autocomplete :pokemon, :name, :scopes => [:english]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pokemonset_params
-      params.require(:pokemonset).permit(:title,:active,:specie, :hp, :atk, :def, :spatk, :spdef, :spd, :item, :nature, :ability, :move1, :move2, :move3, :move4, :comment)
+      params.require(:pokemonset).permit(:title,:active,:specie, :hp, :atk, :defe, :spatk, :spdef, :spd, :item, :nature, :ability, :move1, :move2, :move3, :move4, :comment)
     end
 end

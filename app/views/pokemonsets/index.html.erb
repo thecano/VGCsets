@@ -49,7 +49,7 @@
 Ability: <%= Ability.find_by(:local_language_id => 9, :ability_id => pokemonset.ability).name %><br>
 EVs: 
 <% if pokemonset.hp != nil %>
-<%= pokemonset.hp %> <%= model_class.human_attribute_name(:hp) %> 
+<%= pokemonset.hp %> <%= model_class.human_attribute_name(:hp) %> <%= pokemonset.defe %>
 <% end %>
 <% if pokemonset.atk != nil %>
     <% if pokemonset.hp != nil %>
@@ -61,7 +61,7 @@ EVs:
   <% if pokemonset.hp != nil or pokemonset.atk != nil %>
        / 
     <% end %>
-  <%= pokemonset.defe %> <%= model_class.human_attribute_name(:def) %>
+  <%= pokemonset.defe %> <%= model_class.human_attribute_name(:defe) %>
   <% end %>
   <% if pokemonset.spatk != nil %>
         <% if pokemonset.hp != nil or pokemonset.atk != nil or pokemonset.defe != nil %>
