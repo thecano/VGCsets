@@ -40,6 +40,7 @@ gem 'font-awesome-rails'
 gem 'mail_form'
 gem 'simple_form'
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
+gem 'rails_12factor', group: :production
 #gem 'twitter-typeahead-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
