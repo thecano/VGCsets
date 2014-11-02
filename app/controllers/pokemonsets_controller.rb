@@ -108,16 +108,17 @@ autocomplete :pokemon, :name, :scopes => [:english]
   @pokemonset = Pokemonset.find(params[:id])
   @pokemonset.liked_by current_user
   respond_to do |format|
-    format.html {redirect_to :back}
     format.js
+    format.html {redirect_to :back}
               end
   end
   def dislikes
   @pokemonset = Pokemonset.find(params[:id])
   @pokemonset.disliked_by current_user
   respond_to do |format|
-    format.html {redirect_to :back}
+    
     format.js
+    format.html {redirect_to :back}
               end
   end
 
