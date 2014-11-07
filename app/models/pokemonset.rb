@@ -37,4 +37,5 @@ class Pokemonset < ActiveRecord::Base
     end
  end
 belongs_to :pokemon, :foreign_key => 'specie'
+belongs_to :user, :foreign_key => 'creator'
 end
