@@ -1,5 +1,6 @@
 class Pokemonset < ActiveRecord::Base
  acts_as_votable
+ self.human_attribute_name("defe")# =>"EV Defensa"
  validates :ability, :presence => { :message => ": Se debe ingresar una habilidad" }
  validates :item, :presence => { :message => ": Se debe ingresar un item" }
  validates :nature, :presence => { :message => ": Se debe ingresar una naturaleza" }

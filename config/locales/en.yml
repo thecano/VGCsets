@@ -21,3 +21,21 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      pokemonset:
+        defe: EVs Defensa
+        atk: EVs Ataque
+        hp: EVs Hp
+        spatk: EVs Ataque Especial
+        spdef: EVs Defensa Especial
+        spd: EVs Velocidad
+        move1: Movimiento 1
+        move2: Movimiento 2
+        move3: Movimiento 3
+        move4: Movimiento 4
+        title: Titulo
+        specie: Especie
+        ability: Habilidad
+        nature: Naturaleza
+        comment: Comentarios adicionales
