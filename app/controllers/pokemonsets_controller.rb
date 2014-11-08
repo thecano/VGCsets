@@ -43,10 +43,10 @@ before_filter :authorize, :only => [:new]
   def process_search
     
     aux_sets=Pokemonset.all.page(params[:page]).per(10)
-    aux_sets=aux_sets.where(:specie => params[:specie][:id]).order("created_at desc").page(params[:page]).per(10) unless params[:specie][:id].blank?    
-    aux_sets=aux_sets.where(:item => params[:item][:id]).order("created_at desc").page(params[:page]).per(10) unless params[:item][:id].blank?  
-    aux_sets=aux_sets.where(:nature => params[:nature][:id]).order("created_at desc").page(params[:page]).per(10) unless params[:nature][:id].blank?  
-    aux_sets=aux_sets.where(:ability => params[:ability][:id]).order("created_at desc").page(params[:page]).per(10) unless params[:ability][:id].blank?  
+    aux_sets=aux_sets.where(:specie => params[:specie][:id]).order(:cached_votes_score => :desc).page(params[:page]).per(10) unless params[:specie][:id].blank?    
+    aux_sets=aux_sets.where(:item => params[:item][:id]).order(:cached_votes_score => :desc).page(params[:page]).per(10) unless params[:item][:id].blank?  
+    aux_sets=aux_sets.where(:nature => params[:nature][:id]).order(:cached_votes_score => :desc).page(params[:page]).per(10) unless params[:nature][:id].blank?  
+    aux_sets=aux_sets.where(:ability => params[:ability][:id]).order(:cached_votes_score => :desc).page(params[:page]).per(10) unless params[:ability][:id].blank?  
     @pokemonsets=aux_sets
     render "index"
   end
