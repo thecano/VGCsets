@@ -37,6 +37,6 @@ class Pokemonset < ActiveRecord::Base
       errors.add("EV", ": Los EVs no pueden sumar mas de 510")
     end
  end
-belongs_to :pokemon, :foreign_key => 'specie'
-belongs_to :user, :foreign_key => 'creator'
+ 
+ belongs_to :pokemon, foreign_key: "specie"
 end
