@@ -107,7 +107,6 @@ before_filter :authorize, :only => [:new]
   @pokemonset.liked_by current_user
   respond_to do |format|
     format.js
-    format.html {redirect_to :back}
               end
   end
   def dislikes
@@ -116,7 +115,7 @@ before_filter :authorize, :only => [:new]
   respond_to do |format|
     
     format.js
-    format.html {redirect_to :back}
+    
               end
   end
 
