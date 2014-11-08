@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get 'pokemonsets/best' => 'pokemonsets#best' , as: 'best_pokemonset'
   get 'pokemonsets/search' => 'pokemonsets#search' , as: 'search_pokemonset'
-  post 'pokemonsets/advanced_search' => 'pokemonsets#process_search' , as: 'process_search_pokemonset'
+  match 'pokemonsets/advanced_search' => 'pokemonsets#process_search' , as: 'process_search_pokemonset', via: [:get, :post]
   get 'pokemonsets/specie/:specie' => 'pokemonsets#specie' , as: 'specie_pokemonset'
   resources :pokemonsets do
   get :autocomplete_pokemon_name, :on => :collection
