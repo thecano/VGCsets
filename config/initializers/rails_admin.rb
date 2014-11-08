@@ -32,18 +32,13 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-
+config.authorize_with do |controller|
+    unless current_user.try(:admin?)
+      flash[:error] = "You are not an admin"
+      redirect_to "/"
+    end
+  end
  
 
 end
 
-RailsAdmin.authenticate_with{
-  unless current_user
-    session[:return_to] = request.url
-    redirect_to login_url, :alert => "You must first log in or sign up before accessing this page."
-  end
-}
-
-RailsAdmin.authorize_with{
-  redirect_to root_path, :alert => "You are not authorized to access that page" unless current_user.admin?
-}
