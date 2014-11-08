@@ -49,37 +49,37 @@
 Ability: <%= Ability.find_by(:local_language_id => 9, :ability_id => pokemonset.ability).name %><br>
 EVs: 
 <% if pokemonset.hp != nil %>
-<%= pokemonset.hp %> <%= model_class.human_attribute_name(:hp) %> 
+<%= pokemonset.hp %> Hp 
 <% end %>
 <% if pokemonset.atk != nil %>
     <% if pokemonset.hp != nil %>
        / 
     <% end %>
- <%= pokemonset.atk %> <%= model_class.human_attribute_name(:atk) %>
+ <%= pokemonset.atk %> Atk
 <% end %>
 <% if pokemonset.defe != nil %>
   <% if pokemonset.hp != nil or pokemonset.atk != nil %>
        / 
     <% end %>
-  <%= pokemonset.defe %> <%= model_class.human_attribute_name(:defe) %>
+  <%= pokemonset.defe %> Def
   <% end %>
   <% if pokemonset.spatk != nil %>
         <% if pokemonset.hp != nil or pokemonset.atk != nil or pokemonset.defe != nil %>
          / 
         <% end %>
-   <%= pokemonset.spatk %> <%= model_class.human_attribute_name(:spatk) %> 
+   <%= pokemonset.spatk %> Sp.Atk
   <% end %>
   <% if pokemonset.spdef != nil %>
         <% if pokemonset.hp != nil or pokemonset.atk != nil or pokemonset.defe != nil or pokemonset.spatk != nil %>
          / 
         <% end %>
-   <%= pokemonset.spdef %> <%= model_class.human_attribute_name(:spdef) %>
+   <%= pokemonset.spdef %> Sp.Def
    <% end %>
    <% if pokemonset.spd != nil %>
         <% if pokemonset.hp != nil or pokemonset.atk != nil or pokemonset.defe != nil or pokemonset.spatk != nil or pokemonset.spdef != nil %>
          / 
         <% end %>
-    <%= pokemonset.spd %> <%= model_class.human_attribute_name(:spd) %>
+    <%= pokemonset.spd %> Spd
     <% end %>
 <br>
 <%= Nature.find_by(:local_language_id => 9, :nature_id => pokemonset.nature).name %> <%= model_class.human_attribute_name(:nature) %><br>

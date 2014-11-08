@@ -4,7 +4,7 @@
 
 <% if @pokemonset.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@pokemonset.errors.count, "error") %> impidieron que se guardara el set:</h2>
+    <h2><%= pluralize(@pokemonset.errors.count, "errores") %> impidieron que se guardara el set:</h2>
  
     <ul>
     <% @pokemonset.errors.full_messages.each do |msg| %>

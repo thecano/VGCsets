@@ -3,8 +3,6 @@ class PokemonsetsController < ApplicationController
 
 
 before_filter :authorize, :only => [:new]
-autocomplete :pokemon, :name, :scopes => [:english]
-
   def authorize
     redirect_to "/" if !current_user
     flash[:notice] = 'Necesitas iniciar sesión para crear un set'
@@ -43,16 +41,16 @@ autocomplete :pokemon, :name, :scopes => [:english]
   end
 
   def process_search
-     name=params[:specie].tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")
-     if name == "Nidoran♂" or name == "nidoran♂"
-      name="Nidoran-m"
-     elsif name == "Nidoran♀" or name == "nidoran♀"
-     name="Nidoran-f"
-     end
-
-     logger.info name
-     redirect_to "/pokemonsets/specie/"+name
+    
+    aux_sets=Pokemonset.all.page(params[:page]).per(10)
+    aux_sets=aux_sets.where(:specie => params[:specie][:id]).order("created_at desc").page(params[:page]).per(10) unless params[:specie][:id].blank?    
+    aux_sets=aux_sets.where(:item => params[:item][:id]).order("created_at desc").page(params[:page]).per(10) unless params[:item][:id].blank?  
+    aux_sets=aux_sets.where(:nature => params[:nature][:id]).order("created_at desc").page(params[:page]).per(10) unless params[:nature][:id].blank?  
+    aux_sets=aux_sets.where(:ability => params[:ability][:id]).order("created_at desc").page(params[:page]).per(10) unless params[:ability][:id].blank?  
+    @pokemonsets=aux_sets
+    render "index"
   end
+
   def specie
     if params[:specie] == "Mr-Mime" or params[:specie] == "Mr-mime" or params[:specie] == "mr-mime"
       params[:specie] = "Mr. Mime"

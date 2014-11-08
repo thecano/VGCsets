@@ -1,6 +1,5 @@
 class Pokemonset < ActiveRecord::Base
  acts_as_votable
- self.human_attribute_name("defe")# =>"EV Defensa"
  validates :ability, :presence => { :message => ": Se debe ingresar una habilidad" }
  validates :item, :presence => { :message => ": Se debe ingresar un item" }
  validates :nature, :presence => { :message => ": Se debe ingresar una naturaleza" }
@@ -13,6 +12,7 @@ class Pokemonset < ActiveRecord::Base
  validates :spdef, numericality: { only_integer: true ,:less_than_or_equal_to => 255 }, allow_nil: true
  validates :spd, numericality: { only_integer: true, :less_than_or_equal_to => 255 }, allow_nil: true
  validate :EV_sum
+
  def EV_sum
  	count=0
  	if not hp.nil?
