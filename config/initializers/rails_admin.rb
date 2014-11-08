@@ -31,5 +31,19 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+
+ 
+
 end
 
+RailsAdmin.authenticate_with{
+  unless current_user
+    session[:return_to] = request.url
+    redirect_to login_url, :alert => "You must first log in or sign up before accessing this page."
+  end
+}
+
+RailsAdmin.authorize_with{
+  redirect_to root_path, :alert => "You are not authorized to access that page" unless current_user.admin?
+}
