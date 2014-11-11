@@ -1,7 +1,32 @@
 @import "twitter/bootstrap/bootstrap";
 @import "twitter/bootstrap/responsive";
-body { padding-top:70px;}
-// Set the correct sprite paths
+@media (min-width: 980px) {
+    body {
+        padding-top: 70px;
+    }
+ }
+
+
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #c0c0c0;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color : #ffffff;
+}
+.navbar-inverse .pull-right > li > a {
+  color : #ffffff;
+}
+.navbar-inverse .pull-right > li > a:hover {
+  color : #c0c0c0;
+}
+.navbar-inverse .brand {
+  color : #ffffff ;
+}
+.navbar-inverse .brand:hover {
+  color : #c0c0c0 ;
+}
+ // Set the correct sprite paths
 @iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
 @iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
 
@@ -30,6 +55,5 @@ body { padding-top:70px;}
 // @linkColor: #ff0000;
 form.form-horizontal div.control-group { display: inline-block; }
 form.form-horizontal div.control-group div.controls { display: inline-block; }
-
 
 
