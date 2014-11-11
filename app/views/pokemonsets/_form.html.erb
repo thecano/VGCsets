@@ -34,7 +34,7 @@
       </div>
 </div>
 
- 
+ <br>
 <div class="control-group">
   <%= f.label :item , :class => 'control-label' %>
       <div class="controls">
@@ -51,7 +51,7 @@
 
 
 
- 
+ <br>
 
             <div class="control-group">
     <%= f.label :hp, :class => 'control-label' %>
@@ -71,6 +71,7 @@
       <%= f.text_field :defe, :style => "width:30px;" ,:class => 'text_field' %>
     </div>
   </div>
+  <br>
   <div class="control-group">
     <%= f.label :spatk, :class => 'control-label' %>
     <div class="controls">
@@ -101,7 +102,7 @@
  
   
   
-  
+  <br>
  
   <div class="control-group">
   <%= f.label :move1 , :class => 'control-label' %>
@@ -115,6 +116,7 @@
   <%= f.select :move2, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}), include_blank: true , :class => 'text_field' %>
       </div>
 </div>
+<br>
  <div class="control-group">
   <%= f.label :move3 , :class => 'control-label' %>
       <div class="controls">
@@ -127,7 +129,7 @@
   <%= f.select :move4, options_for_select(Move.order('name').where(:local_language_id => 9).map{|s|[s.name, s.move_id]}) , include_blank: true, :class => 'text_field' %>
       </div>
 </div>
-  
+  <br>
     <%= f.label :comment, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :comment, :rows => 5, :style => "width:100%;" , :class => 'text_area' %>
