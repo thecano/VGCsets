@@ -35,8 +35,9 @@ before_filter :authorize, :only => [:new]
 
   def search
      
-     @existing_species_index = Pokemonset.select(:specie).uniq.page(params[:page]).per(50)
-     @existing_pokemon= Pokemon.where(:pokemon_species_id => @existing_species_index).where(:local_language_id => 9).page(params[:page]).per(50)
+    @sets = Pokemonset.all
+    @unique_index = @sets.map{|t| t.specie}.uniq 
+     @existing_pokemon= Pokemon.where(:pokemon_species_id => @unique_index).where(:local_language_id => 9).page(params[:page]).per(50)
 
   end
 
