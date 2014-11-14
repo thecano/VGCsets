@@ -21,11 +21,13 @@ before_filter :authorize, :only => [:new]
   # GET /pokemonsets.json
   def index
     @pokemonsets = Pokemonset.all.order("created_at desc").page(params[:page]).per(10)
+  @titulo="Sets mas recientes"
   end
 
   def best
     @pokemonsets = Pokemonset.all.order(:cached_votes_score => :desc).page(params[:page]).per(10)
-    render 'index'
+   @titulo="Mejores puntuados"  
+  render 'index'
   end
   
   # GET /pokemonsets/1
@@ -49,6 +51,7 @@ before_filter :authorize, :only => [:new]
     aux_sets=aux_sets.where(:nature => params[:nature][:id]).order(:cached_votes_score => :desc).page(params[:page]).per(10) unless params[:nature][:id].blank?  
     aux_sets=aux_sets.where(:ability => params[:ability][:id]).order(:cached_votes_score => :desc).page(params[:page]).per(10) unless params[:ability][:id].blank?  
     @pokemonsets=aux_sets
+	@titulo="Resultados búsqueda"
     render "index"
   end
 
@@ -73,7 +76,8 @@ before_filter :authorize, :only => [:new]
       return
     end
     @pokemonsets = Pokemonset.where(:specie => @pk_index.id).order(:cached_votes_score => :desc).page(params[:page]).per(10)
-    render 'index'
+   	@titulo = "Sets para "+newname
+	 render 'index'
   end
 
   # GET /pokemonsets/new
