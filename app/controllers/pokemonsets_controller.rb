@@ -21,7 +21,7 @@ before_filter :authorize, :only => [:new]
   # GET /pokemonsets.json
   def index
     @pokemonsets = Pokemonset.all.order("created_at desc").page(params[:page]).per(10)
-  @titulo="Sets mas recientes"
+  @titulo="Sets enviados recientemente"
   end
 
   def best
