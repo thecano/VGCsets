@@ -15,6 +15,7 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require jquery.turbolinks
+//= require analytics
 //= require_tree .
 
 // constructs the suggestion engine
