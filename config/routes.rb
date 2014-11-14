@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'contact_form/new'
 
   get 'contact_form/create'
-
+  get 'about' => 'pokemonsets#about', as: 'about'
   get 'pokemonsets/best' => 'pokemonsets#best' , as: 'best_pokemonset'
   get 'pokemonsets/search' => 'pokemonsets#search' , as: 'search_pokemonset'
   match 'pokemonsets/advanced_search' => 'pokemonsets#process_search' , as: 'process_search_pokemonset', via: [:get, :post]

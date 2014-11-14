@@ -34,7 +34,8 @@ before_filter :authorize, :only => [:new]
   # GET /pokemonsets/1.json
   def show
   end
-
+  def about
+  end
   def search
      
     @sets = Pokemonset.all
