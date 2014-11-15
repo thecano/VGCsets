@@ -5,7 +5,7 @@
 
 <dl class="dl-horizontal">
   <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @pokemonset.specie).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %><br>
-<%= Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @pokemonset.specie).name %>@ <%= Item.find_by(:local_language_id => 9, :item_id => @pokemonset.item).name %><br>
+<%= Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @pokemonset.specie).name %> @ <%= Item.find_by(:local_language_id => 9, :item_id => @pokemonset.item).name %><br>
 Ability: <%= Ability.find_by(:local_language_id => 9, :ability_id => @pokemonset.ability).name %><br>
 EVs: 
 <% if @pokemonset.hp != nil %>
@@ -54,7 +54,7 @@ EVs:
 - <%= Move.find_by(:local_language_id => 9, :move_id => @pokemonset.move4).name %><br>
 <% end %>
   <strong><%= model_class.human_attribute_name(:comment) %>:</strong>
-  <%= @pokemonset.comment %>
+  <%= (h(@pokemonset.comment).gsub("\n", '<br>')).html_safe %>
 </dl>
 
 <div class="form-actions">
