@@ -40,7 +40,7 @@
                     <div class="nav-collapse">
                 <ul class="nav navbar-nav">  
                         <li><a href="/pokemonsets/best">Top Rated</a></li>
-                            <li><a href="/pokemonsets/search">Busqueda</a></li>
+                            <li><a href="/pokemonsets/search">Búsqueda</a></li>
 
                 </ul> 
                
@@ -68,13 +68,31 @@
 
 <div class="container-fluid">
 <div class="row">
-<div class="span2">
+
+<% if current_page?('/pokemonsets/search')%>
+<div class="span1">
 </div>
-<div class="span9">
+
+
+<div class="span10">
 
 <%= yield %>
 
 </div>
+
+<% else %>
+<div class="span1">
+</div>
+
+
+<div class="span7">
+
+<%= yield %>
+
+</div>
+<% end %>
+
+
 
 </div>
 

@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require jquery.turbolinks
 //= require analytics
+//= require facebook
 //= require_tree .
 
 // constructs the suggestion engine
