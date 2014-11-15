@@ -24,6 +24,8 @@
     
     <%=  pokemonset.title  %><br>
 
+<% if current_user %>
+
 <%= link_to likes_pokemonset_path(pokemonset.id), :remote => true, class: "btn btn-default" do %>
 
 <div class="id<%= pokemonset.id %>">
@@ -35,11 +37,33 @@
 <% end %>
 
  <%= link_to dislikes_pokemonset_path(pokemonset.id), :remote => true , class: "btn btn-default" do %>
-<div class="2id<%= pokemonset.id %>">
+<div class="2id<%= pokemonset.id %>" >
 <i class="fa fa-thumbs-down">  
 -<%=  pokemonset.get_downvotes.size%>
  </i>
  </div>
+        <% end %>
+ <% else %>
+
+<%= link_to likes_pokemonset_path(pokemonset.id), :remote => true, class: "btn btn-default", disabled: "disabled" do %>
+
+<div class="id<%= pokemonset.id %>">
+<i class="fa fa-thumbs-up"> 
++<%=  pokemonset.get_upvotes.size %> 
+</i>
+</div>
+
+<% end %>
+
+ <%= link_to dislikes_pokemonset_path(pokemonset.id), :remote => true , class: "btn btn-default", disabled: "disabled" do %>
+<div class="2id<%= pokemonset.id %>" >
+<i class="fa fa-thumbs-down">  
+-<%=  pokemonset.get_downvotes.size%>
+ </i>
+ </div>
+
+<% end %>
+
 <% end %>
 <br>
 
