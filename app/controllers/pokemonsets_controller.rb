@@ -94,6 +94,24 @@ before_filter :authorize, :only => [:new]
   def create
     @pokemonset = Pokemonset.new(pokemonset_params)
     @creator= User.find(@pokemonset.creator)
+    if @pokemonset.hp == 0
+      @pokemonset.hp=nil
+    end
+    if @pokemonset.atk == 0
+      @pokemonset.atk=nil
+    end
+    if @pokemonset.defe == 0
+      @pokemonset.defe=nil
+    end
+    if @pokemonset.spatk == 0
+      @pokemonset.spatk=nil
+    end
+    if @pokemonset.spdef == 0
+      @pokemonset.spdef=nil
+    end
+    if @pokemonset.spd == 0
+      @pokemonset.spd=nil
+    end
     respond_to do |format|
       if @pokemonset.save and @creator.banned != true
         format.html { redirect_to @pokemonset, notice: 'Pokemonset was successfully created.' }
