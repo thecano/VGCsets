@@ -1,5 +1,5 @@
 Busqueda avanzada:
-<%= form_tag process_search_pokemonset_path(), :method => 'post' do %>
+<%= form_tag process_search_pokemonset_path(), :method => 'get' do %>
   <%= collection_select(:specie, :id, Pokemon.order('name').where(:local_language_id => 9), :id, :name, prompt: "Cualquier especie") %>
   <%= collection_select(:item, :id, Item.order('name').where(:local_language_id => 9), :id, :name, prompt: "Cualquier objeto") %>
   <%= collection_select(:ability, :id, Ability.order('name').where(:local_language_id => 9), :id, :name, prompt: "Cualquier habilidad") %>
