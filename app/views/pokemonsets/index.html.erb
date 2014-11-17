@@ -1,9 +1,22 @@
 <%- model_class = Pokemonset -%>
 <div class="page-header">
-  <h1><%= @titulo  %></h1>
+  <h1><%= @titulo  %>
+
+<% if request.fullpath.split("/").third == "specie" %>
+<%= image_tag "/sprites/"+params[:specie]+".png" %>
+<% end %>
+</h1>
 </div>
 <table class="table table-striped">
   <thead>
+
+<% if request.fullpath.split("/").third == "specie" %>
+<h4>Base Stats:</h4>
+<%= bar_chart @arreglo %>
+
+<% end %>
+
+
 
   <% if flash[:notice] %>
  <div class="notice alert">
@@ -11,6 +24,7 @@
   <%= flash[:notice] %>
  </div>
 <% end %>
+
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_pokemonset_path,
@@ -129,7 +143,8 @@ EVs:
 </table>
 </div>
 <div class="span2">
-
+<%= image_tag("/images/VGCsets_by_wanaco-d86r3jk.png") %>
+<br><h1></h1>
 <div id="fb-root"></div>
 
 <div class="fb-like-box" data-href="https://www.facebook.com/vgcsets" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="true" data-show-border="true"></div>

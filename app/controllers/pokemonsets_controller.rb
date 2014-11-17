@@ -76,6 +76,15 @@ before_filter :authorize, :only => [:new]
       raise ActionController::RoutingError.new('Not Found')
       return
     end
+    @poke_stats= Stats.where(:pokemon_id => @pk_index.id)
+    @arreglo=[]
+    @arreglo.push([ "Hp" , @poke_stats[0].base_stat ] )
+    @arreglo.push(["Atk",@poke_stats[1].base_stat])
+    @arreglo.push(["Def",@poke_stats[2].base_stat])
+    @arreglo.push(["Sp.Atk",@poke_stats[3].base_stat])
+    @arreglo.push(["Sp.Def",@poke_stats[4].base_stat])
+    @arreglo.push(["Spd",@poke_stats[5].base_stat])
+
     @pokemonsets = Pokemonset.where(:specie => @pk_index.id).order(:cached_votes_score => :desc).page(params[:page]).per(10)
    	@titulo = "Sets para "+newname
 	 render 'index'

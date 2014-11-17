@@ -5,6 +5,7 @@
   <title>VGCsets</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   <%= csrf_meta_tags %>
@@ -80,11 +81,13 @@
 </div>
 
 <% else %>
+
 <div class="span1">
 </div>
 
 
 <div class="span7">
+
 
 <%= yield %>
 
