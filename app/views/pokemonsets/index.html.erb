@@ -3,7 +3,7 @@
   <h1><%= @titulo  %>
 
 <% if request.fullpath.split("/").third == "specie" %>
-<%= image_tag "/sprites/"+params[:specie]+".png" %>
+<%= image_tag "/sprites/"+params[:specie].downcase+".png" %>
 <% end %>
 </h1>
 </div>

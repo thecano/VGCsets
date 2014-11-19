@@ -33,6 +33,8 @@ before_filter :authorize, :only => [:new]
   # GET /pokemonsets/1
   # GET /pokemonsets/1.json
   def show
+    specie_index=Pokemonset.find(params[:id])
+    @specie=Pokemon.find(specie_index.specie)
   end
   def about
   end
