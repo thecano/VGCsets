@@ -59,7 +59,7 @@
         <% end %>
  <% else %>
 
-<%= link_to likes_pokemonset_path(pokemonset.id), :remote => true, class: "btn btn-default", disabled: "disabled" do %>
+<%= link_to "#", :remote => true, class: "btn btn-default", disabled: "disabled" do %>
 
 <div class="id<%= pokemonset.id %>">
 <i class="fa fa-thumbs-up"> 
@@ -69,7 +69,7 @@
 
 <% end %>
 
- <%= link_to dislikes_pokemonset_path(pokemonset.id), :remote => true , class: "btn btn-default", disabled: "disabled" do %>
+ <%= link_to "#", :remote => true , class: "btn btn-default", disabled: "disabled" do %>
 <div class="2id<%= pokemonset.id %>" >
 <i class="fa fa-thumbs-down">  
 -<%=  pokemonset.get_downvotes.size%>
