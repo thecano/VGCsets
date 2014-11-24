@@ -105,11 +105,11 @@ EVs:
   <strong><%= model_class.human_attribute_name(:comment) %>:</strong>
   <%= (h(@pokemonset.comment).gsub("\n", '<br>')).html_safe %>
 </dl>
-<%= link_to "Ver mas sets para "+@specie.name,specie_pokemonset_path(@specie.name) %>
 
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              pokemonsets_path, :class => 'btn'  %>
+  <%= link_to 'Volver',
+              "/", :class => 'btn'  %>
+<%= link_to "Ver mas sets para "+@specie.name,specie_pokemonset_path(@specie.name), :class => 'btn'  %>
   
 </div>
 
