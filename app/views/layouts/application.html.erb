@@ -10,9 +10,7 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-<% if request.fullpath.split("/").third == "specie" %>
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-<% end %>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
@@ -53,7 +51,12 @@
 
                 </ul> 
                
+
+
+        
    <ul class = "nav pull-right">
+
+
      <li><a href="/about">About us</a></li>
       <li><a href="/contacts">Contacto</a></li>
     

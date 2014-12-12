@@ -109,7 +109,7 @@ EVs:
 <div class="form-actions">
   <%= link_to 'Volver',
               "/", :class => 'btn'  %>
-<% if current_user.id==@pokemonset.creator  %>
+<% if current_user and current_user.id==@pokemonset.creator  %>
 <%= link_to "Editar set",edit_pokemonset_path(@pokemonset.id), :class => 'btn'  %>
 <% end %>
 <%= link_to "Ver mas sets para "+@specie.name,specie_pokemonset_path(@specie.name), :class => 'btn'  %>
