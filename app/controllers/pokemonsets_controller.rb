@@ -135,7 +135,26 @@ before_filter :authorize, :only => [:new]
   end
 
   
+    def edit
+      if current_user.id==Pokemonset.find(params[:id]).creator
+      @pokemonset = Pokemonset.find(params[:id])
+      else redirect_to "/"
+      end
+    end
 
+  # PATCH/PUT /pokemonsets/1
+  # PATCH/PUT /pokemonsets/1.json
+  def update
+   respond_to do |format|
+        if @pokemonset.update(pokemonset_params)
+          format.html { redirect_to @pokemonset, notice: 'Set actualizado.' }
+        format.json { render :show, status: :ok, location: @pokemonset }
+        else
+        format.html { render :edit }
+          format.json { render json: @pokemonset.errors, status: :unprocessable_entity }
+        end
+    end
+  end
 
   def likes
   @pokemonset = Pokemonset.find(params[:id])

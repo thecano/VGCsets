@@ -9,8 +9,13 @@
   <meta property="og:image" content="http://www.vgcsets.com/images/VGCsets_by_wanaco-d86r3jk.png" />
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+<% if request.fullpath.split("/").third == "specie" %>
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<% end %>
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
 
   <%= csrf_meta_tags %>
 </head>
