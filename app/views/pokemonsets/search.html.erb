@@ -6,7 +6,7 @@
   <%= collection_select(:nature, :id, Nature.order('name').where(:local_language_id => 9), :id, :name, prompt: t("search_desc.nature")) %>
   <%= submit_tag t("search_desc.filter") , :name => nil, :class => "search-me btn btn-primary"  %>
 <% end %>
-<%= t("search.description")%>
+<%= t("search_desc.description")%>
 <br>
  <% @existing_pokemon.each do |pokemon| %>
     
