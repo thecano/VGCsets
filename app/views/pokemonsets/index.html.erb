@@ -131,7 +131,7 @@ EVs:
 <% if not pokemonset.move4.nil? %>
 - <%= Move.find_by(:local_language_id => @language, :move_id => pokemonset.move4).name %><br>
 <% end %>
-<%= link_to "Ver detalle del set", pokemonset_path(pokemonset) %>
+<%= link_to t("details"), pokemonset_path(pokemonset) %>
 <br><br>
 
 

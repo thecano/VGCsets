@@ -32,6 +32,7 @@ en:
   contact: Contact
   facebook_login: Facebook Login
   twitter_login: Twitter Login
+  details: See Details
   title:
     search: Resultados búsqueda
     specie: "Sets for "
@@ -72,3 +73,11 @@ en:
     title: Contact Form
     submit: Send
   related_sites: Related Sites
+  search_desc:
+    title: "Advanced Search:"
+    specie: All species
+    item: All items
+    ability: All abilities
+    nature: All natures
+    description: Or click on a Pokemon tu see sets for that specie.
+    filter: Filter

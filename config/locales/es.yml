@@ -10,6 +10,7 @@ es:
   contact: Contacto
   facebook_login: Facebook Login
   twitter_login: Twitter Login
+  details: Ver detalle del set
   title:
     search: Resultados búsqueda
     specie: "Sets para "
@@ -50,3 +51,11 @@ es:
     title: Formulario de contacto
     submit: Enviar mensaje
   related_sites: Sitios de interés
+  search_desc:
+    title: "Busqueda avanzada:"
+    specie: Cualquier especie
+    item: Cualquier objeto
+    ability: Cualquier habilidad
+    nature: Cualquier naturaleza
+    description: O clickea en un Pokémon para ver esa especie.
+    filter: Filtrar

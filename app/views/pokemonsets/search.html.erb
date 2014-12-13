@@ -1,13 +1,13 @@
-Busqueda avanzada:
+<%= t("search_desc.title") %>
 <%= form_tag process_search_pokemonset_path(), :method => 'get' do %>
-  <%= collection_select(:specie, :id, Pokemon.order('name').where(:local_language_id => 9), :id, :name, prompt: "Cualquier especie") %>
-  <%= collection_select(:item, :id, Item.order('name').where(:local_language_id => 9), :id, :name, prompt: "Cualquier objeto") %>
-  <%= collection_select(:ability, :id, Ability.order('name').where(:local_language_id => 9), :id, :name, prompt: "Cualquier habilidad") %>
-  <%= collection_select(:nature, :id, Nature.order('name').where(:local_language_id => 9), :id, :name, prompt: "Cualquier naturaleza") %>
-  <%= submit_tag "Filtrar", :name => nil, :class => "search-me btn btn-primary"  %>
+  <%= collection_select(:specie, :id, Pokemon.order('name').where(:local_language_id => 9), :id, :name, prompt: t("search_desc.specie")) %>
+  <%= collection_select(:item, :id, Item.order('name').where(:local_language_id => 9), :id, :name, prompt: t("search_desc.item")) %>
+  <%= collection_select(:ability, :id, Ability.order('name').where(:local_language_id => 9), :id, :name, prompt: t("search_desc.ability")) %>
+  <%= collection_select(:nature, :id, Nature.order('name').where(:local_language_id => 9), :id, :name, prompt: t("search_desc.nature")) %>
+  <%= submit_tag t("search_desc.filter") , :name => nil, :class => "search-me btn btn-primary"  %>
 <% end %>
-
-O clickea en un Pokémon para ver esa especie<br>
+<%= t("search.description")%>
+<br>
  <% @existing_pokemon.each do |pokemon| %>
     
  <%= link_to(

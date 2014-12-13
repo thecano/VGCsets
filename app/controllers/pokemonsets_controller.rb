@@ -74,6 +74,11 @@ before_filter :authorize, :only => [:new]
     aux_sets=aux_sets.where(:ability => params[:ability][:id]).order(:cached_votes_score => :desc).page(params[:page]).per(10) unless params[:ability][:id].blank?  
     @pokemonsets=aux_sets
 	  @titulo=t "title.search"
+    if I18n.locale == :en
+    @language = 9 
+    else
+    @language = 7
+    end
     render "index"
   end
 
