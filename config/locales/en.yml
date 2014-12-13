@@ -32,21 +32,43 @@ en:
   contact: Contact
   facebook_login: Facebook Login
   twitter_login: Twitter Login
+  title:
+    search: Resultados búsqueda
+    specie: "Sets for "
+    index: Recently sent setsS
+  mail_form:
+    attributes:
+      contact:
+        name: Name
+        email: Email
+        message: Message
   activerecord:
     attributes:
       pokemonset:
-        defe: EVs Defensa
-        atk: EVs Ataque
-        hp: EVs Hp
-        spatk: EVs Ataque Especial
-        spdef: EVs Defensa Especial
-        spd: EVs Velocidad
-        move1: Movimiento 1
-        move2: Movimiento 2
-        move3: Movimiento 3
-        move4: Movimiento 4
-        title: Titulo
-        specie: Especie
-        ability: Habilidad
+        defe: Defense EVs
+        atk: Attack EVs
+        hp: Hp EVs
+        spatk: Sp. Attack EVs
+        spdef: Sp.Defense EVs
+        spd: Speed EVs
+        move1: Move 1
+        move2: Move 2
+        move3: Move 3
+        move4: Move 4
+        title: Title
+        specie: Specie
+        ability: Ability
         nature: Nature
-        comment: Comentarios adicionales
+        comment: Additional Comments
+  helpers:
+    links:
+      new: New
+  about_us_desc:
+    title: About VGCsets.com
+    par1: VGCsets is a chilean website created with the objective of being a database of sets for the VGC format for the Pokémon video games, is made so that any user can send a set to be displayed instantly on the homepage.
+    par2: To show the best sets to visitors there is a likes and dislikes system so that at all times the best rated sets are showed first.
+  contact_desc:
+    sent: Message sent successfuly!
+    title: Contact Form
+    submit: Send
+  related_sites: Related Sites

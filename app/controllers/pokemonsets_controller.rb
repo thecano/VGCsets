@@ -28,12 +28,17 @@ before_filter :authorize, :only => [:new]
     else
     @language = 7
     end
-    @titulo="Sets enviados recientemente"
+    @titulo=t("title.index")
   end
 
   def best
     @pokemonsets = Pokemonset.all.order(:cached_votes_score => :desc).page(params[:page]).per(10)
-   @titulo="Mejores puntuados"  
+   @titulo=t("top_rated")
+   if I18n.locale == :en
+    @language = 9 
+    else
+    @language = 7
+    end
   render 'index'
   end
   
@@ -42,6 +47,11 @@ before_filter :authorize, :only => [:new]
   def show
     specie_index=Pokemonset.find(params[:id])
     @specie=Pokemon.find(specie_index.specie)
+    if I18n.locale == :en
+    @language = 9 
+    else
+    @language = 7
+    end
   end
   
   def about
@@ -63,7 +73,7 @@ before_filter :authorize, :only => [:new]
     aux_sets=aux_sets.where(:nature => params[:nature][:id]).order(:cached_votes_score => :desc).page(params[:page]).per(10) unless params[:nature][:id].blank?  
     aux_sets=aux_sets.where(:ability => params[:ability][:id]).order(:cached_votes_score => :desc).page(params[:page]).per(10) unless params[:ability][:id].blank?  
     @pokemonsets=aux_sets
-	@titulo="Resultados búsqueda"
+	  @titulo=t "title.search"
     render "index"
   end
 
@@ -95,9 +105,13 @@ before_filter :authorize, :only => [:new]
     @arreglo.push(["Sp.Atk",@poke_stats[3].base_stat])
     @arreglo.push(["Sp.Def",@poke_stats[4].base_stat])
     @arreglo.push(["Spd",@poke_stats[5].base_stat])
-
+    if I18n.locale == :en
+    @language = 9 
+    else
+    @language = 7
+    end
     @pokemonsets = Pokemonset.where(:specie => @pk_index.id).order(:cached_votes_score => :desc).page(params[:page]).per(10)
-   	@titulo = "Sets para "+newname
+   	@titulo = t("title.specie")+newname
 	 render 'index'
   end
 
@@ -105,6 +119,11 @@ before_filter :authorize, :only => [:new]
   def new
     #@species=Pokemon_specie.all
     @pokemonset = Pokemonset.new
+    if I18n.locale == :en
+    @language = 9 
+    else
+    @language = 7
+    end
   end
 
   
@@ -146,6 +165,11 @@ before_filter :authorize, :only => [:new]
   
     def edit
       if current_user.id==Pokemonset.find(params[:id]).creator
+          if I18n.locale == :en
+          @language = 9 
+          else
+          @language = 7
+          end
       @pokemonset = Pokemonset.find(params[:id])
       else redirect_to "/"
       end

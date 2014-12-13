@@ -83,8 +83,8 @@
 
  <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %><br>
 
-<%= Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name %> @ <%= Item.find_by(:local_language_id => 9, :item_id => pokemonset.item).name %><br>
-Ability: <%= Ability.find_by(:local_language_id => 9, :ability_id => pokemonset.ability).name %><br>
+<%= Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name %> @ <%= Item.find_by(:local_language_id => @language, :item_id => pokemonset.item).name %><br>
+Ability: <%= Ability.find_by(:local_language_id => @language, :ability_id => pokemonset.ability).name %><br>
 EVs: 
 <% if pokemonset.hp != nil %>
 <%= pokemonset.hp %> Hp 
@@ -120,16 +120,16 @@ EVs:
     <%= pokemonset.spd %> Spd
     <% end %>
 <br>
-<%= Nature.find_by(:local_language_id => 9, :nature_id => pokemonset.nature).name %> <%= model_class.human_attribute_name(:nature) %><br>
-- <%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.move1).name %><br>
+<%= Nature.find_by(:local_language_id => @language, :nature_id => pokemonset.nature).name %> <%= model_class.human_attribute_name(:nature) %><br>
+- <%= Move.find_by(:local_language_id => @language, :move_id => pokemonset.move1).name %><br>
 <% if not pokemonset.move2.nil? %>
-- <%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.move2).name %><br>
+- <%= Move.find_by(:local_language_id => @language, :move_id => pokemonset.move2).name %><br>
 <% end %>
 <% if not pokemonset.move3.nil? %>
-- <%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.move3).name %><br>
+- <%= Move.find_by(:local_language_id => @language, :move_id => pokemonset.move3).name %><br>
 <% end %>
 <% if not pokemonset.move4.nil? %>
-- <%= Move.find_by(:local_language_id => 9, :move_id => pokemonset.move4).name %><br>
+- <%= Move.find_by(:local_language_id => @language, :move_id => pokemonset.move4).name %><br>
 <% end %>
 <%= link_to "Ver detalle del set", pokemonset_path(pokemonset) %>
 <br><br>

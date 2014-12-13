@@ -137,9 +137,11 @@
 <div id="fb-root"></div>
 
 <div class="fb-like-box" data-href="https://www.facebook.com/vgcsets" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="true" data-show-border="true"></div>
-<h2>Sitios de interés</h2>
-<%= link_to image_tag("/images/EVOPKMN.png"), "http://www.evopokemon.com" %>
+<h2> <%= t("related_sites") %> </h2>
+<%= t("english") %>:
 <%= link_to image_tag("/images/nugget.png"), "http://www.nuggetbridge.com" %>
+<%= t("spanish") %>:
+<%= link_to image_tag("/images/EVOPKMN.png"), "http://www.evopokemon.com" %>
 <%= link_to image_tag("/images/logocbi.png"), "https://www.facebook.com/groups/pkmncbi/" %>
 
 <% end %>
