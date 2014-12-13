@@ -11,9 +11,9 @@
 // about supported directives.
 //
 
-//= require twitter/bootstrap
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require turbolinks
 //= require jquery.turbolinks
 //= require analytics
@@ -21,5 +21,3 @@
 //= require_tree .
 
 // constructs the suggestion engine
-
-
