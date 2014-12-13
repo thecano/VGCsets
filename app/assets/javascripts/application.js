@@ -13,11 +13,11 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
 //= require turbolinks
 //= require jquery.turbolinks
 //= require analytics
 //= require facebook
+//= require twitter/bootstrap
 //= require_tree .
 
 // constructs the suggestion engine

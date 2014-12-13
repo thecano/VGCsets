@@ -35,7 +35,7 @@ en:
   title:
     search: Resultados búsqueda
     specie: "Sets for "
-    index: Recently sent setsS
+    index: Recently sent sets
   mail_form:
     attributes:
       contact:
