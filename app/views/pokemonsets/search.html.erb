@@ -14,6 +14,7 @@
  image_tag("/sprites/"+pokemon.name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png"), "/pokemonsets/specie/"+pokemon.name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e") )%>
 <% end %>
 
-
+<center>
  <%= paginate @existing_pokemon , :theme => 'twitter-bootstrap',
                    :pagination_class => "pagination-centered" %>
+                   </center>
