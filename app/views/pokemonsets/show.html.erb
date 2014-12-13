@@ -112,6 +112,7 @@ EVs:
 <% if not @pokemonset.move4.nil? %>
 - <%= Move.find_by(:local_language_id => @language, :move_id => @pokemonset.move4).name %><br>
 <% end %>
+<br>
   <strong><%= model_class.human_attribute_name(:comment) %>:</strong>
   <br>
   <%= (h(@pokemonset.comment).gsub("\n", '<br>')).html_safe %>
