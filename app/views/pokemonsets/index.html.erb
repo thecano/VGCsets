@@ -84,7 +84,8 @@
  <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %><br>
 
 <%= Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name %> @ <%= Item.find_by(:local_language_id => @language, :item_id => pokemonset.item).name %><br>
-Ability: <%= Ability.find_by(:local_language_id => @language, :ability_id => pokemonset.ability).name %><br>
+
+<%= t("activerecord.attributes.pokemonset.ability") %>: <%= Ability.find_by(:local_language_id => @language, :ability_id => pokemonset.ability).name %><br>
 EVs: 
 <% if pokemonset.hp != nil %>
 <%= pokemonset.hp %> Hp 
@@ -120,7 +121,13 @@ EVs:
     <%= pokemonset.spd %> Spd
     <% end %>
 <br>
-<%= Nature.find_by(:local_language_id => @language, :nature_id => pokemonset.nature).name %> <%= model_class.human_attribute_name(:nature) %><br>
+<% if I18n.locale == :en %>
+<%= Nature.find_by(:local_language_id => @language, :nature_id => pokemonset.nature).name %> <%= model_class.human_attribute_name(:nature) %>
+<% else %>
+<%= model_class.human_attribute_name(:nature) %>:
+<%= Nature.find_by(:local_language_id => @language, :nature_id => pokemonset.nature).name %> 
+<% end %>
+<br>
 - <%= Move.find_by(:local_language_id => @language, :move_id => pokemonset.move1).name %><br>
 <% if not pokemonset.move2.nil? %>
 - <%= Move.find_by(:local_language_id => @language, :move_id => pokemonset.move2).name %><br>
