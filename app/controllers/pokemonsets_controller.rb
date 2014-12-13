@@ -54,7 +54,7 @@ end
      
     @sets = Pokemonset.all
     @unique_index = @sets.map{|t| t.specie}.uniq 
-    @existing_pokemon= Pokemon.where(:pokemon_species_id => @unique_index).where(:local_language_id => 9).page(params[:page]).per(46)
+    @existing_pokemon= Pokemon.where(:pokemon_species_id => @unique_index).where(:local_language_id => 9).order(:pokemon_species_id => :asc).page(params[:page]).per(43)
 
   end
 
