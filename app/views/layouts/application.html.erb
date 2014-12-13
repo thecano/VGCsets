@@ -76,7 +76,7 @@
 		<% if current_user %>
 <li><a href="#">	<%= image_tag(current_user.image, size: '30x30', class: "img-rounded") %></a></li>
  <li><a href="#"> <%= current_user.name %></a></li>
- <li> <%= link_to "Sign Out", "/logout" %></li>
+ <li> <%= link_to t("signout"), "/logout" %></li>
 <% else %>
   <li><%= link_to t(:facebook_login), "/auth/facebook" %></li>
    <li><%= link_to t(:twitter_login), "/auth/twitter" %></li>

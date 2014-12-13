@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
 def set_locale
-  I18n.locale = extract_locale_from_subdomain || I18n.default_locale
+  I18n.locale = extract_locale_from_subdomain || session[:locale] || I18n.default_locale
+  session[:locale] = I18n.locale 
 end
 
 
