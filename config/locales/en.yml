@@ -20,7 +20,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  home: Home
+  login_required: You need lo login to create a new set
+  top_rated: Top Rated
+  search: Search
   hello: "Hello world"
+  language: Language
+  english: English
+  spanish: Spanish
+  about_us: About Us 
+  contact: Contact
+  facebook_login: Facebook Login
+  twitter_login: Twitter Login
   activerecord:
     attributes:
       pokemonset:

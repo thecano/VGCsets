@@ -1,11 +1,12 @@
 class PokemonsetsController < ApplicationController
   before_action :set_pokemonset, only: [:show, :edit, :update, :destroy]
+ 
 
 
 before_filter :authorize, :only => [:new]
   def authorize
     redirect_to "/" if !current_user
-    flash[:notice] = 'Necesitas iniciar sesión para crear un set'
+    flash[:notice] = t(:login_required)
   end
 
   
@@ -17,11 +18,17 @@ before_filter :authorize, :only => [:new]
   #end
  
 
+
   # GET /pokemonsets
   # GET /pokemonsets.json
   def index
     @pokemonsets = Pokemonset.all.order("created_at desc").page(params[:page]).per(10)
-  @titulo="Sets enviados recientemente"
+    if I18n.locale == :en
+    @language = 9 
+    else
+    @language = 7
+    end
+    @titulo="Sets enviados recientemente"
   end
 
   def best
@@ -36,13 +43,15 @@ before_filter :authorize, :only => [:new]
     specie_index=Pokemonset.find(params[:id])
     @specie=Pokemon.find(specie_index.specie)
   end
+  
   def about
   end
+  
   def search
      
     @sets = Pokemonset.all
     @unique_index = @sets.map{|t| t.specie}.uniq 
-     @existing_pokemon= Pokemon.where(:pokemon_species_id => @unique_index).where(:local_language_id => 9).page(params[:page]).per(50)
+    @existing_pokemon= Pokemon.where(:pokemon_species_id => @unique_index).where(:local_language_id => 9).page(params[:page]).per(50)
 
   end
 

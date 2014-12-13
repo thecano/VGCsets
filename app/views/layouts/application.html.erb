@@ -38,7 +38,7 @@
 
                  
                  <a class="navbar-brand">
-                   <%= link_to "Home", root_path, :class => 'brand' %>
+                   <%= link_to t(:home), root_path, :class => 'brand' %>
                  </a> </div>
 
 
@@ -46,8 +46,8 @@
 
                     <div class="nav-collapse">
                 <ul class="nav navbar-nav">  
-                        <li><a href="/pokemonsets/best">Top Rated</a></li>
-                            <li><a href="/pokemonsets/search">Búsqueda</a></li>
+                        <li><a href="/pokemonsets/best"> <%= t(:top_rated) %></a></li>
+                            <li><a href="/pokemonsets/search"> <%= t(:search) %></a></li>
 
                 </ul> 
                
@@ -57,25 +57,29 @@
    <ul class = "nav pull-right">
 
  <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Idioma <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">  <%= t(:language) %> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Inǵlés</a></li>
+
+
+
+
+            <li><a href= <%= request.original_url.sub("es.","en.") %> > <%= t(:english) %> </a></li>
             <li class="divider"></li>
-            <li><a href="#">Español</a></li>
+            <li><a href= <%= request.original_url.sub("en.","es.") %> > <%= t(:spanish) %> </a></li>
           </ul>
         </li>
 
 
-     <li><a href="/about">About us</a></li>
-      <li><a href="/contacts">Contacto</a></li>
+     <li><a href="/about"> <%= t(:about_us) %> </a></li>
+      <li><a href="/contacts"><%= t(:contact) %></a></li>
     
 		<% if current_user %>
 <li><a href="#">	<%= image_tag(current_user.image, size: '30x30', class: "img-rounded") %></a></li>
  <li><a href="#"> <%= current_user.name %></a></li>
  <li> <%= link_to "Sign Out", "/logout" %></li>
 <% else %>
-  <li><%= link_to "Inicia sesión con facebook", "/auth/facebook" %></li>
-   <li><%= link_to "Inicia sesión con twitter", "/auth/twitter" %></li>
+  <li><%= link_to t(:facebook_login), "/auth/facebook" %></li>
+   <li><%= link_to t(:twitter_login), "/auth/twitter" %></li>
 <% end %></li>
    </ul>
  </div>
@@ -127,6 +131,7 @@
 
 </div>
 <div class="span2">
+
 <%= image_tag("/images/VGCsets_by_wanaco-d86r3jk.png") %>
 <br><h1></h1>
 <div id="fb-root"></div>
