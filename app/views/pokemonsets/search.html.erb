@@ -8,12 +8,13 @@
 <% end %>
 <%= t("search_desc.description")%>
 <br>
+<center>
  <% @existing_pokemon.each do |pokemon| %>
     
  <%= link_to(
  image_tag("/sprites/"+pokemon.name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png"), "/pokemonsets/specie/"+pokemon.name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e") )%>
 <% end %>
-
+</center>>
 <center>
  <%= paginate @existing_pokemon , :theme => 'twitter-bootstrap',
                    :pagination_class => "pagination-centered" %>
