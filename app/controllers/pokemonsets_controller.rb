@@ -4,12 +4,19 @@ class PokemonsetsController < ApplicationController
 
 
 before_filter :authorize, :only => [:new]
+before_filter :set_language
   def authorize
     redirect_to "/" if !current_user
     flash[:notice] = t(:login_required)
   end
 
-  
+def set_language
+    if I18n.locale == :en
+    @language = 9 
+    else
+    @language = 7
+    end
+end
    
   #def load_suggestions
   #logger.info "debugeando"
@@ -23,23 +30,13 @@ before_filter :authorize, :only => [:new]
   # GET /pokemonsets.json
   def index
     @pokemonsets = Pokemonset.all.order("created_at desc").page(params[:page]).per(10)
-    if I18n.locale == :en
-    @language = 9 
-    else
-    @language = 7
-    end
     @titulo=t("title.index")
   end
 
   def best
     @pokemonsets = Pokemonset.all.order(:cached_votes_score => :desc).page(params[:page]).per(10)
    @titulo=t("top_rated")
-   if I18n.locale == :en
-    @language = 9 
-    else
-    @language = 7
-    end
-  render 'index'
+   render 'index'
   end
   
   # GET /pokemonsets/1
@@ -47,11 +44,7 @@ before_filter :authorize, :only => [:new]
   def show
     specie_index=Pokemonset.find(params[:id])
     @specie=Pokemon.find(specie_index.specie)
-    if I18n.locale == :en
-    @language = 9 
-    else
-    @language = 7
-    end
+   
   end
   
   def about
@@ -74,11 +67,7 @@ before_filter :authorize, :only => [:new]
     aux_sets=aux_sets.where(:ability => params[:ability][:id]).order(:cached_votes_score => :desc).page(params[:page]).per(10) unless params[:ability][:id].blank?  
     @pokemonsets=aux_sets
 	  @titulo=t "title.search"
-    if I18n.locale == :en
-    @language = 9 
-    else
-    @language = 7
-    end
+   
     render "index"
   end
 
@@ -110,11 +99,7 @@ before_filter :authorize, :only => [:new]
     @arreglo.push(["Sp.Atk",@poke_stats[3].base_stat])
     @arreglo.push(["Sp.Def",@poke_stats[4].base_stat])
     @arreglo.push(["Spd",@poke_stats[5].base_stat])
-    if I18n.locale == :en
-    @language = 9 
-    else
-    @language = 7
-    end
+    
     @pokemonsets = Pokemonset.where(:specie => @pk_index.id).order(:cached_votes_score => :desc).page(params[:page]).per(10)
    	@titulo = t("title.specie")+newname
 	 render 'index'
@@ -124,11 +109,7 @@ before_filter :authorize, :only => [:new]
   def new
     #@species=Pokemon_specie.all
     @pokemonset = Pokemonset.new
-    if I18n.locale == :en
-    @language = 9 
-    else
-    @language = 7
-    end
+    
   end
 
   
@@ -170,11 +151,6 @@ before_filter :authorize, :only => [:new]
   
     def edit
       if current_user.id==Pokemonset.find(params[:id]).creator
-          if I18n.locale == :en
-          @language = 9 
-          else
-          @language = 7
-          end
       @pokemonset = Pokemonset.find(params[:id])
       else redirect_to "/"
       end
