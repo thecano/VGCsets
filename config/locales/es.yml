@@ -60,3 +60,7 @@ es:
     nature: Cualquier naturaleza
     description: O clickea en un Pokémon para ver esa especie.
     filter: Filtrar
+  buttons:
+    back: Volver
+    edit: Editar
+    specie: "Ver más sets para "

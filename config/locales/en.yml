@@ -82,3 +82,7 @@ en:
     nature: All natures
     description: Or click on a Pokemon tu see sets for that specie.
     filter: Filter
+  buttons:
+    back: Back
+    edit: Edit
+    specie: "See more sets for "
