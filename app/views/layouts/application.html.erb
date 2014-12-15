@@ -5,8 +5,8 @@
   <title>VGCsets</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:description" content="Base de datos de sets competitivos para el formato VGC de los videojuegos de Pokémon. Los sets son aportados por los mismos usuarios, tú también puedes aportar al sitio!" />
-<% if params[:action] == "show" %>
-  <meta property="og:site_name" content=" <%= Pokemon.find_by(:local_language_id => @language, :pokemon_species_id => @pokemonset.specie).name %> Set -  <%= @pokemonset.title %>"/>
+<% if params[:controller] == "pokemonsets" and params[:action] == "show" %>
+  <meta property="og:site_name" content=" <%= Pokemon.find_by(:local_language_id => @language, :pokemon_species_id => @pokemonset.specie).name %> Set - <%= @pokemonset.title %>"/>
   <meta property="og:image" content="/sprites/<%= Pokemon.find_by(:local_language_id => @language, :pokemon_species_id => @pokemonset.specie).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e") %>.png" />
 <% else %>
   <meta property="og:site_name" content="VGCsets"/>
