@@ -11,7 +11,8 @@ es:
   facebook_login: Facebook Login
   twitter_login: Twitter Login
   signout: Cerrar sesión
-  details: Ver detalle del set
+  details_spa: "Ver detalle del set (Español)"
+  details_eng: "Ver detalle del set (Inglés)"
   title:
     search: Resultados búsqueda
     specie: "Sets para "
@@ -40,6 +41,7 @@ es:
         ability: Habilidad
         nature: Naturaleza
         comment: Comentarios adicionales
+        lang: Comentarios están en...?
   helpers:
     links:
       new: Nuevo

@@ -33,7 +33,8 @@ en:
   facebook_login: Facebook Login
   twitter_login: Twitter Login
   signout: Sign Out
-  details: See Details
+  details_spa: "See Details (Spanish)"
+  details_eng: "See Details (English)"
   title:
     search: Resultados búsqueda
     specie: "Sets for "
@@ -62,6 +63,7 @@ en:
         ability: Ability
         nature: Nature
         comment: Additional Comments
+        lang: Comments are in...?
   helpers:
     links:
       new: New

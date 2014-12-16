@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141108182105) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20141216205627) do
 
   create_table "ability_names", id: false, force: true do |t|
     t.integer "ability_id",                   null: false
@@ -57,6 +54,13 @@ ActiveRecord::Schema.define(version: 20141108182105) do
 
   add_index "pokemon_species_names", ["name"], name: "ix_pokemon_species_names_name", using: :btree
 
+  create_table "pokemon_stats", id: false, force: true do |t|
+    t.integer "pokemon_id", null: false
+    t.integer "stat_id",    null: false
+    t.integer "base_stat",  null: false
+    t.integer "effort",     null: false
+  end
+
   create_table "pokemonsets", force: true do |t|
     t.string   "title"
     t.integer  "specie"
@@ -77,14 +81,15 @@ ActiveRecord::Schema.define(version: 20141108182105) do
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "cached_votes_total",      default: 0
-    t.integer  "cached_votes_score",      default: 0
-    t.integer  "cached_votes_up",         default: 0
-    t.integer  "cached_votes_down",       default: 0
-    t.integer  "cached_weighted_score",   default: 0
-    t.integer  "cached_weighted_total",   default: 0
-    t.float    "cached_weighted_average", default: 0.0
+    t.integer  "cached_votes_total",                 default: 0
+    t.integer  "cached_votes_score",                 default: 0
+    t.integer  "cached_votes_up",                    default: 0
+    t.integer  "cached_votes_down",                  default: 0
+    t.integer  "cached_weighted_score",              default: 0
+    t.integer  "cached_weighted_total",              default: 0
+    t.float    "cached_weighted_average", limit: 24, default: 0.0
     t.integer  "creator"
+    t.integer  "lang",                               default: 1
   end
 
   add_index "pokemonsets", ["cached_votes_down"], name: "index_pokemonsets_on_cached_votes_down", using: :btree

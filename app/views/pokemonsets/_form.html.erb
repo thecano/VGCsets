@@ -133,7 +133,14 @@
     <div class="controls">
       <%= f.text_area :comment, :rows => 5, :style => "width:100%;" , :class => 'text_area' %>
     </div>
-  
+  <br>
+    <%= f.label :lang, :class => 'control-label' %>
+    <div class="controls">
+  <%= f.radio_button :lang, "2" %>  
+  <%= f.label :lang, t('english'), :value => "2" %>
+   <%= f.radio_button :lang, "1" %> 
+   <%= f.label :lang, t('spanish'), :value => "1" %>
+    </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
