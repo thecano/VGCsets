@@ -13,6 +13,7 @@ es:
   signout: Cerrar sesión
   details_spa: "Ver detalle del set (Español)"
   details_eng: "Ver detalle del set (Inglés)"
+  show: Detalle del set
   title:
     search: Resultados búsqueda
     specie: "Sets para "
