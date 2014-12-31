@@ -88,7 +88,7 @@
 <%= t("activerecord.attributes.pokemonset.ability") %>: <%= Ability.find_by(:local_language_id => @language, :ability_id => pokemonset.ability).name %><br>
 EVs: 
 <% if pokemonset.hp != nil %>
-<%= pokemonset.hp %> Hp 
+<%= pokemonset.hp %> HP 
 <% end %>
 <% if pokemonset.atk != nil %>
     <% if pokemonset.hp != nil %>
@@ -106,19 +106,19 @@ EVs:
         <% if pokemonset.hp != nil or pokemonset.atk != nil or pokemonset.defe != nil %>
          / 
         <% end %>
-   <%= pokemonset.spatk %> Sp.Atk
+   <%= pokemonset.spatk %> SpA
   <% end %>
   <% if pokemonset.spdef != nil %>
         <% if pokemonset.hp != nil or pokemonset.atk != nil or pokemonset.defe != nil or pokemonset.spatk != nil %>
          / 
         <% end %>
-   <%= pokemonset.spdef %> Sp.Def
+   <%= pokemonset.spdef %> SpD
    <% end %>
    <% if pokemonset.spd != nil %>
         <% if pokemonset.hp != nil or pokemonset.atk != nil or pokemonset.defe != nil or pokemonset.spatk != nil or pokemonset.spdef != nil %>
          / 
         <% end %>
-    <%= pokemonset.spd %> Spd
+    <%= pokemonset.spd %> Spe
     <% end %>
 <br>
 <% if I18n.locale == :en %>
