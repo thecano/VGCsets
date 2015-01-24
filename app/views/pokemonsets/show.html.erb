@@ -125,5 +125,9 @@ EVs:
 <% end %>
 <%= link_to t('buttons.specie')+@specie.name,specie_pokemonset_path(@specie.name), :class => 'btn'  %>
 
-
 </div>
+
+<script>
+var disqus_url = "http://vgcsets.com/pokemonsets/<%= @pokemonset.id %>";
+</script>
+<%- disqus_thread   %>

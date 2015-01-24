@@ -18,6 +18,7 @@
 //= require analytics
 //= require facebook
 //= require twitter/bootstrap
+//= require disqus_rails
 //= require_tree .
 
 // constructs the suggestion engine
