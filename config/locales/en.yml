@@ -67,7 +67,7 @@ en:
         lang: Comments are in...?
   helpers:
     links:
-      new: New
+      new: Add new set
   about_us_desc:
     title: About VGCsets.com
     par1: VGCsets is a chilean website created with the objective of being a database of sets for the VGC format for the Pokémon video games, is made so that any user can send a set to be displayed instantly on the homepage.
