@@ -27,6 +27,8 @@ def ensure_subdomain
     elsif request.subdomain == "www"
 	logger.debug "la url es"
 	logger.debug request.url
+	logger.debug request.original_url
+	logger.debug request.subdomains.first
 	redirect_to ("http://"+I18n.locale.to_s+"."+"vgcsets.com"+request.path)
 	
 	  #redirect_to request.url.sub("www","")
