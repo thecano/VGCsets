@@ -23,8 +23,11 @@ end
 def ensure_subdomain
     if request.subdomain==""
       redirect_to "http://"+I18n.locale.to_s+"."+request.host_with_port()+request.path
+	logger.debug "entro aca"
     elsif request.subdomain == "www"
-	  redirect_to request.url.sub("www",I18n.locale.to_s)
+	logger.debug "entraste aca request.host_with_port()+request.path"
+	redirect_to "http://"+I18n.locale.to_s+"."+request.host_with_port()+request.path
+	  #redirect_to request.url.sub("www","")
     #else 
     #  redirect_to "http://www.rubyonrails.org"
     end
