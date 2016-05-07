@@ -22,13 +22,14 @@ end
 
 def ensure_subdomain
     if request.subdomain==""
-	logger.debug "entra el if vacio"      
+	redirect_to "http://www.vgcsets.com"
+    end
+    if request.subdomain == "www" and I18n.locale.to_s == "en"
 	#redirect_to ("http://"+I18n.locale.to_s+"."+"vgcsets.com"+request.path)
 	redirect_to "http://en.vgcsets.com"
-    elsif request.subdomain == "www"
-	logger.debug "la url es"
+    elsif request.subdomain == "www" and I18n.locale.to_s == "es"
 	#redirect_to ("http://"+I18n.locale.to_s+"."+"vgcsets.com"+request.path)
-	redirect_to "http://en.vgcsets.com"
+	redirect_to "http://es.vgcsets.com"
 	
 	  #redirect_to request.url.sub("www","")
     #else 
