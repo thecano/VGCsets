@@ -41,7 +41,8 @@ gem 'mail_form'
 gem 'simple_form'
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 gem 'rails_12factor', group: :production
- gem 'unicorn', group: :production
+# gem 'unicorn', group: :production
+gem 'passenger'
  gem 'rails_admin'
  gem "chartkick"
  gem 'composite_primary_keys'
