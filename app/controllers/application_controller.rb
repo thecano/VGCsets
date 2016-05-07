@@ -27,7 +27,7 @@ def ensure_subdomain
 	  redirect_to request.url.sub("www",I18n.locale.to_s)
     #else 
     #  redirect_to "http://www.rubyonrails.org"
-    #end
+    end
 end
 
 private
