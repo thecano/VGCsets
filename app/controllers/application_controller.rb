@@ -25,6 +25,8 @@ def ensure_subdomain
       redirect_to "http://"+I18n.locale.to_s+"."+request.host_with_port()+request.path
     elsif request.subdomain == "www"
 	  redirect_to request.url.sub("www",I18n.locale.to_s)
+    else 
+      redirect_to "http://www.rubyonrails.org"
     end
 end
 
