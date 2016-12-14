@@ -1,0 +1,79 @@
+<h1>Teams#new</h1>
+<p>Find me in app/views/teams/new.html.erb</p>
+<%= form_tag("/search", method: "get") do %>
+   Nombre torneo:
+  <%= text_field(:top, :nombre_torneo) %>
+  Tipo torneo:
+   <%= select(:top, :tipo_torneo, [['Premier', 'Premier'], ['MSS', 'MSS'], ['Regional', 'Regional'], ['Nacional', 'Nacional'], ['Continental', 'Contintental'], ['Otro', 'Otro']]) %>
+  Formato:
+ <%= select(:top, :format, [['VGC17', 'VGC17'], ['VGC16', 'VGC16'], ['VGC15', 'VGC15']]) %>
+ <br>Fecha:
+ <%= select_date Date.today, prefix: :start_date %><br>
+<%= country_select("top", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR"]) %>
+<% @Pokes = Pokemon.all.english.order('name') %>
+1st Place
+<%= select_tag "player1", options_from_collection_for_select(Player.all, "id", "name") %>
+<%= select_tag "pokemon11", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon12", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon13", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon14", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon15", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon16", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+2nd Place
+<%= select_tag "player2", options_from_collection_for_select(Player.all, "id", "name") %>
+<%= select_tag "pokemon21", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon22", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon23", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon24", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon25", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon26", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+Top4
+<%= select_tag "player3", options_from_collection_for_select(Player.all, "id", "name") %>
+<%= select_tag "pokemon31", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon32", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon33", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon34", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon35", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon36", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+Top4
+<%= select_tag "player4", options_from_collection_for_select(Player.all, "id", "name") %>
+<%= select_tag "pokemon41", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon42", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon43", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon44", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon45", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon46", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+Top8
+<%= select_tag "player5", options_from_collection_for_select(Player.all, "id", "name") %>
+<%= select_tag "pokemon51", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon52", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon53", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon54", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon55", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon56", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+Top8
+<%= select_tag "player6", options_from_collection_for_select(Player.all, "id", "name") %>
+<%= select_tag "pokemon61", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon62", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon63", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon64", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon65", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon66", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+Top8
+<%= select_tag "player7", options_from_collection_for_select(Player.all, "id", "name") %>
+<%= select_tag "pokemon71", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon72", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon73", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon74", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon75", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon76", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+Top8
+<%= select_tag "player8", options_from_collection_for_select(Player.all, "id", "name") %>
+<%= select_tag "pokemon81", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon82", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon83", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon84", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon85", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+<%= select_tag "pokemon86", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
+  <%= submit_tag("Search") %>
+<% end %>

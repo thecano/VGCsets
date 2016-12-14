@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :players
+
+  get 'teams/new'
+
+  get 'teams/create'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'contact_form/new'
 

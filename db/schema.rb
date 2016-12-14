@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141216205627) do
+ActiveRecord::Schema.define(version: 20161214055243) do
 
   create_table "ability_names", id: false, force: true do |t|
     t.integer "ability_id",                   null: false
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(version: 20141216205627) do
   end
 
   add_index "nature_names", ["name"], name: "ix_nature_names_name", using: :btree
+
+  create_table "players", force: true do |t|
+    t.string   "name"
+    t.string   "nickname"
+    t.string   "country"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "youtube"
+    t.string   "blog"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pokemon_species_names", id: false, force: true do |t|
     t.integer "pokemon_species_id",            null: false
@@ -90,6 +102,7 @@ ActiveRecord::Schema.define(version: 20141216205627) do
     t.float    "cached_weighted_average", limit: 24, default: 0.0
     t.integer  "creator"
     t.integer  "lang",                               default: 1
+    t.string   "format",                             default: "VGC15"
   end
 
   add_index "pokemonsets", ["cached_votes_down"], name: "index_pokemonsets_on_cached_votes_down", using: :btree
@@ -99,6 +112,43 @@ ActiveRecord::Schema.define(version: 20141216205627) do
   add_index "pokemonsets", ["cached_weighted_average"], name: "index_pokemonsets_on_cached_weighted_average", using: :btree
   add_index "pokemonsets", ["cached_weighted_score"], name: "index_pokemonsets_on_cached_weighted_score", using: :btree
   add_index "pokemonsets", ["cached_weighted_total"], name: "index_pokemonsets_on_cached_weighted_total", using: :btree
+
+  create_table "recursos", force: true do |t|
+    t.integer  "team_id"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teams", force: true do |t|
+    t.integer  "player_id"
+    t.integer  "pokemon1_id"
+    t.integer  "pokemon2_id"
+    t.integer  "pokemon3_id"
+    t.integer  "pokemon4_id"
+    t.integer  "pokemon5_id"
+    t.integer  "pokemon6_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tops", force: true do |t|
+    t.integer  "team1_id"
+    t.integer  "team2_id"
+    t.integer  "team3_id"
+    t.integer  "team4_id"
+    t.integer  "team5_id"
+    t.integer  "team6_id"
+    t.integer  "team7_id"
+    t.integer  "team8_id"
+    t.string   "nombre_torneo"
+    t.string   "tipo_torneo"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "format"
+    t.date     "fecha"
+  end
 
   create_table "users", force: true do |t|
     t.string   "provider"
