@@ -48,7 +48,7 @@ gem 'rails_12factor'
 end
 
 # gem 'unicorn', group: :production
-gem 'passenger'
+gem 'passenger', '~>  4.0.18'
  gem 'rails_admin'
  gem "chartkick"
  gem 'composite_primary_keys'
