@@ -10,7 +10,7 @@ Pais: <%= @tops.country %>
 <% @team1 = Team.find(@tops.team1_id) %>
 <% @player1 = Player.find(@team1.player_id) %>
 
-<% if @player1.nickname.nil? %>
+<% if @player1.nickname.blank? %>
 <%= link_to @player1.name, :controller => "players",:action => "show",:id => @player1.id %>
 <% else %>
 <%= @player1.name %> 
@@ -29,7 +29,7 @@ Pais: <%= @tops.country %>
 2do lugar
 <% @team2 = Team.find(@tops.team2_id) %>
 <% @player2 = Player.find(@team2.player_id) %>
-<% if @player2.nickname.nil? %>
+<% if @player2.nickname.blank? %>
 <%= link_to @player2.name, :controller => "players",:action => "show",:id => @player2.id %>
 <% else %>
 <%= @player2.name %> 
@@ -49,7 +49,7 @@ Pais: <%= @tops.country %>
 	Top4
 	<% @team3 = Team.find(@tops.team3_id) %>
 <% @player3 = Player.find(@team3.player_id) %>
-<% if @player3.nickname.nil? %>
+<% if @player3.nickname.blank? %>
 <%= link_to @player3.name, :controller => "players",:action => "show",:id => @player3.id %>
 <% else %>
 <%= @player3.name %> 
@@ -69,7 +69,7 @@ Pais: <%= @tops.country %>
 	Top4
 	<% @team4 = Team.find(@tops.team4_id) %>
 <% @player4 = Player.find(@team4.player_id) %>
-<% if @player4.nickname.nil? %>
+<% if @player4.nickname.blank? %>
 <%= link_to @player4.name, :controller => "players",:action => "show",:id => @player4.id %>
 <% else %>
 <%= @player4.name %> 
@@ -90,7 +90,7 @@ Pais: <%= @tops.country %>
 	Top8
 	<% @team5 = Team.find(@tops.team5_id) %>
 <% @player5 = Player.find(@team5.player_id) %>
-<% if @player5.nickname.nil? %>
+<% if @player5.nickname.blank? %>
 <%= link_to @player5.name, :controller => "players",:action => "show",:id => @player5.id %>
 <% else %>
 <%= @player5.name %> 
@@ -109,7 +109,7 @@ Pais: <%= @tops.country %>
 	<h5>Top8
 	<% @team6 = Team.find(@tops.team6_id) %>
 <% @player6 = Player.find(@team6.player_id) %>
-<% if @player6.nickname.nil? %>
+<% if @player6.nickname.blank? %>
 <%= link_to @player6.name, :controller => "players",:action => "show",:id => @player6.id %>
 <% else %>
 <%= @player6.name %> 
@@ -130,7 +130,7 @@ Pais: <%= @tops.country %>
 	Top8
 	<% @team7 = Team.find(@tops.team7_id) %>
 <% @player7 = Player.find(@team7.player_id) %>
-<% if @player7.nickname.nil? %>
+<% if @player7.nickname.blank? %>
 <%= link_to @player7.name, :controller => "players",:action => "show",:id => @player7.id %>
 <% else %>
 <%= @player7.name %> 
@@ -151,7 +151,7 @@ Pais: <%= @tops.country %>
 	Top8
 	<% @team8 = Team.find(@tops.team8_id) %>
 <% @player8 = Player.find(@team8.player_id) %>
-<% if @player8.nickname.nil? %>
+<% if @player8.nickname.blank? %>
 <%= link_to @player8.name, :controller => "players",:action => "show",:id => @player8.id %>
 <% else %>
 <%= @player8.name %> 
