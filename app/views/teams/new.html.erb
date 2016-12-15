@@ -17,7 +17,7 @@
 <%= country_select("top", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR"]) %>
 <br>
 <% @Pokes = Pokemon.all.english.order('name') %>
-<% @Players = Player.all %>
+<% @Players = Player.all.order('name') %>
 1st Place
 <%= select_tag "player1", options_from_collection_for_select(@Players, "id", "name"), :include_blank => true %>
 <br><%= select_tag "pokemon11", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name"), :include_blank => true %>
