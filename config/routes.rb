@@ -32,7 +32,14 @@ resources "contacts", only: [:new, :create]
   
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
-
+get '/top/new' => 'teams#create_top'
+get 'teams/index' => 'teams#index'
+get '/teams' => 'teams#index'
+get '/teams/show/:id' => 'teams#show', as: 'id'
+get '/recursos/new/:id' => 'players#recursos_new', as: 'recursos'
+get '/recursos/create' => 'players#recursos_create', as: 'recursos_create'
+get '/vgc15' => 'pokemonsets#VGC15'
+get '/vgc16'=> 'pokemonsets#VGC16'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

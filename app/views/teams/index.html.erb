@@ -1,0 +1,11 @@
+<h3>Torneos</h3>
+<% if current_user and current_user.admin %>
+<%= link_to "Agregar Top8",{ :controller=>"teams",:action=>"new"}, :class => 'btn btn-primary'  %>
+<br>
+<% end %>
+ <% @tops.each do |top| %>
+ <h4>
+<%= top.country%> <%= top.nombre_torneo %>: <%= link_to "Ver Top8", :controller=>"teams",:action=>"show",:id=>top.id %>
+ </h4>
+ <% end %>
+ <%= paginate @tops , :pagination_class => "pagination-centered" %>

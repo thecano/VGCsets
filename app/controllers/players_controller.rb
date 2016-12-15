@@ -12,18 +12,33 @@ class PlayersController < ApplicationController
   def show
   end
 
+  def recursos_new
+    redirect_to "/" if !current_user or !current_user.admin
+  end
+  def recursos_create
+    redirect_to "/" if !current_user or !current_user.admin
+    @recurso=Recurso.new
+    @recurso.url=params[:recurso][:texto]
+    @recurso.descripcion=params[:recurso][:descripcion]
+    @recurso.team_id=params[:id]
+    redirect_to "/players" if @recurso.save
+
+  end
   # GET /players/new
   def new
+     redirect_to "/" if !current_user or !current_user.admin
     @player = Player.new
   end
 
   # GET /players/1/edit
   def edit
+    redirect_to "/" if !current_user or !current_user.admin
   end
 
   # POST /players
   # POST /players.json
   def create
+     redirect_to "/" if !current_user or !current_user.admin
     @player = Player.new(player_params)
 
     respond_to do |format|
@@ -40,6 +55,7 @@ class PlayersController < ApplicationController
   # PATCH/PUT /players/1
   # PATCH/PUT /players/1.json
   def update
+     redirect_to "/" if !current_user or !current_user.admin
     respond_to do |format|
       if @player.update(player_params)
         format.html { redirect_to @player, notice: 'Player was successfully updated.' }
@@ -53,13 +69,13 @@ class PlayersController < ApplicationController
 
   # DELETE /players/1
   # DELETE /players/1.json
-  def destroy
-    @player.destroy
-    respond_to do |format|
-      format.html { redirect_to players_url, notice: 'Player was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  #def destroy
+  #  @player.destroy
+  #  respond_to do |format|
+  #    format.html { redirect_to players_url, notice: 'Player was successfully destroyed.' }
+  #    format.json { head :no_content }
+  #  end
+  #end
 
   private
     # Use callbacks to share common setup or constraints between actions.

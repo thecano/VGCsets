@@ -1,0 +1,171 @@
+<h2><%= @tops.nombre_torneo %></h2>
+
+<h4></h4>
+Fecha: <%= @tops.fecha %>
+<br>
+Formato: <%= @tops.formato %>
+<br>
+Pais: <%= @tops.country %> 
+<h5>1er lugar
+<% @team1 = Team.find(@tops.team1_id) %>
+<% @player1 = Player.find(@team1.player_id) %>
+
+<% if @player1.nickname.nil? %>
+<%= link_to @player1.name, :controller => "players",:action => "show",:id => @player1.id %>
+<% else %>
+<%= @player1.name %> 
+(<%= link_to @player1.nickname, :controller => "players",:action => "show",:id => @player1.id %>)
+<% end %>
+</h5>
+
+<br>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team1.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team1.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team1.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team1.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team1.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team1.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+<br><h5>
+2do lugar
+<% @team2 = Team.find(@tops.team2_id) %>
+<% @player2 = Player.find(@team2.player_id) %>
+<% if @player2.nickname.nil? %>
+<%= link_to @player2.name, :controller => "players",:action => "show",:id => @player2.id %>
+<% else %>
+<%= @player2.name %> 
+(<%= link_to @player2.nickname, :controller => "players",:action => "show",:id => @player2.id %>)
+<% end %>
+</h5>
+<br>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team2.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team2.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team2.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team2.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team2.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team2.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+<br>
+<h5>
+	<% if !@tops.team3_id.nil? %>
+	Top4
+	<% @team3 = Team.find(@tops.team3_id) %>
+<% @player3 = Player.find(@team3.player_id) %>
+<% if @player3.nickname.nil? %>
+<%= link_to @player3.name, :controller => "players",:action => "show",:id => @player3.id %>
+<% else %>
+<%= @player3.name %> 
+(<%= link_to @player3.nickname, :controller => "players",:action => "show",:id => @player3.id %>)
+<% end %>
+</h5><br>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team3.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team3.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team3.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team3.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team3.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team3.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+	<br>
+	<% end %>
+	<h5>
+	<% if !@tops.team4_id.nil? %>
+	Top4
+	<% @team4 = Team.find(@tops.team4_id) %>
+<% @player4 = Player.find(@team4.player_id) %>
+<% if @player4.nickname.nil? %>
+<%= link_to @player4.name, :controller => "players",:action => "show",:id => @player4.id %>
+<% else %>
+<%= @player4.name %> 
+(<%= link_to @player4.nickname, :controller => "players",:action => "show",:id => @player4.id %>)
+<% end %>
+</h5>
+<br>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team4.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team4.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team4.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team4.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team4.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team4.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+	<br>
+	<% end %>
+	<h5>
+	<% if !@tops.team5_id.nil? %>
+	Top8
+	<% @team5 = Team.find(@tops.team5_id) %>
+<% @player5 = Player.find(@team5.player_id) %>
+<% if @player5.nickname.nil? %>
+<%= link_to @player5.name, :controller => "players",:action => "show",:id => @player5.id %>
+<% else %>
+<%= @player5.name %> 
+(<%= link_to @player5.nickname, :controller => "players",:action => "show",:id => @player5.id %>)
+<% end %>
+</h5><br>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team5.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team5.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team5.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team5.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team5.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team5.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+	<br>
+	<% end %>
+	<% if !@tops.team6_id.nil? %>
+	<h5>Top8
+	<% @team6 = Team.find(@tops.team6_id) %>
+<% @player6 = Player.find(@team6.player_id) %>
+<% if @player6.nickname.nil? %>
+<%= link_to @player6.name, :controller => "players",:action => "show",:id => @player6.id %>
+<% else %>
+<%= @player6.name %> 
+(<%= link_to @player6.nickname, :controller => "players",:action => "show",:id => @player6.id %>)
+<% end %>
+</h5>
+<br>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team6.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team6.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team6.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team6.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team6.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team6.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+	<br>
+	<% end %>
+	<h5>
+	<% if !@tops.team7_id.nil? %>
+	Top8
+	<% @team7 = Team.find(@tops.team7_id) %>
+<% @player7 = Player.find(@team7.player_id) %>
+<% if @player7.nickname.nil? %>
+<%= link_to @player7.name, :controller => "players",:action => "show",:id => @player7.id %>
+<% else %>
+<%= @player7.name %> 
+(<%= link_to @player7.nickname, :controller => "players",:action => "show",:id => @player7.id %>)
+<% end %>
+</h5>
+<br>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team7.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team7.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team7.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team7.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team7.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team7.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+	<br>
+	<% end %>
+	<h5>
+	<% if !@tops.team8_id.nil? %>
+	Top8
+	<% @team8 = Team.find(@tops.team8_id) %>
+<% @player8 = Player.find(@team8.player_id) %>
+<% if @player8.nickname.nil? %>
+<%= link_to @player8.name, :controller => "players",:action => "show",:id => @player8.id %>
+<% else %>
+<%= @player8.name %> 
+(<%= link_to @player8.nickname, :controller => "players",:action => "show",:id => @player8.id %>)
+<% end %>
+</h5>
+<br>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team8.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team8.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team8.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team8.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team8.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team8.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+	<br>
+	<% end %>
+<h4>
+<%= link_to 'Volver a lista de torneos', teams_path %></h4>

@@ -1,39 +1,103 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @player.name %>
 </p>
 
 <p>
-  <strong>Nickname:</strong>
+  <strong>Nick:</strong>
   <%= @player.nickname %>
 </p>
-
+<% if !@player.country.blank? %>
 <p>
-  <strong>Country:</strong>
+  <strong>Pais:</strong>
   <%= @player.country %>
 </p>
-
+<% end %>
+<% if !@player.facebook.blank? %>
 <p>
-  <strong>Facebook:</strong>
+  <strong>Facebook fanpage:</strong>
   <%= @player.facebook %>
 </p>
-
+<% end %>
+<% if !@player.twitter.blank? %>
 <p>
   <strong>Twitter:</strong>
   <%= @player.twitter %>
 </p>
-
+<% end %>
+<% if !@player.youtube.blank? %>
 <p>
   <strong>Youtube:</strong>
   <%= @player.youtube %>
 </p>
-
+<% end %>
+<% if !@player.blog.blank? %>
 <p>
   <strong>Blog:</strong>
   <%= @player.blog %>
 </p>
+<% end %>
+<% @teams=Team.where(:player_id=>@player.id)%>
+ <% @teams.each do |team| %>
+ 
+<% if !Top.where(:team1_id=>team.id).empty? %>
+1er Lugar - 
+<% @nom = Top.where(:team1_id=>team.id).first %>
+<%= link_to @nom.nombre_torneo, :controller => "teams",:action => "show",:id => @nom.id %>
+<% elsif  !Top.where(:team2_id=>team.id).empty? %>
+2do Lugar - 
+<% @nom = Top.where(:team2_id=>team.id).first %>
+<%= link_to @nom.nombre_torneo, :controller => "teams",:action => "show",:id => @nom.id %>
+<% elsif  !Top.where(:team3_id=>team.id).empty? %>
+Top4 - 
+<% @nom = Top.where(:team3_id=>team.id).first %>
+<%= link_to @nom.nombre_torneo, :controller => "teams",:action => "show",:id => @nom.id %>
+<% elsif  !Top.where(:team4_id=>team.id).empty? %>
+Top4 - 
+<% @nom = Top.where(:team4_id=>team.id).first %>
+<%= link_to @nom.nombre_torneo, :controller => "teams",:action => "show",:id => @nom.id %>
+<% elsif  !Top.where(:team5_id=>team.id).empty? %>
+Top8 - 
+<% @nom = Top.where(:team5_id=>team.id).first %>
+<%= link_to @nom.nombre_torneo, :controller => "teams",:action => "show",:id => @nom.id %>
+<% elsif  !Top.where(:team6_id=>team.id).empty? %>
+Top8 - 
+<% @nom = Top.where(:team6_id=>team.id).first %>
+<%= link_to @nom.nombre_torneo, :controller => "teams",:action => "show",:id => @nom.id %>
+<% elsif  !Top.where(:team7_id=>team.id).empty? %>
+Top8 - 
+<% @nom = Top.where(:team7_id=>team.id).first %>
+<%= link_to @nom.nombre_torneo, :controller => "teams",:action => "show",:id => @nom.id %>
+<% elsif  !Top.where(:team8_id=>team.id).empty? %>
+Top8 - 
+<% @nom = Top.where(:team8_id=>team.id).first %>
+<%= link_to @nom.nombre_torneo, :controller => "teams",:action => "show",:id => @nom.id %>
+<% end %>
 
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+ <br>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => team.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => team.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => team.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => team.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => team.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => team.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <br>
+<% @recursos=Recurso.where(:team_id==team.id) %>
+ <% @recursos.each do |recurso| %>
+   <%= link_to recurso.descripcion,recurso.url%>
+   <br>
+ <% end %>
+
+
+<% if current_user and current_user.admin %> 
+ <br>
+<%= link_to 'Agregar recurso',:controller=>'players',:action=>'recursos_new',:id=>team.id  %>
+<% end %>
+<br>
+ <% end %>
+<% if current_user and current_user.admin %> 
+<%= link_to 'Edit', edit_player_path(@player) %> 
+<% end %>
+<%= link_to 'Volver a lista de jugadores', players_path %>

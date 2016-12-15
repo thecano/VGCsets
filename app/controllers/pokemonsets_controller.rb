@@ -29,12 +29,12 @@ end
   # GET /pokemonsets
   # GET /pokemonsets.json
   def index
-    @pokemonsets = Pokemonset.all.order("created_at desc").page(params[:page]).per(10)
+    @pokemonsets = Pokemonset.where(:formato=>'VGC17').order("created_at desc").page(params[:page]).per(10)
     @titulo=t("title.index")
   end
 
   def best
-    @pokemonsets = Pokemonset.all.order(:cached_votes_score => :desc).page(params[:page]).per(10)
+    @pokemonsets = Pokemonset.where(:formato=>'VGC17').order(:cached_votes_score => :desc).page(params[:page]).per(10)
    @titulo=t("top_rated")
    render 'index'
   end
@@ -52,7 +52,7 @@ end
   
   def search
      
-    @sets = Pokemonset.all
+    @sets = Pokemonset.where(:formato=>'VGC17')
     @unique_index = @sets.map{|t| t.specie}.uniq 
     @existing_pokemon= Pokemon.where(:pokemon_species_id => @unique_index).where(:local_language_id => 9).order(:pokemon_species_id => :asc).page(params[:page]).per(43)
 
@@ -60,7 +60,7 @@ end
 
   def process_search
     
-    aux_sets=Pokemonset.all.page(params[:page]).per(10)
+    aux_sets=Pokemonset.where(:formato=>'VGC17').page(params[:page]).per(10)
     aux_sets=aux_sets.where(:specie => params[:specie][:id]).order(:cached_votes_score => :desc).page(params[:page]).per(10) unless params[:specie][:id].blank?    
     aux_sets=aux_sets.where(:item => params[:item][:id]).order(:cached_votes_score => :desc).page(params[:page]).per(10) unless params[:item][:id].blank?  
     aux_sets=aux_sets.where(:nature => params[:nature][:id]).order(:cached_votes_score => :desc).page(params[:page]).per(10) unless params[:nature][:id].blank?  
@@ -100,9 +100,20 @@ end
     @arreglo.push(["Sp.Def",@poke_stats[4].base_stat])
     @arreglo.push(["Spd",@poke_stats[5].base_stat])
     
-    @pokemonsets = Pokemonset.where(:specie => @pk_index.id).order(:cached_votes_score => :desc).page(params[:page]).per(10)
+    @pokemonsets = Pokemonset.where(:formato=>'VGC17').where(:specie => @pk_index.id).order(:cached_votes_score => :desc).page(params[:page]).per(10)
    	@titulo = t("title.specie")+newname
 	 render 'index'
+  end
+
+  def VGC15
+  @pokemonsets = Pokemonset.where(:formato=>'VGC15').order("created_at desc").page(params[:page]).per(10)
+    @titulo=t("title.index")
+    render 'index'
+  end
+  def VGC16
+  @pokemonsets = Pokemonset.where(:formato=>'VGC16').order("created_at desc").page(params[:page]).per(10)
+    @titulo=t("title.index")
+    render 'index'
   end
 
   # GET /pokemonsets/new

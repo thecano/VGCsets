@@ -1,0 +1,8 @@
+<%= form_tag("/recursos/create", method: "get") do %>
+  Descripción recurso:
+  <%= text_field(:recurso, :descripcion) %>
+  Link recurso:
+  <%= text_field(:recurso, :texto) %>
+  <%= hidden_field_tag 'id', params[:id] %>
+<%= submit_tag("Enviar") %>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214055243) do
+ActiveRecord::Schema.define(version: 20161214233556) do
 
   create_table "ability_names", id: false, force: true do |t|
     t.integer "ability_id",                   null: false
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20161214055243) do
     t.float    "cached_weighted_average", limit: 24, default: 0.0
     t.integer  "creator"
     t.integer  "lang",                               default: 1
-    t.string   "format",                             default: "VGC15"
+    t.string   "formato",                            default: "VGC15"
   end
 
   add_index "pokemonsets", ["cached_votes_down"], name: "index_pokemonsets_on_cached_votes_down", using: :btree
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 20161214055243) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "descripcion"
   end
 
   create_table "teams", force: true do |t|
@@ -146,7 +147,7 @@ ActiveRecord::Schema.define(version: 20161214055243) do
     t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "format"
+    t.string   "formato"
     t.date     "fecha"
   end
 

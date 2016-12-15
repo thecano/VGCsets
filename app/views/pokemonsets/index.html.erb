@@ -10,12 +10,6 @@
 <table class="table table-striped">
   <thead>
 
-<% if request.fullpath.split("/").third == "specie" %>
-<h4>Base Stats:</h4>
-<%= bar_chart @arreglo %>
-
-<% end %>
-
 
 
   <% if flash[:notice] %>
@@ -24,7 +18,6 @@
   <%= flash[:notice] %>
  </div>
 <% end %>
-
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_pokemonset_path,

@@ -57,6 +57,24 @@
                         <li><a href="/pokemonsets/best"> <%= t(:top_rated) %></a></li>
                             <li><a href="/pokemonsets/search"> <%= t(:search) %></a></li>
 
+                            <li><a href="/teams"> Top cuts</a></li>
+                            <li><a href="/players"> Players</a></li>
+
+ <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">  Legacy <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+
+
+
+
+            <li><a href="/vgc16"> VGC16 </a></li>
+            <li class="divider"></li>
+            <li><a href="/vgc15">VGC15 </a></li>
+          </ul>
+        </li>
+
+
+
                 </ul> 
                
 
@@ -107,7 +125,7 @@
 </div>
 
 
-<div class="span10">
+<div class="span11">
 
 <%= yield %>
 
@@ -119,7 +137,7 @@
 </div>
 
 
-<div class="span9">
+<div class="span11">
 
 
 <%= yield %>
@@ -132,7 +150,7 @@
 </div>
 
 
-<div class="span7">
+<div class="span9">
 
 
 <%= yield %>
