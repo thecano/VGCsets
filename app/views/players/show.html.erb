@@ -24,7 +24,7 @@
 <% if !@player.twitter.blank? %>
 <p>
   <strong>Twitter:</strong>
-  <%= link_to @player.twitter %>
+  <%= link_to @player.twitter.gsub("http://twiiter.com","@"), @player.twitter %>
 </p>
 <% end %>
 <% if !@player.youtube.blank? %>
