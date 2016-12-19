@@ -1,6 +1,6 @@
 <h3>Torneos</h3>
 <%= form_tag '/teams', :method => 'get' do %>
-País:<%= country_select("teams", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR"], :include_blank => '') %>
+País:<%= country_select("teams", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT"], :include_blank => '') %>
 Formato:<%= select("teams", "formato", [['VGC17', 'VGC17'], ['VGC16', 'VGC16'], ['VGC15', 'VGC15']], :include_blank => '') %>
 Tipo Torneo:<%= select("teams", "tipo_torneo", [['Premier', 'Premier'], ['MSS', 'MSS'], ['Regional', 'Regional'], ['Nacional', 'Nacional'], ['Continental', 'Contintental'], ['Otro', 'Otro']], :include_blank => '') %>
   <%= submit_tag t("search_desc.filter") , :name => nil, :class => "search-me btn btn-primary"  %>

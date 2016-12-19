@@ -13,7 +13,7 @@
  <br>Fecha:
  <%= select_date Date.today, prefix: :top %><br>
 <br>
-<%= country_select("top", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR"]) %>
+<%= country_select("top", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT"]) %>
 <br>
 <% @Pokes = Pokemon.all.english.order('name') %>
 <% @Players = Player.all.order('name') %>

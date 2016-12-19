@@ -39,8 +39,9 @@
   <%= link_to @player.blog %>
 </p>
 <% end %>
-<% @teams=Team.where(:player_id=>@player.id)%>
- <% @teams.each do |team| %>
+<% @teams=Team.where(:player_id=>@player.id).to_a.sort_by(&:fecha).reverse %>
+
+<% @teams.each do |team| %>
  
 <% if !Top.where(:team1_id=>team.id).empty? %>
 1er Lugar - 
