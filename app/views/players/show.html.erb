@@ -24,7 +24,7 @@
 <% if !@player.twitter.blank? %>
 <p>
   <strong>Twitter:</strong>
-  <%= link_to @player.twitter.gsub("http://twiiter.com","@"), @player.twitter %>
+  <%= link_to @player.twitter.gsub("https://twitter.com/","@"), @player.twitter %>
 </p>
 <% end %>
 <% if !@player.youtube.blank? %>
@@ -91,13 +91,13 @@ Top8 -
  <% end %>
 
 
-<% if current_user and current_user.admin %> 
+<% if current_user and (current_user.admin  or current_user.mod) %> 
  <br>
 <%= link_to 'Agregar recurso',:controller=>'players',:action=>'recursos_new',:id=>team.id  %>
 <% end %>
 <br>
  <% end %>
-<% if current_user and current_user.admin %> 
+<% if current_user and (current_user.admin  and current_user.mod) %> 
 <%= link_to 'Edit', edit_player_path(@player) %> 
 <% end %>
 <%= link_to 'Volver a lista de jugadores', players_path %>

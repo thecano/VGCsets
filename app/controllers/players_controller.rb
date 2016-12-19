@@ -4,7 +4,10 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
-    @players = Player.order(:name)
+    @players = Player.order(:name).page(params[:page]).per(20)
+    if params[:player].present?
+    @players=@players.where(:country=>params[:player][:country]).page(params[:page]).per(20)    
+    end
   end
 
   # GET /players/1
@@ -13,10 +16,10 @@ class PlayersController < ApplicationController
   end
 
   def recursos_new
-    redirect_to "/" if !current_user or !current_user.admin
+    redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
   end
   def recursos_create
-    redirect_to "/" if !current_user or !current_user.admin
+    redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
     @recurso=Recurso.new
     @recurso.url=params[:recurso][:texto]
     @recurso.descripcion=params[:recurso][:descripcion]
@@ -26,19 +29,19 @@ class PlayersController < ApplicationController
   end
   # GET /players/new
   def new
-     redirect_to "/" if !current_user or !current_user.admin
+     redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
     @player = Player.new
   end
 
   # GET /players/1/edit
   def edit
-    redirect_to "/" if !current_user or !current_user.admin
+    redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
   end
 
   # POST /players
   # POST /players.json
   def create
-     redirect_to "/" if !current_user or !current_user.admin
+     redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
     @player = Player.new(player_params)
 
     respond_to do |format|
@@ -55,7 +58,7 @@ class PlayersController < ApplicationController
   # PATCH/PUT /players/1
   # PATCH/PUT /players/1.json
   def update
-     redirect_to "/" if !current_user or !current_user.admin
+     redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
     respond_to do |format|
       if @player.update(player_params)
         format.html { redirect_to @player, notice: 'Player was successfully updated.' }

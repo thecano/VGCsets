@@ -1,4 +1,10 @@
-<h1>Listing players</h1>
+Filtrar:
+<%= form_tag '/players', :method => 'get' do %>
+<%= country_select("player", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR"]) %>
+  <%= submit_tag t("search_desc.filter") , :name => nil, :class => "search-me btn btn-primary"  %>
+<% end %>
+
+<h1>Jugadores</h1>
 
 <table>
   <thead>
@@ -21,7 +27,7 @@
     <% end %>
   </tbody>
 </table>
-
+ <%= paginate @players , :pagination_class => "pagination-centered" %>
 <br>
 <% if current_user and current_user.admin %> 
 <%= link_to 'New Player', new_player_path %>

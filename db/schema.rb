@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214233556) do
+ActiveRecord::Schema.define(version: 20161219193134) do
 
   create_table "ability_names", id: false, force: true do |t|
     t.integer "ability_id",                   null: false
@@ -162,6 +162,7 @@ ActiveRecord::Schema.define(version: 20161214233556) do
     t.datetime "updated_at"
     t.boolean  "banned"
     t.boolean  "admin"
+    t.boolean  "mod",        default: false
   end
 
   create_table "votes", force: true do |t|
