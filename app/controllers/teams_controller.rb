@@ -8,7 +8,7 @@ class TeamsController < ApplicationController
     if params[:teams].present?
     @tops=@tops.where(:country=>params[:teams][:country]).page(params[:page]).per(20) unless params[:teams][:country].blank?
     @tops=@tops.where(:formato=>params[:teams][:formato]).page(params[:page]).per(20) unless params[:teams][:formato].blank?
-    @tops=@tops.where(:formato=>params[:teams][:tipo_torneo]).page(params[:page]).per(20) unless params[:teams][:tipo_torneo].blank?    
+    @tops=@tops.where(:tipo_torneo=>params[:teams][:tipo_torneo]).page(params[:page]).per(20) unless params[:teams][:tipo_torneo].blank?    
     end
   end
 
