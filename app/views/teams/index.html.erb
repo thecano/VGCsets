@@ -12,7 +12,7 @@ Tipo Torneo:<%= select("teams", "tipo_torneo", [['Premier', 'Premier'], ['MSS', 
 <% end %>
  <% @tops.each do |top| %>
  <h4>
-<%= top.fecha %> <%= top.country%> <%= top.nombre_torneo %>: <%= link_to "Ver Top8", :controller=>"teams",:action=>"show",:id=>top.id %>
+<%= top.fecha %> <%= top.country%> <%= top.nombre_torneo %> <%= link_to "Ver Top8", {:controller=>"teams",:action=>"show",:id=>top.id}, :class => 'btn btn-default' %>
  </h4>
  <% end %>
  <%= paginate @tops , :pagination_class => "pagination-centered" %>

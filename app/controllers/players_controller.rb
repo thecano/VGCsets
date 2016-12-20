@@ -4,7 +4,7 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
-    @players = Player.order(:name).page(params[:page]).per(20)
+    @players = Player.order(:name).page(params[:page]).per(30)
     if params[:player].present?
     @players=@players.where(:country=>params[:player][:country]).page(params[:page]).per(20)    
     end

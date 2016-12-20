@@ -1,12 +1,12 @@
 es:
   home: Inicio
   login_required: Necesitas iniciar sesión para crear un set
-  top_rated: Mejor puntuados
+  top_rated: Top Rated
   search: Búsqueda
   language: Idioma
   english: Inglés
   spanish: Español
-  about_us: Sobre el sitio
+  about_us: About
   contact: Contacto
   facebook_login: Facebook Login
   twitter_login: Twitter Login

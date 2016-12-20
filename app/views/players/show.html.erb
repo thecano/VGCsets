@@ -98,7 +98,7 @@ Top8 -
 <% end %>
 <br>
  <% end %>
-<% if current_user and (current_user.admin  and current_user.mod) %> 
-<%= link_to 'Edit', edit_player_path(@player) %> 
+<% if current_user and (current_user.admin or current_user.mod) %> 
+<%= link_to 'Editar', edit_player_path(@player), :class => 'btn btn-primary' %> 
 <% end %>
-<%= link_to 'Volver a lista de jugadores', players_path %>
+<%= link_to 'Volver a lista de jugadores', players_path, :class => 'btn btn-primary' %>
