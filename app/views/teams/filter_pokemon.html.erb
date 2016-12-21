@@ -1,46 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Nombre:</strong>
-  <%= @player.name %>
-</p>
-
-<p>
-  <strong>Nick:</strong>
-  <%= @player.nickname %>
-</p>
-<% if !@player.country.blank? %>
-<p>
-  <strong>Pais:</strong>
-  <%= @player.country %>
-</p>
-<% end %>
-<% if !@player.facebook.blank? %>
-<p>
-  <strong>Facebook fanpage:</strong>
-  <%= link_to @player.facebook, @player.facebook %>
-</p>
-<% end %>
-<% if !@player.twitter.blank? %>
-<p>
-  <strong>Twitter:</strong>
-  <%= link_to @player.twitter.gsub("https://twitter.com/","@"), @player.twitter %>
-</p>
-<% end %>
-<% if !@player.youtube.blank? %>
-<p>
-  <strong>Youtube:</strong>
-  <%= link_to @player.youtube, @player.youtube %>
-</p>
-<% end %>
-<% if !@player.blog.blank? %>
-<p>
-  <strong>Blog:</strong>
-  <%= link_to @player.blog, @player.blog %>
-</p>
-<% end %>
-<% @teams=Team.where(:player_id=>@player.id).to_a.sort_by(&:fecha).reverse %>
-
+<h3>Teams con <%= @nombre %>
+</h3>
 <% @teams.each do |team| %>
  
 <% if !Top.where(:team1_id=>team.id).empty? %>
@@ -106,7 +65,3 @@ Top8 -
 <% end %>
 <br>
  <% end %>
-<% if current_user and (current_user.admin or current_user.mod) %> 
-<%= link_to 'Editar', edit_player_path(@player), :class => 'btn btn-primary' %> 
-<% end %>
-<%= link_to 'Volver a lista de jugadores', players_path, :class => 'btn btn-primary' %>

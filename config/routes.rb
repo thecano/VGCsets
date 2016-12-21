@@ -40,6 +40,7 @@ get '/recursos/new/:id' => 'players#recursos_new', as: 'recursos'
 get '/recursos/create' => 'players#recursos_create', as: 'recursos_create'
 get '/vgc15' => 'pokemonsets#VGC15'
 get '/vgc16'=> 'pokemonsets#VGC16'
+get '/teams/filter' => 'teams#filter_pokemon'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

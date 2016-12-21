@@ -10,10 +10,23 @@ class TeamsController < ApplicationController
     @tops=@tops.where(:formato=>params[:teams][:formato]).page(params[:page]).per(20) unless params[:teams][:formato].blank?
     @tops=@tops.where(:tipo_torneo=>params[:teams][:tipo_torneo]).page(params[:page]).per(20) unless params[:teams][:tipo_torneo].blank?    
     end
+  @Pokes = Pokemon.all.english.order('name')
   end
 
   def show
   @tops=Top.find(params[:id])
+  end
+
+  def filter_pokemon
+    if params[:pokemon].present?
+    @nombre = Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => params[:pokemon]).name
+    @teams=Team.where(:pokemon1_id=>params[:pokemon])+Team.where(:pokemon2_id=>params[:pokemon]) unless params[:pokemon].blank?
+    @teams=@teams+Team.where(:pokemon3_id=>params[:pokemon])+Team.where(:pokemon4_id=>params[:pokemon]) unless params[:pokemon].blank?
+    @teams=@teams+Team.where(:pokemon5_id=>params[:pokemon])+Team.where(:pokemon6_id=>params[:pokemon]) unless params[:pokemon].blank?
+    @teams=@teams.to_a.sort_by(&:fecha).reverse unless params[:pokemon].blank?
+    else
+    redirect_to '/teams'      
+    end 
   end
 
   def create
