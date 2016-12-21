@@ -55,6 +55,12 @@ class TeamsController < ApplicationController
     @pokes = @pokes.each_with_object(Hash.new(0)) { |word,counts| counts[word] += 1 }
     @pokes = @pokes.sort_by { |poke, cantidad| cantidad }.reverse
     @pokes = Kaminari.paginate_array(@pokes).page(params[:page]).per(10)
+    if params[:page].blank?
+      pagina=1
+    else
+      pagina=params[:page].to_i
+    end
+    @cont = 10*(pagina-1)+1
   end
   
   def create_single
