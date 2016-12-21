@@ -1,0 +1,9 @@
+ <h2>Estadisticas:</h2>
+ <% @pokes.each do |poke| %>
+ <h4>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => poke[0]).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+<%= Pokemon.find(poke[0]).name %>, Total: <%= poke[1] %> (<%= poke[1]*100/@tamanio %>%)
+ </h4>
+ <% end %>
+
+ <%= paginate @pokes , :pagination_class => "pagination-centered" %>

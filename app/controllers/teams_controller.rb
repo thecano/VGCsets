@@ -32,6 +32,30 @@ class TeamsController < ApplicationController
 
   def create
   end
+
+  def stats
+
+    if params[:teams].present?
+      if params[:teams][:range].to_i==0
+        teams = Top.where(:formato => 'VGC17')
+      else
+        teams = Top.where(:formato => 'VGC17').where(:fecha=>DateTime.now-params[:teams][:range].to_i..DateTime.now)
+      end
+    teams = teams.where(:country=>params[:teams][:country]) unless params[:teams][:country].blank?
+    teams=teams.pluck(:team1_id,:team2_id,:team3_id,:team4_id,:team5_id,:team6_id)
+    teams = teams.flatten
+    teams = teams.compact
+    @pokes = Team.where(:id=>teams).pluck(:pokemon1_id,:pokemon2_id,:pokemon3_id,:pokemon4_id,:pokemon5_id,:pokemon6_id)
+    else
+    redirect_to '/teams'
+    end
+    @pokes = @pokes.flatten
+    @pokes = @pokes.compact
+    @tamanio = @pokes.size/6
+    @pokes = @pokes.each_with_object(Hash.new(0)) { |word,counts| counts[word] += 1 }
+    @pokes = @pokes.sort_by { |poke, cantidad| cantidad }.reverse
+    @pokes = Kaminari.paginate_array(@pokes).page(params[:page]).per(10)
+  end
   
   def create_single
     redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
