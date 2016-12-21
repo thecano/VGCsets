@@ -42,7 +42,7 @@ class TeamsController < ApplicationController
         teams = Top.where(:formato => 'VGC17').where(:fecha=>DateTime.now-params[:teams][:range].to_i..DateTime.now)
       end
     teams = teams.where(:country=>params[:teams][:country]) unless params[:teams][:country].blank?
-    teams=teams.pluck(:team1_id,:team2_id,:team3_id,:team4_id,:team5_id,:team6_id)
+    teams=teams.pluck(:team1_id,:team2_id,:team3_id,:team4_id,:team5_id,:team6_id,:team7_id,:team8_id)
     teams = teams.flatten
     teams = teams.compact
     @pokes = Team.where(:id=>teams).pluck(:pokemon1_id,:pokemon2_id,:pokemon3_id,:pokemon4_id,:pokemon5_id,:pokemon6_id)
