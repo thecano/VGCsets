@@ -41,7 +41,10 @@ get '/recursos/create' => 'players#recursos_create', as: 'recursos_create'
 get '/vgc15' => 'pokemonsets#VGC15'
 get '/vgc16'=> 'pokemonsets#VGC16'
 get '/teams/filter' => 'teams#filter_pokemon'
+get '/teams/new_single' => 'teams#new_single'
+get '/teams/create_single' => 'teams#create_single' 
   # Example of regular route:
+
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

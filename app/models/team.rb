@@ -20,6 +20,8 @@ attr_accessor :fecha #both
 	 	self.fecha = Top.where(:team7_id=>self.id).first.fecha
 	 elsif !Top.where(:team8_id=>self.id).empty?
 	 	self.fecha = Top.where(:team8_id=>self.id).first.fecha
+	 else
+	 	self.fecha = DateTime.new(2000, Time.now.month, Time.now.day)
 	 end
 	end
 end

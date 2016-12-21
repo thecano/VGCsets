@@ -32,6 +32,26 @@ class TeamsController < ApplicationController
 
   def create
   end
+  
+  def create_single
+    redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
+    @team = Team.new
+    @team.player_id = params[:player]
+    @team.pokemon1_id = params[:pokemon1]
+    @team.pokemon2_id = params[:pokemon2]
+    @team.pokemon3_id = params[:pokemon3]
+    @team.pokemon4_id = params[:pokemon4]
+    @team.pokemon5_id = params[:pokemon5]
+    @team.pokemon6_id = params[:pokemon6]
+    @team.desc = params[:team][:desc]
+    if @team.save
+      redirect_to '/players/'+params[:player].to_s
+    end
+    
+  end
+
+  def new_single
+  end
 
 
   def create_top

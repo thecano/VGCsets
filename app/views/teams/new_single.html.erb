@@ -1,0 +1,18 @@
+<h1>Agregar Top</h1>
+<%= form_tag("/teams/create_single", method: "get") do %>
+ Descripción breve:
+  <%= text_field(:team, :desc) %>
+<br>
+<% @Pokes = Pokemon.all.english.order('name') %>
+<% @Players = Player.all.order('name') %>
+1st Place
+<%= select_tag "player", options_from_collection_for_select(@Players, "id", "name"), :include_blank => true %>
+<br>
+<%= select_tag "pokemon1", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name"), :include_blank => true %>
+<%= select_tag "pokemon2", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name"), :include_blank => true %>
+<%= select_tag "pokemon3", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name"), :include_blank => true %>
+<%= select_tag "pokemon4", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name"), :include_blank => true %>
+<%= select_tag "pokemon5", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name"), :include_blank => true %>
+<%= select_tag "pokemon6", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name"), :include_blank => true %>
+  <br><%= submit_tag("Enviar") %>
+<% end %>

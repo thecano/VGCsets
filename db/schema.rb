@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219193134) do
+ActiveRecord::Schema.define(version: 20161221023626) do
 
   create_table "ability_names", id: false, force: true do |t|
     t.integer "ability_id",                   null: false
@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 20161219193134) do
     t.integer  "pokemon6_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "desc"
   end
 
   create_table "tops", force: true do |t|

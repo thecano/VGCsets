@@ -83,6 +83,8 @@ Top8 -
 <% @nom = Top.where(:team8_id=>team.id).first %>
 <%= link_to @nom.country+' '+@nom.nombre_torneo, :controller => "teams",:action => "show",:id => @nom.id %>
 <%= @nom.fecha %>
+<% else %>
+<%= team.desc %>
 <% end %>
 
  <br>
