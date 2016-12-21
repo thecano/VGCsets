@@ -24,6 +24,7 @@ class TeamsController < ApplicationController
     @teams=@teams+Team.where(:pokemon3_id=>params[:pokemon])+Team.where(:pokemon4_id=>params[:pokemon]) unless params[:pokemon].blank?
     @teams=@teams+Team.where(:pokemon5_id=>params[:pokemon])+Team.where(:pokemon6_id=>params[:pokemon]) unless params[:pokemon].blank?
     @teams=@teams.to_a.sort_by(&:fecha).reverse unless params[:pokemon].blank?
+    @teams = Kaminari.paginate_array(@teams).page(params[:page]).per(20)
     else
     redirect_to '/teams'      
     end 
