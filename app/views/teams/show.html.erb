@@ -14,7 +14,7 @@ Pais: <%= @tops.country %>
 <%= link_to @player1.name, :controller => "players",:action => "show",:id => @player1.id %>
 <% else %>
 <%= @player1.name %> 
-(<%= link_to @player1.nickname, :controller => "players",:action => "show",:id => @player1.id %>)
+(<%= link_to @player1.nickname, @player1 %>)
 <% end %>
 </h5>
 
@@ -33,7 +33,7 @@ Pais: <%= @tops.country %>
 <%= link_to @player2.name, :controller => "players",:action => "show",:id => @player2.id %>
 <% else %>
 <%= @player2.name %> 
-(<%= link_to @player2.nickname, :controller => "players",:action => "show",:id => @player2.id %>)
+(<%= link_to @player2.nickname, @player2 %>)
 <% end %>
 </h5>
 <br>
@@ -53,7 +53,7 @@ Pais: <%= @tops.country %>
 <%= link_to @player3.name, :controller => "players",:action => "show",:id => @player3.id %>
 <% else %>
 <%= @player3.name %> 
-(<%= link_to @player3.nickname, :controller => "players",:action => "show",:id => @player3.id %>)
+(<%= link_to @player3.nickname, @player3 %>)
 <% end %>
 </h5><br>
  <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team3.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
@@ -73,7 +73,7 @@ Pais: <%= @tops.country %>
 <%= link_to @player4.name, :controller => "players",:action => "show",:id => @player4.id %>
 <% else %>
 <%= @player4.name %> 
-(<%= link_to @player4.nickname, :controller => "players",:action => "show",:id => @player4.id %>)
+(<%= link_to @player4.nickname, @player4 %>)
 <% end %>
 </h5>
 <br>
@@ -94,7 +94,7 @@ Pais: <%= @tops.country %>
 <%= link_to @player5.name, :controller => "players",:action => "show",:id => @player5.id %>
 <% else %>
 <%= @player5.name %> 
-(<%= link_to @player5.nickname, :controller => "players",:action => "show",:id => @player5.id %>)
+(<%= link_to @player5.nickname, @player5 %>)
 <% end %>
 </h5><br>
  <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team5.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
@@ -113,7 +113,7 @@ Pais: <%= @tops.country %>
 <%= link_to @player6.name, :controller => "players",:action => "show",:id => @player6.id %>
 <% else %>
 <%= @player6.name %> 
-(<%= link_to @player6.nickname, :controller => "players",:action => "show",:id => @player6.id %>)
+(<%= link_to @player6.nickname, @player6 %>)
 <% end %>
 </h5>
 <br>
@@ -134,7 +134,7 @@ Pais: <%= @tops.country %>
 <%= link_to @player7.name, :controller => "players",:action => "show",:id => @player7.id %>
 <% else %>
 <%= @player7.name %> 
-(<%= link_to @player7.nickname, :controller => "players",:action => "show",:id => @player7.id %>)
+(<%= link_to @player7.nickname, @player7 %>)
 <% end %>
 </h5>
 <br>
@@ -155,7 +155,7 @@ Pais: <%= @tops.country %>
 <%= link_to @player8.name, :controller => "players",:action => "show",:id => @player8.id %>
 <% else %>
 <%= @player8.name %> 
-(<%= link_to @player8.nickname, :controller => "players",:action => "show",:id => @player8.id %>)
+(<%= link_to @player8.nickname, @player8 %>)
 <% end %>
 </h5>
 <br>
