@@ -120,31 +120,9 @@
 <div class="container-fluid">
 <div class="row-fluid">
 
-<% if current_page?('/pokemonsets/search') %>
-<div class="span1">
-</div>
 
 
-<div class="span11">
 
-<%= yield %>
-
-</div>
-
-<% elsif current_page?('/pokemonsets/new') %>
-
-<div class="span1">
-</div>
-
-
-<div class="span11">
-
-
-<%= yield %>
-
-</div>
-
-<% else %>
 
 <div class="span1">
 </div>
@@ -171,7 +149,6 @@
 <%= link_to image_tag("/images/EVOPKMN.png"), "http://www.evopokemon.com" %>
 <%= link_to image_tag("/images/logocbi.png"), "https://www.facebook.com/groups/pkmncbi/" %>
 
-<% end %>
 
 
 
