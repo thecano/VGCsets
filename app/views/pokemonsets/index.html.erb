@@ -24,7 +24,7 @@
 
    
     <% @pokemonsets.each_with_index do |pokemonset,index| %>
-        <%= render "loopsets", :pokemonset=>pokemonset, :index=>index %>
+        <%= render "loopsets", :pokemonset=>pokemonset, :index=>index, :len=>@pokemonsets.length %>
     <% end %> 
 <%= paginate @pokemonsets , :pagination_class => "pagination-centered" %>
 
