@@ -33,6 +33,20 @@ class TeamsController < ApplicationController
   def create
   end
 
+  def edit
+  redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
+  @team=Team.find(params[:id])
+  end
+  
+  def update  
+      @team=Team.find(params[:id])
+      if @team.update(team_params)
+         redirect_to '/teams', notice: 'Player was successfully created.'
+      else
+        render :edit
+      end
+  end
+
   def stats
 
     if params[:teams].present?
@@ -47,7 +61,7 @@ class TeamsController < ApplicationController
     teams = teams.compact
     @pokes = Team.where(:id=>teams).pluck(:pokemon1_id,:pokemon2_id,:pokemon3_id,:pokemon4_id,:pokemon5_id,:pokemon6_id)
     else
-    redirect_to '/teams'
+    redirect_to '/'
     end
     @pokes = @pokes.flatten
     @pokes = @pokes.compact
@@ -208,5 +222,9 @@ class TeamsController < ApplicationController
 	@top.team8_id = @team8
 	redirect_to('/teams') if @top.save
   end
+
+  def team_params
+      params.require(:team).permit(:player_id, :pokemon1_id, :pokemon2_id, :pokemon3_id, :pokemon4_id, :pokemon5_id, :pokemon6_id)
+    end
 
 end

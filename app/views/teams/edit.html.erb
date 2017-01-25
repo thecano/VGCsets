@@ -1,0 +1,27 @@
+<%= simple_form_for(@team) do |f| %>
+  <%= f.error_notification %>
+<% @Pokes = Pokemon.all.english.order('name') %>
+<% @Players = Player.all.order('name') %>
+  <div class="form-inputs">
+    Jugador<br>
+    <%= f.collection_select(:player_id, @Players, "id", "name",{:selected => @team.player_id}) %><br>
+    Pokemon 1<br>
+    <%= f.collection_select(:pokemon1_id, @Pokes, "pokemon_species_id", "name",{:selected => @team.pokemon1_id}) %><br>
+    Pokemon 2<br>
+    <%= f.collection_select(:pokemon2_id, @Pokes, "pokemon_species_id", "name",{:selected => @team.pokemon2_id}) %><br>
+    Pokemon 3<br>
+    <%= f.collection_select(:pokemon3_id, @Pokes, "pokemon_species_id", "name",{:selected => @team.pokemon3_id}) %><br>
+    Pokemon 4<br>
+    <%= f.collection_select(:pokemon4_id, @Pokes, "pokemon_species_id", "name",{:selected => @team.pokemon4_id}) %><br>
+    Pokemon 5<br>
+    <%= f.collection_select(:pokemon5_id, @Pokes, "pokemon_species_id", "name",{:selected => @team.pokemon5_id}) %><br>
+    Pokemon 6<br>
+    <%= f.collection_select(:pokemon6_id, @Pokes, "pokemon_species_id", "name",{:selected => @team.pokemon6_id}) %><br>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to 'Volver', :back, :class => 'btn btn-default' %>
+
+  </div>
+<% end %>

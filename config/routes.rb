@@ -44,6 +44,7 @@ get '/teams/filter' => 'teams#filter_pokemon'
 get '/teams/new_single' => 'teams#new_single'
 get '/teams/create_single' => 'teams#create_single' 
 get '/teams/stats' => 'teams#stats'
+get '/teams/edit/:id' => 'teams#edit'
   # Example of regular route:
 
   #   get 'products/:id' => 'catalog#view'
@@ -93,4 +94,5 @@ get '/teams/stats' => 'teams#stats'
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+    resources :teams
 end
