@@ -29,7 +29,7 @@ end
   # GET /pokemonsets
   # GET /pokemonsets.json
   def index
-    @pokemonsets = Pokemonset.where(:formato=>'VGC17').order("created_at desc").page(params[:page]).per(10)
+    @pokemonsets = Pokemonset.where(:formato=>'VGC17').order("created_at desc").page(params[:page]).per(9)
     @titulo=t("title.index")
   end
 

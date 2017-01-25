@@ -4,7 +4,7 @@
 <head>
   <title>VGCsets</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:description" content="Base de datos de sets competitivos para el formato VGC de los videojuegos de Pokémon. Los sets son aportados por los mismos usuarios, tú también puedes aportar al sitio!" />
+  <meta property="og:description" content="Basic Sets, Top Cuts and Player Information for Latam VGC" />
 <% if params[:controller] == "pokemonsets" and params[:action] == "show" %>
   <meta property="og:site_name" content=" <%= Pokemon.find_by(:local_language_id => @language, :pokemon_species_id => @pokemonset.specie).name %> Set - <%= @pokemonset.title %>"/>
   <meta property="og:image" content="http://<%= request.host %>/sprites/<%= Pokemon.find_by(:local_language_id => @language, :pokemon_species_id => @pokemonset.specie).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e") %>.png" />
@@ -31,7 +31,7 @@
 
 <div class="navbar navbar-inverse navbar-fixed-top"role="navigation">
     <div class="navbar-inner">  
-          <div class="container">  
+          <div class="container-fluid">  
 
 
 
@@ -55,7 +55,7 @@
                     <div class="nav-collapse">
                 <ul class="nav navbar-nav">  
                         <li><a href="/pokemonsets/best"> <%= t(:top_rated) %></a></li>
-                            <li><a href="/pokemonsets/search"> <%= t(:search) %></a></li>
+                            <li><a href="/pokemonsets/search"> Sets </a></li>
 
                             <li><a href="/teams"> Top cuts</a></li>
                             <li><a href="/players"> Players</a></li>
@@ -118,7 +118,7 @@
 
 
 <div class="container-fluid">
-<div class="row">
+<div class="row-fluid">
 
 <% if current_page?('/pokemonsets/search') %>
 <div class="span1">
@@ -150,12 +150,13 @@
 </div>
 
 
-<div class="span9">
+<div class="span8">
 
 
 <%= yield %>
 
 </div>
+
 <div class="span2">
 
 <%= image_tag("/images/VGCsets_by_wanaco-d86r3jk.png") %>
@@ -174,6 +175,9 @@
 
 
 
+</div>
+
+<div class="span1">
 </div>
 
 </div>

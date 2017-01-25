@@ -7,8 +7,6 @@
 <% end %>
 </h1>
 </div>
-<table class="table table-striped">
-  <thead>
 
 
 
@@ -22,125 +20,11 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_pokemonset_path,
             :class => 'btn btn-primary' %><br>
-  </thead>
-  <tbody>
-
- 
-
-    <% @pokemonsets.each do |pokemonset| %>
-    
-    <%=  pokemonset.title  %><br>
-
-<% if current_user %>
-
-<%= link_to likes_pokemonset_path(pokemonset.id), :remote => true, class: "btn btn-default" do %>
-
-<div class="id<%= pokemonset.id %>">
-<i class="fa fa-thumbs-up"> 
-+<%=  pokemonset.get_upvotes.size %> 
-</i>
-</div>
-
-<% end %>
-
- <%= link_to dislikes_pokemonset_path(pokemonset.id), :remote => true , class: "btn btn-default" do %>
-<div class="2id<%= pokemonset.id %>" >
-<i class="fa fa-thumbs-down">  
--<%=  pokemonset.get_downvotes.size%>
- </i>
- </div>
-        <% end %>
- <% else %>
-
-<%= link_to "#", :remote => true, class: "btn btn-default", disabled: "disabled" do %>
-
-<div class="id<%= pokemonset.id %>">
-<i class="fa fa-thumbs-up"> 
-+<%=  pokemonset.get_upvotes.size %> 
-</i>
-</div>
-
-<% end %>
-
- <%= link_to "#", :remote => true , class: "btn btn-default", disabled: "disabled" do %>
-<div class="2id<%= pokemonset.id %>" >
-<i class="fa fa-thumbs-down">  
--<%=  pokemonset.get_downvotes.size%>
- </i>
- </div>
-
-<% end %>
-
-<% end %>
-<br>
-
- <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %><br>
-
-<%= Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => pokemonset.specie).name %> @ <%= Item.find_by(:local_language_id => @language, :item_id => pokemonset.item).name %><br>
-
-<%= t("activerecord.attributes.pokemonset.ability") %>: <%= Ability.find_by(:local_language_id => @language, :ability_id => pokemonset.ability).name %><br>
-EVs: 
-<% if pokemonset.hp != nil %>
-<%= pokemonset.hp %> HP 
-<% end %>
-<% if pokemonset.atk != nil %>
-    <% if pokemonset.hp != nil %>
-       / 
-    <% end %>
- <%= pokemonset.atk %> Atk
-<% end %>
-<% if pokemonset.defe != nil %>
-  <% if pokemonset.hp != nil or pokemonset.atk != nil %>
-       / 
-    <% end %>
-  <%= pokemonset.defe %> Def
-  <% end %>
-  <% if pokemonset.spatk != nil %>
-        <% if pokemonset.hp != nil or pokemonset.atk != nil or pokemonset.defe != nil %>
-         / 
-        <% end %>
-   <%= pokemonset.spatk %> SpA
-  <% end %>
-  <% if pokemonset.spdef != nil %>
-        <% if pokemonset.hp != nil or pokemonset.atk != nil or pokemonset.defe != nil or pokemonset.spatk != nil %>
-         / 
-        <% end %>
-   <%= pokemonset.spdef %> SpD
-   <% end %>
-   <% if pokemonset.spd != nil %>
-        <% if pokemonset.hp != nil or pokemonset.atk != nil or pokemonset.defe != nil or pokemonset.spatk != nil or pokemonset.spdef != nil %>
-         / 
-        <% end %>
-    <%= pokemonset.spd %> Spe
-    <% end %>
-<br>
-<% if I18n.locale == :en %>
-<%= Nature.find_by(:local_language_id => @language, :nature_id => pokemonset.nature).name %> <%= model_class.human_attribute_name(:nature) %>
-<% else %>
-<%= model_class.human_attribute_name(:nature) %>:
-<%= Nature.find_by(:local_language_id => @language, :nature_id => pokemonset.nature).name %> 
-<% end %>
-<br>
-- <%= Move.find_by(:local_language_id => @language, :move_id => pokemonset.move1).name %><br>
-<% if not pokemonset.move2.nil? %>
-- <%= Move.find_by(:local_language_id => @language, :move_id => pokemonset.move2).name %><br>
-<% end %>
-<% if not pokemonset.move3.nil? %>
-- <%= Move.find_by(:local_language_id => @language, :move_id => pokemonset.move3).name %><br>
-<% end %>
-<% if not pokemonset.move4.nil? %>
-- <%= Move.find_by(:local_language_id => @language, :move_id => pokemonset.move4).name %><br>
-<% end %>
-<% if pokemonset.lang==1 %>
-<%= link_to t("details_spa"), pokemonset_path(pokemonset) %>
-<% else %>
-<%= link_to t("details_eng"), pokemonset_path(pokemonset) %>
-<% end %>
-<br><br>
 
 
-
-    <% end %>
+   
+    <% @pokemonsets.each_with_index do |pokemonset,index| %>
+        <%= render "loopsets", :pokemonset=>pokemonset, :index=>index %>
+    <% end %> 
 <%= paginate @pokemonsets , :pagination_class => "pagination-centered" %>
-  </tbody>
-</table>
+
