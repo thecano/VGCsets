@@ -74,7 +74,7 @@ class TeamsController < ApplicationController
     else
       pagina=params[:page].to_i
     end
-    @cont = 10*(pagina-1)+1
+    @cont = 21*(pagina-1)+1
   end
   
   def create_single
