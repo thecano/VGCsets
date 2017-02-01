@@ -69,6 +69,7 @@ class TeamsController < ApplicationController
     @pokes = @pokes.compact
     @tamanio = @pokes.size/6
     @pokes = @pokes.each_with_object(Hash.new(0)) { |word,counts| counts[word] += 1 }
+    @pokes.except!(834)
     @pokes = @pokes.sort_by { |poke, cantidad| cantidad }.reverse
     @pokes = Kaminari.paginate_array(@pokes).page(params[:page]).per(21)
     if params[:page].blank?
