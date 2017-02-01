@@ -1,5 +1,8 @@
- <h2>Estadisticas para <%= ISO3166::Country[params[:teams][:country]] || "Latinoamérica" %>:</h2>
-
+<% if params.has_key?(:teams) %>
+ <h2><%= ISO3166::Country[params[:teams][:country]] || "Latinoamérica" %> Top Cuts Usage Stats: </h2>
+<% else %>
+ <h2> Latinoamérica Top Cuts Usage Stats: </h2>
+<% end %>
 
 
     <% @pokes.each_with_index do |poke,index| %>

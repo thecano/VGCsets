@@ -25,8 +25,8 @@ resources "contacts", only: [:new, :create]
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'pokemonsets#index'
-
+   root 'teams#stats'
+#http://en.vgcsets.local:3000/teams/stats?utf8=%E2%9C%93&teams%5Bcountry%5D=&teams%5Brange%5D=0
    get 'pokemonsets/likes/:id' => 'pokemonsets#likes' , as: 'likes_pokemonset'
     get 'pokemonsets/dislikes/:id' => 'pokemonsets#dislikes' , as: 'dislikes_pokemonset'
   
