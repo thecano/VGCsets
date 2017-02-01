@@ -16,3 +16,6 @@
  /*
  *= require font-awesome
  */
+body {
+ font-family: 'Ubuntu', sans-serif;
+}
