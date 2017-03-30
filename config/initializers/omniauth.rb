@@ -3,6 +3,9 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     client_options: {
       site: 'https://graph.facebook.com/v2.3',
       authorize_url: "https://www.facebook.com/v2.3/dialog/oauth"
+    },
+    token_params: {
+      parse: :json
     }
  		provider :twitter, Rails.application.secrets.twitter_key, Rails.application.secrets.twitter_secret
       
