@@ -32,7 +32,7 @@ end
 gem 'seed_dump'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'omniauth'
-gem 'omniauth-facebook', '~> 4.0.0'
+gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'kaminari'
 #gem 'bootstrap-kaminari-views'
