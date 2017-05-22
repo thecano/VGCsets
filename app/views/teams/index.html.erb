@@ -17,6 +17,7 @@ Calcular estadisticas:
 <%= form_tag '/teams/stats', :method => 'get' do %>
 País:<%= country_select("teams", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"], :include_blank => 'Todo Latam') %>
 Fecha:<%= select("teams", "range", [['Toda la temporada', 0], ['Ultimos 30 días', 30]]) %>
+Categóría:<%= select("teams", "category", [['Todos los torneos', 0], ['MSS o superior', 1]]) %>
  <br> <%= submit_tag 'Calcular' , :name => nil, :class => "search-me btn btn-primary"  %>
 <% end %>
 <% if current_user and (current_user.admin  or current_user.mod) %>
