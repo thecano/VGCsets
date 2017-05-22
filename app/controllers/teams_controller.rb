@@ -61,8 +61,8 @@ class TeamsController < ApplicationController
     if params.has_key?(:teams) and params[:teams][:country].present? and !params[:teams][:country].blank?
     teams = teams.where(:country=>params[:teams][:country])
     end
-    if params.has_key?(:teams) and params[:teams][:category].present? and !params[:teams][:category].blank? and params[:teams][:category] == 1  
-    teams = teams.where.not(:tipo_torneo=>"Premier")
+    if params.has_key?(:teams) and params[:teams][:category].present? and !params[:teams][:category].blank? and params[:teams][:category].to_i == 1  
+    teams = teams.where.not(:tipo_torneo => 'Premier')
     end
     teams=teams.pluck(:team1_id,:team2_id,:team3_id,:team4_id,:team5_id,:team6_id,:team7_id,:team8_id)
     teams = teams.flatten
