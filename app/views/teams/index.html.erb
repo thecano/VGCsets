@@ -1,9 +1,9 @@
 <h3>Torneos</h3>
 Buscar tops por:
 <%= form_tag '/teams', :method => 'get' do %>
-País:<%= country_select("teams", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT"], :include_blank => '') %>
+País:<%= country_select("teams", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"], :include_blank => '') %>
 Formato:<%= select("teams", "formato", [['VGC17', 'VGC17'], ['VGC16', 'VGC16'], ['VGC15', 'VGC15']], :include_blank => '') %>
-Tipo Torneo:<%= select("teams", "tipo_torneo", [['Premier', 'Premier'], ['MSS', 'MSS'], ['Regional', 'Regional'], ['Nacional', 'Nacional'], ['Continental', 'Contintental'], ['Otro', 'Otro']], :include_blank => '') %>
+Tipo Torneo:<%= select("teams", "tipo_torneo", [['Premier', 'Premier'], ['MSS', 'MSS'], ['Special Event', 'Special Event'], ['Regional', 'Regional'], ['Nacional', 'Nacional'], ['Continental', 'Contintental'], ['Otro', 'Otro']], :include_blank => '') %>
 <br>
   <%= submit_tag t("search_desc.filter") , :name => nil, :class => "search-me btn btn-primary"  %>
 <% end %>
@@ -15,7 +15,7 @@ Buscar teams con: <br>
 <% end %>
 Calcular estadisticas:
 <%= form_tag '/teams/stats', :method => 'get' do %>
-País:<%= country_select("teams", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT"], :include_blank => 'Todo Latam') %>
+País:<%= country_select("teams", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"], :include_blank => 'Todo Latam') %>
 Fecha:<%= select("teams", "range", [['Toda la temporada', 0], ['Ultimos 30 días', 30]]) %>
  <br> <%= submit_tag 'Calcular' , :name => nil, :class => "search-me btn btn-primary"  %>
 <% end %>

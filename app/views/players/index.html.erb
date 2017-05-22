@@ -1,6 +1,6 @@
 Filtrar:
 <%= form_tag '/players', :method => 'get' do %>
-<%= country_select("player", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT"]) %>
+<%= country_select("player", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"]) %>
   <%= submit_tag t("search_desc.filter") , :name => nil, :class => "search-me btn btn-primary"  %>
 <% end %>
 
@@ -21,7 +21,7 @@ Filtrar:
       <tr>
         <td><%= player.name %></td>
         <td><%= player.nickname %></td>
-        <td><%= player.country %></td>
+        <td><%= ISO3166::Country[player.country] %></td>
         <td><%= link_to 'Ver más', player, :class => 'btn btn-default' %></td>        
       </tr>
     <% end %>
