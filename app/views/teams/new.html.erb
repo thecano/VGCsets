@@ -5,7 +5,7 @@
   <%= text_field(:top, :nombre_torneo) %>
 <br>
   Tipo torneo:
-   <%= select(:top, :tipo_torneo, [['Premier', 'Premier'], ['MSS', 'MSS'], ['Regional', 'Regional'], ['Nacional', 'Nacional'], ['Continental', 'Contintental'], ['Otro', 'Otro']]) %>
+   <%= select(:top, :tipo_torneo, [['Premier', 'Premier'], ['MSS', 'MSS'], ['Special Event', 'Special Event'], ['Regional', 'Regional'], ['Nacional', 'Nacional'], ['Continental', 'Contintental'], ['Otro', 'Otro']]) %>
 <br>
   Formato:
  <%= select(:top, :formato, [['VGC17', 'VGC17'], ['VGC16', 'VGC16'], ['VGC15', 'VGC15']]) %>
@@ -13,7 +13,7 @@
  <br>Fecha:
  <%= select_date Date.today, prefix: :top %><br>
 <br>
-<%= country_select("top", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT"]) %>
+<%= country_select("top", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY"]) %>
 <br>
 <% @Pokes = Pokemon.all.english.order('name') %>
 <% @Players = Player.all.order('name') %>

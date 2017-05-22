@@ -12,7 +12,7 @@
 <% if !@player.country.blank? %>
 <p>
   <strong>Pais:</strong>
-  <%= @player.country %>
+  <%= ISO3166::Country[@player.country] %>
 </p>
 <% end %>
 <% if !@player.facebook.blank? %>
