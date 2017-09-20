@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
-gem 'json', '~> 1.8.6'
+#gem 'json', '~> 1.8.6'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2', '~> 0.3.17'
 # Use SCSS for stylesheets
@@ -49,7 +49,7 @@ gem 'rails_12factor'
 end
 
 # gem 'unicorn', group: :production
-gem 'rack',  '~> 1.5.2'
+gem 'rack',  '~> 2.0'
 #gem 'passenger', '~>  4.0.18'
  gem 'rails_admin'
  gem "chartkick"
