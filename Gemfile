@@ -52,6 +52,7 @@ gem 'simple_form'
 #gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 group :production do
 gem 'rails_12factor'
+gem 'puma'
 end
 
 # gem 'unicorn', group: :production
