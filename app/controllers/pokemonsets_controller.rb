@@ -3,8 +3,8 @@ class PokemonsetsController < ApplicationController
  
 
 
-before_filter :authorize, :only => [:new]
-before_filter :set_language
+before_action :authorize, :only => [:new]
+before_action :set_language
   def authorize
     redirect_to "/" if !current_user
     flash[:notice] = t(:login_required)

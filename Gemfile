@@ -2,20 +2,20 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.4'
+gem 'rails', '5.1.4'
 gem 'json', '~> 1.8.6'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2', '~> 0.3.17'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.2.2'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer',  :platforms => :ruby
-gem 'twitter-bootstrap-rails', '~> 2.2.8'
-gem 'less-rails'
+gem 'bootstrap', '~> 4.0.0.beta'
+#gem 'less-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -29,7 +29,13 @@ end
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
 gem 'spring'
+gem 'web-console', '~> 3.0'
+gem "better_errors"
+gem "binding_of_caller"
 end
+#para rails 5
+gem 'responders', '~> 2.0'
+gem 'popper_js', '~> 1.11', '>= 1.11.1'
 gem 'seed_dump'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'omniauth'
@@ -53,7 +59,7 @@ gem 'rack'
 #gem 'passenger', '~>  4.0.18'
  gem 'rails_admin'
  gem "chartkick"
- gem 'composite_primary_keys'
+ #gem 'composite_primary_keys', '~> 10'
  gem 'disqus_rails'
  gem 'country_select'
 #gem 'twitter-typeahead-rails'
