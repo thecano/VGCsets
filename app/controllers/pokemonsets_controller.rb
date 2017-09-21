@@ -106,12 +106,12 @@ end
   end
 
   def VGC15
-  @pokemonsets = Pokemonset.where(:formato=>'VGC15').order("created_at desc").page(params[:page]).per(10)
+  @pokemonsets = Pokemonset.where(:formato=>'VGC15').order("created_at desc").page(params[:page]).per(9)
     @titulo=t("title.index")
     render 'index'
   end
   def VGC16
-  @pokemonsets = Pokemonset.where(:formato=>'VGC16').order("created_at desc").page(params[:page]).per(10)
+  @pokemonsets = Pokemonset.where(:formato=>'VGC16').order("created_at desc").page(params[:page]).per(9)
     @titulo=t("title.index")
     render 'index'
   end

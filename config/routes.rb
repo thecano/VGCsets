@@ -45,6 +45,8 @@ get '/teams/new_single' => 'teams#new_single'
 get '/teams/create_single' => 'teams#create_single' 
 get '/teams/stats' => 'teams#stats'
 get '/teams/edit/:id' => 'teams#edit'
+
+
   # Example of regular route:
 
   #   get 'products/:id' => 'catalog#view'

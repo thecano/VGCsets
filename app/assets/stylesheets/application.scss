@@ -15,6 +15,16 @@
  *= require font-awesome
  */
 @import "bootstrap";
+
+@import "custom_decente";
 body {
  font-family: 'Ubuntu', sans-serif;
+}
+.btn-primary,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus,
+.btn-primary:hover {
+    background-color: #1d5c21;
+    border-color: #1d5c21;
 }

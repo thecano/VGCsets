@@ -28,66 +28,96 @@
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 
+<div id="fb-root" data-turbolinks-permanent></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_EN/all.js#xfbml=1&version=v2.9";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+document.addEventListener("turbolinks:load", function() {
+  if(window.FB) {
+    FB.XFBML.parse();
+  }
+});
+</script>
+
 </head>
 <body>
 
-<% image_tag("/images/VGCsets_by_wanaco-d86r3jk.png") %>
 
 
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/"><%=t(:home)%></a>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1d5c21;">
+  <a class="navbar-brand" href="/"><img src="/images/VGCsets_by_wanaco-d86r3jk.png" width="40" height="40" class="d-inline-block align-top" alt=""> 
+ </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/teams">Top Cuts</a>
+     <li class="nav-item">
+        <a class="nav-link active" href="/"><%= t(:home) %></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/players">Players</a>
+        <a class="nav-link active" href="/teams">Top Cuts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/players">Players</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link active dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Legacy
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/vgc16">VGC16</a>
-          <a class="dropdown-item" href="/vgc15">VGC15</a>
+          <a class="dropdown-item active" href="/vgc16">VGC16</a>
+          <a class="dropdown-item active" href="/vgc15">VGC15</a>
         </div>
       </li>
       </ul>
 <ul class="navbar-nav">
- <form class="form-inline">
-    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+ <form class="form-inline" action='/teams/filter'>
+    <input class="form-control mr-sm-2" type="text" placeholder="Search a Pokémon in top cuts" aria-label="Search" name="search">
+    <button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i>
+</button>
   </form>
-
-<li class="nav-item">
-        <a class="nav-link" href="/about"><%= t(:about_us) %></a>
+<li class="nav-item dropdown">
+        <a class="nav-link active dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <%= t(:language) %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item active" href="<%= request.original_url.sub("es.","en.") %>"><%= t(:english)%></a>
+          <a class="dropdown-item active" href="<%= request.original_url.sub("en.","es.") %>"><%= t(:spanish)%></a>
+        </div>
       </li>
 <li class="nav-item">
-        <a class="nav-link" href="/contacts"><%= t(:contact) %></a>
+        <a class="nav-link active" href="/about"><%= t(:about_us) %></a>
+      </li>
+<li class="nav-item">
+        <a class="nav-link active" href="/contacts"><%= t(:contact) %></a>
       </li>
 
     <% if current_user %>
- <a class="navbar-brand" href="#">
+ <a class="navbar-brand active" href="#">
     <img src="<%= current_user.image %>" width="30" height="30" class="d-inline-block align-top" alt=""> 
-  </a><span class="navbar-text">
-    <%= current_user.name %>
-  </span> 
+  </a>
+  <li class="nav-item">
+  <a class="nav-link active" href="#"><%= current_user.name %></a>
+  
+  </li>
 <li class="nav-item">
-        <a class="nav-link" href="/logout"><%= t("signout") %></a>
+        <a class="nav-link active" href="/logout"><%= t("signout") %></a>
       </li>
 
 <% else %>
 <li class="nav-item">
-        <a class="nav-link" href="/auth/facebook"><%= t(:facebook_login) %></a>
+        <a class="nav-link active" href="/auth/facebook"><%= t(:facebook_login) %></a>
       </li>
 
 <li class="nav-item">
-        <a class="nav-link" href="/auth/twitter"><%= t(:twitter_login) %></a>
+        <a class="nav-link active" href="/auth/twitter"><%= t(:twitter_login) %></a>
       </li>
   <% end %></li>
 
@@ -96,27 +126,28 @@
 
 </nav>
 
-
+<div class="form-group">
+    &nbsp;
+</div>
 
 <div class="container-fluid">
-<div class="row-fluid">
+<div class="row">
 
 
 
 
-
-<div class="span1">
+<div class="col-md-1">
 </div>
 
 
-<div class="span8">
+<div class="col-md-8">
 
 
 <%= yield %>
 
 </div>
 
-<div class="span2">
+<div class="col-md-2">
 
 <div id="fb-root"></div>
 
@@ -132,7 +163,7 @@
 
 </div>
 
-<div class="span1">
+<div class="col-md-1">
 </div>
 
 </div>

@@ -1,0 +1,42 @@
+.page-item.active .page-link {
+  z-index: 2;
+  color: #fff;
+  background-color: #1d5c21;
+  border-color: #1d5c21;
+}
+
+
+a {
+  color: #1d5c21;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+/* line 12, /home/cano/.rvm/gems/ruby-2.4.2/gems/bootstrap-4.0.0.beta/assets/stylesheets/bootstrap/mixins/_hover.scss */
+a:hover {
+  color: #1d5c21;
+  text-decoration: underline;
+}
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #1d5c21;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.page-link:focus, .page-link:hover {
+  color: #1d5c21;
+  text-decoration: none;
+  background-color: #e9ecef;
+  border-color: #ddd;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #1d5c21;
+}

@@ -4,3 +4,5 @@ $(document).on 'page:change', ->
 	else if window.pageTracker?
 		pageTracker._trackPageview()
 	FB.init({ status: true, cookie: true, xfbml: true });
+
+	

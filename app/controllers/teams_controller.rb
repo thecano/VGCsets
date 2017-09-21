@@ -19,13 +19,26 @@ class TeamsController < ApplicationController
 
   def filter_pokemon
     if params[:pokemon].present?
-    @nombre = Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => params[:pokemon]).name
+    @nombre = Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => params[:pokemon])
     @teams=Team.where(:pokemon1_id=>params[:pokemon])+Team.where(:pokemon2_id=>params[:pokemon]) unless params[:pokemon].blank?
     @teams=@teams+Team.where(:pokemon3_id=>params[:pokemon])+Team.where(:pokemon4_id=>params[:pokemon]) unless params[:pokemon].blank?
     @teams=@teams+Team.where(:pokemon5_id=>params[:pokemon])+Team.where(:pokemon6_id=>params[:pokemon]) unless params[:pokemon].blank?
     @teams=@teams.to_a.sort_by(&:fecha).reverse unless params[:pokemon].blank?
     @teams = Kaminari.paginate_array(@teams).page(params[:page]).per(10)
-    else
+    elsif params[:search].present?
+    search = params[:search].gsub ' alola', '-Alola' 
+    @nombre = Pokemon.find_by(:local_language_id => 9, :name => search)
+      if @nombre.blank?
+      redirect_to '/teams'
+      flash[:notice]="yes"
+      return          
+      end
+    @teams=Team.where(:pokemon1_id=>@nombre.id)+Team.where(:pokemon2_id=>@nombre.id) unless params[:search].blank?
+    @teams=@teams+Team.where(:pokemon3_id=>@nombre.id)+Team.where(:pokemon4_id=>@nombre.id) unless params[:search].blank?
+    @teams=@teams+Team.where(:pokemon5_id=>@nombre.id)+Team.where(:pokemon6_id=>@nombre.id) unless params[:search].blank?
+    @teams=@teams.to_a.sort_by(&:fecha).reverse unless params[:search].blank?
+    @teams = Kaminari.paginate_array(@teams).page(params[:page]).per(10)
+    else  
     redirect_to '/teams'      
     end 
   end

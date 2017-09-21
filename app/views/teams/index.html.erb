@@ -1,3 +1,8 @@
+ <% if flash[:notice] %>
+<div class="alert alert-danger" role="alert">
+  <strong>Error:</strong> No se encontró el pokémon que ingresaste, lo escribiste bien?
+</div>
+<% end %>
 <h3>Torneos</h3>
 Buscar tops por:
 <%= form_tag '/teams', :method => 'get' do %>
@@ -26,7 +31,7 @@ Categóría:<%= select("teams", "category", [['Todos los torneos', 0], ['MSS o s
 <% end %>
  <% @tops.each do |top| %>
  <h4>
-<%= top.fecha %> <%= top.country%> <%= top.nombre_torneo %> <%= link_to "Ver Top8", {:controller=>"teams",:action=>"show",:id=>top.id}, :class => 'btn btn-default' %>
+<%= top.fecha %> <%= top.country%> <%= top.nombre_torneo %> <%= link_to "Ver Top8", {:controller=>"teams",:action=>"show",:id=>top.id}, :class => 'btn btn-primary' %>
  </h4>
  <% end %>
  <%= paginate @tops , :pagination_class => "pagination-centered" %>
