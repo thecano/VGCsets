@@ -1,4 +1,4 @@
-class CreateTops < ActiveRecord::Migration
+class CreateTops < ActiveRecord::Migration[4.2]
   def change
     create_table :tops do |t|
       t.integer :team1_id
@@ -12,7 +12,7 @@ class CreateTops < ActiveRecord::Migration
       t.string :nombre_torneo
       t.string :tipo_torneo
       t.string :country
-      t.timestamps :date
+      t.timestamps 
       t.string :format
       t.timestamps
     end

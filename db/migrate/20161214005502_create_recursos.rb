@@ -1,4 +1,4 @@
-class CreateRecursos < ActiveRecord::Migration
+class CreateRecursos < ActiveRecord::Migration[4.2]
   def change
     create_table :recursos do |t|
  	  t.integer :team_id

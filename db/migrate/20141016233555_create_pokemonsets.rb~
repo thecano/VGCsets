@@ -1,4 +1,4 @@
-class CreatePokemonsets < ActiveRecord::Migration
+class CreatePokemonsets < ActiveRecord::Migration[4.2]
   def change
     create_table :pokemonsets do |t|
       t.string :specie

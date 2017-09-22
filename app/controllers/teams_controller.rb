@@ -26,7 +26,14 @@ class TeamsController < ApplicationController
     @teams=@teams.to_a.sort_by(&:fecha).reverse unless params[:pokemon].blank?
     @teams = Kaminari.paginate_array(@teams).page(params[:page]).per(10)
     elsif params[:search].present?
-    search = params[:search].gsub ' alola', '-Alola' 
+    search = params[:search].slice(0,1).capitalize + params[:search].slice(1..-1)
+    search = search.gsub ' alola', '-Alola'
+    search = search.gsub ' Alola', '-Alola'
+    search = search.gsub '-alola', '-Alola'
+    search = search.gsub ' koko', ' Koko'
+    search = search.gsub ' fini', ' Fini'
+    search = search.gsub ' bulu', ' Bulu'
+    search = search.gsub ' lele', ' Lele'
     @nombre = Pokemon.find_by(:local_language_id => 9, :name => search)
       if @nombre.blank?
       redirect_to '/teams'
