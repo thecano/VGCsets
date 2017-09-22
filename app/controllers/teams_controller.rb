@@ -27,11 +27,11 @@ class TeamsController < ApplicationController
     @teams = Kaminari.paginate_array(@teams).page(params[:page]).per(10)
     elsif params[:search].present?
     aux = params[:search].gsub 'alolan ', '-Alola'
-    aux = aux 'alola ', '-Alola'
-    aux = aux 'Alolan ', '-Alola'
-    aux = aux 'Alola ', '-Alola'
-    aux = aux 'mega ', '-Mega'
-    aux = aux 'Mega ', '-Mega'
+    aux = aux.gsub 'alola ', '-Alola'
+    aux = aux.gsub 'Alolan ', '-Alola'
+    aux = aux.gsub 'Alola ', '-Alola'
+    aux = aux.gsub 'mega ', '-Mega'
+    aux = aux.gsub 'Mega ', '-Mega'
     search = aux.slice(0,1).capitalize + aux.slice(1..-1)
     search = search.gsub ' alolan', '-Alola'
     search = search.gsub ' Alolan', '-Alola'
