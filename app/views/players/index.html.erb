@@ -1,6 +1,6 @@
 Filtrar:
 <%= form_tag '/players', :method => 'get' do %>
-<%= country_select("player", "country", {priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"], selected: params[:player][:country]}) %>
+<%= country_select("player", "country", {priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"], selected: @pais}) %>
   <%= submit_tag t("search_desc.filter") , :name => nil, :class => "search-me btn btn-primary"  %>
 <% end %>
 

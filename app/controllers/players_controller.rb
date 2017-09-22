@@ -6,7 +6,8 @@ class PlayersController < ApplicationController
   def index
     @players = Player.order(:name).page(params[:page]).per(20)
     if params[:player].present?
-    @players=@players.where(:country=>params[:player][:country]).page(params[:page]).per(20)    
+    @players=@players.where(:country=>params[:player][:country]).page(params[:page]).per(20)
+    @pais=params[:player][:country]    
     end
   end
 
