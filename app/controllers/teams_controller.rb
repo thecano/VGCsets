@@ -26,12 +26,14 @@ class TeamsController < ApplicationController
     @teams=@teams.to_a.sort_by(&:fecha).reverse unless params[:pokemon].blank?
     @teams = Kaminari.paginate_array(@teams).page(params[:page]).per(10)
     elsif params[:search].present?
-    aux = params[:search].gsub 'alolan ', '-Alola'
-    aux = aux.gsub 'alola ', '-Alola'
-    aux = aux.gsub 'Alolan ', '-Alola'
-    aux = aux.gsub 'Alola ', '-Alola'
-    aux = aux.gsub 'mega ', '-Mega'
-    aux = aux.gsub 'Mega ', '-Mega'
+    aux = params[:search]
+      if params[:search].start_with?("alolan","alola","Alola","Alolan")
+        aux = aux.gsub 'alolan ', ''
+        aux = aux.gsub 'alola ', ''
+        aux = aux.gsub 'Alolan ', ''
+        aux = aux.gsub 'Alola ', ''
+        aux = aux + "-Alola"
+      end 
     search = aux.slice(0,1).capitalize + aux.slice(1..-1)
     search = search.gsub ' alolan', '-Alola'
     search = search.gsub ' Alolan', '-Alola'
