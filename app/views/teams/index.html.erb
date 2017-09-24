@@ -30,9 +30,9 @@ Categóría:<%= select("teams", "category", [['Todos los torneos', 0], ['MSS o s
 <br>
 <% end %>
  <% @tops.each do |top| %>
- <h4>
+ <h5>
 <%= top.fecha %> <%= top.country%> <%= top.nombre_torneo %> <%= link_to "Ver Top8", {:controller=>"teams",:action=>"show",:id=>top.id}, :class => 'btn btn-primary' %>
- </h4>
+ </h5>
  <% end %>
  <%= paginate @tops , :pagination_class => "pagination-centered" %>
 
