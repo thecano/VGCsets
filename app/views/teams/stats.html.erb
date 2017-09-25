@@ -10,15 +10,9 @@
  <div class="row">
  <% end %>
 <div class="col-md-4">
-<% if @cont==1 %>
-<h1><%= @cont %> </h1>
-<% elsif @cont==2 %>
-<h2><%= @cont %> </h2>
-<% elsif @cont==3 %>
+
 <h3><%= @cont %> </h3>
-<% else %>
-<h3><%= @cont %> </h3>
-<% end %>
+
 
 <%=  image_tag("/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => poke[0]).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png") %>
 <h4><%= link_to Pokemon.find(poke[0]).name, '/teams/filter?utf8=✓&pokemon='+Pokemon.find(poke[0]).id.to_s %>, Total: <%=  poke[1] %> (<%= (poke[1]*100/@tamanio.to_f).round(2) %>%)</h4>
@@ -29,7 +23,6 @@
 
  <% if index%3==2 or index+1 == @pokes.length %>
  </div>
- <br>
  <% end %> 
     <% end %>
 
