@@ -1,5 +1,4 @@
 class Pokemonset < ActiveRecord::Base
- acts_as_votable
  validates :ability, :presence => { :message => ": Se debe ingresar una habilidad" }
  validates :item, :presence => { :message => ": Se debe ingresar un item" }
  validates :nature, :presence => { :message => ": Se debe ingresar una naturaleza" }
