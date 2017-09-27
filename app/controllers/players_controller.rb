@@ -14,6 +14,9 @@ class PlayersController < ApplicationController
   # GET /players/1
   # GET /players/1.json
   def show
+    @teams=Team.where(:player_id=>@player.id).to_a.sort_by(&:fecha).reverse
+    @teams = Kaminari.paginate_array(@teams).page(params[:page]).per(10)
+
   end
 
   def recursos_new

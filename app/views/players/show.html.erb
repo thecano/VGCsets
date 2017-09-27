@@ -39,7 +39,6 @@
   <%= link_to @player.blog, @player.blog %>
 </p>
 <% end %>
-<% @teams=Team.where(:player_id=>@player.id).to_a.sort_by(&:fecha).reverse %>
 
 <% @teams.each do |team| %>
  
@@ -111,4 +110,6 @@ Top8 -
 <% if current_user and (current_user.admin or current_user.mod) %> 
 <%= link_to 'Editar', edit_player_path(@player), :class => 'btn btn-primary' %> 
 <% end %>
+ <%= paginate @teams , :pagination_class => "pagination-centered" %>
+
 <%= link_to 'Volver a lista de jugadores', players_path, :class => 'btn btn-primary' %>
