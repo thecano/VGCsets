@@ -18,7 +18,6 @@
 //= require jquery.turbolinks
 //= require analytics
 //= require facebook
-//= require disqus_rails
 //= require_tree .
 
 // constructs the suggestion engine

@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 gem 'rails', '5.1.4'
 gem 'json', '~> 1.8.6'
 # Use sqlite3 as the database for Active Record
-gem 'mysql2', '~> 0.3.17'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.6'
 # Use Uglifier as compressor for JavaScript assets
@@ -27,17 +26,20 @@ group :doc do
 gem 'sdoc', '~> 0.4.0'
 end
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+
 group :development do
+gem 'mysql2', '~> 0.3.17'
 gem 'spring'
 gem 'web-console', '~> 3.0'
 gem "better_errors"
 gem "binding_of_caller"
 end
+
 #para rails 5
 gem 'responders', '~> 2.0'
 gem 'popper_js', '~> 1.11', '>= 1.11.1'
-gem 'seed_dump'
-gem 'acts_as_votable', '~> 0.10.0'
+#gem 'seed_dump'
+#gem 'acts_as_votable', '~> 0.10.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
@@ -60,10 +62,11 @@ end
 gem 'rack'
 #gem 'passenger', '~>  4.0.18'
  gem 'rails_admin'
- gem "chartkick"
+ #gem "chartkick"
  #gem 'composite_primary_keys', '~> 10'
- gem 'disqus_rails'
+ #gem 'disqus_rails'
  gem 'country_select'
+ gem 'derailed', group: :development
 #gem 'twitter-typeahead-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
