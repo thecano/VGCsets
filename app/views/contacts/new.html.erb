@@ -6,7 +6,7 @@
     <%= f.input :email, :required => true %>
     <%= f.input :message, :as => :text, :required => true, :input_html => {class: 'row-fluid', rows: '5'} %>
     <div class= "invisible">
-      <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+      <%= f.hidden_field :nickname, :hint => 'Leave this field blank!' %>
     </div>
     <div>
       <%= f.button :submit,  t("contact_desc.submit"), :class=> "btn btn-primary" %>
