@@ -220,6 +220,7 @@ País: <%= ISO3166::Country[@tops.country] %>
 <%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team8.id  %>
 	<% end %>
 <% end %>
-		http://vgcsets.com
 <h4>
-<%= link_to 'Volver a lista de torneos', teams_path %></h4>
+	<br>
+<%= link_to "Exportar en .png", request.original_url+'.png' , :class => 'btn btn-primary'  %>
+<%= link_to 'Volver a lista de torneos', teams_path, :class => 'btn btn-primary' %></h4>
