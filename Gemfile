@@ -67,6 +67,8 @@ gem 'rack'
  #gem 'disqus_rails'
  gem 'country_select'
  gem 'derailed', group: :development
+
+ gem 'imgkit'
 #gem 'twitter-typeahead-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

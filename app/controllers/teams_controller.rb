@@ -15,6 +15,15 @@ class TeamsController < ApplicationController
 
   def show
   @tops=Top.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.png do
+        kit = IMGKit.new render_to_string, width: 810
+        kit.stylesheets << Rails.root.join('public','assets/application-4f3e266c1dda651ee2064cc92670eb8e7fa2e57905e11ce4595606c0e3d7d4ef.css').to_s
+        kit.javascripts << Rails.root.join('app','assets/javascripts/application.js').to_s
+        send_data kit.to_png, type: "image/png", disposition: "default", layout: "screenshot"
+      end
+    end
   end
 
   def filter_pokemon
