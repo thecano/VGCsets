@@ -51,7 +51,7 @@ gem 'jquery-turbolinks'
 gem 'font-awesome-rails'
 gem 'mail_form'
 gem 'simple_form'
-#gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 group :production do
 gem 'rails_12factor'
 gem 'puma'
