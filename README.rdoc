@@ -1,28 +1,19 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+{VGCsets}[http://vgcsets.com] es una web desarrollada en RoR dedicada a mantener un registro de los resultados de torneos oficiales de Pokémon en látinoamerica (en su formato de videojuego, VGC, para Nintendo 3DS), actualmente se usa en Chile, Ecuador, Bolivia, Brasil y Mexico.
 
-Things you may want to cover:
+Características:
 
-* Ruby version
+* Generación automática de estadísticas de uso, pudiendo aplicar filtros adicionales opcionales de búsqueda.
 
-* System dependencies
+* Generación de archivos .png para los resumenes de torneos o ''top cuts''.
 
-* Configuration
+* Páginas personales de jugadores, que recopilan su historial de torneos e información personal.
 
-* Database creation
+Desarrollado en:
 
-* Database initialization
+* Ruby 2.4
 
-* How to run the test suite
+* Rails 5.1
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Bootstrap 4
