@@ -50,7 +50,7 @@ class PlayersController < ApplicationController
 
     respond_to do |format|
       if @player.save
-        format.html { redirect_to @player, notice: 'Player was successfully created.' }
+        format.html { redirect_to @player, notice: 'Jugador correctamente agregado.' }
         format.json { render :show, status: :created, location: @player }
       else
         format.html { render :new }
@@ -65,7 +65,7 @@ class PlayersController < ApplicationController
      redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
     respond_to do |format|
       if @player.update(player_params)
-        format.html { redirect_to @player, notice: 'Player was successfully updated.' }
+        format.html { redirect_to @player, notice: 'Jugador correctamente actualizado.' }
         format.json { render :show, status: :ok, location: @player }
       else
         format.html { render :edit }

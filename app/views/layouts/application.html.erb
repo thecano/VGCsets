@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta property="og:description" content="Top Cuts and Player Information for Latam VGC" />
 <% if params[:controller] == "pokemonsets" and params[:action] == "show" %>
-  <meta property="og:site_name" content=" <%= Pokemon.find_by(:local_language_id => @language, :pokemon_species_id => @pokemonset.specie).name %> Set - <%= @pokemonset.title %>"/>
-  <meta property="og:image" content="http://<%= request.host %>/sprites/<%= Pokemon.find_by(:local_language_id => @language, :pokemon_species_id => @pokemonset.specie).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e") %>.png" />
+  <meta property="og:site_name" content=" <%= Pokemon.find_by(:pokemon_species_id => @pokemonset.specie).name %> Set - <%= @pokemonset.title %>"/>
+  <meta property="og:image" content="http://<%= request.host %>/sprites/<%= Pokemon.find_by(:pokemon_species_id => @pokemonset.specie).name.downcase.tr(" ", "-")%>.png" />
 <% else %>
   <meta property="og:site_name" content="VGCsets"/>
   <meta property="og:image" content="http://www.vgcsets.com/images/VGCsets_by_wanaco-d86r3jk.png" />

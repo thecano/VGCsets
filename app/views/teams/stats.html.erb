@@ -14,8 +14,8 @@
 <h3><%= @cont %> </h3>
 
 
-<%=  image_tag("/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => poke[0]).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png") %>
-<h4><%= link_to Pokemon.find(poke[0]).name, '/teams/filter?utf8=✓&pokemon='+Pokemon.find(poke[0]).id.to_s %>, Total: <%=  poke[1] %> (<%= (poke[1]*100/@tamanio.to_f).round(2) %>%)</h4>
+<%=  image_tag("/sprites/"+Pokemon.find_by(:pokemon_species_id => poke[0]).name.downcase.tr(" ", "-")+".png") %>
+<h4><%= link_to Pokemon.find(poke[0]).name, '/teams/filter?utf8=✓&search='+Pokemon.find_by(:pokemon_species_id => poke[0]).name %>, Total: <%=  poke[1] %> (<%= (poke[1]*100/@tamanio.to_f).round(2) %>%)</h4>
 </div>
 
        

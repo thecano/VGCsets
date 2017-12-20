@@ -54,8 +54,6 @@ País: <%= ISO3166::Country[@tops.country] %>
 
 
 <h5>1er lugar
-<% @team1 = Team.find(@tops.team1_id) %>
-<% @player1 = Player.find(@team1.player_id) %>
 
 <% if @player1.nickname.blank? %>
 <%= link_to @player1.name, :controller => "players",:action => "show",:id => @player1.id %>
@@ -65,19 +63,17 @@ País: <%= ISO3166::Country[@tops.country] %>
 <% end %>
 </h5>
 
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team1.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team1.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team1.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team1.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team1.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team1.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team1.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team1.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team1.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team1.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team1.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team1.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
 
 
 
 <h5>
 2do lugar
-<% @team2 = Team.find(@tops.team2_id) %>
-<% @player2 = Player.find(@team2.player_id) %>
 <% if @player2.nickname.blank? %>
 <%= link_to @player2.name, :controller => "players",:action => "show",:id => @player2.id %>
 <% else %>
@@ -85,12 +81,12 @@ País: <%= ISO3166::Country[@tops.country] %>
 (<%= link_to @player2.nickname, @player2 %>)
 <% end %>
 </h5>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team2.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team2.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team2.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team2.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team2.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team2.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team2.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team2.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team2.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team2.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team2.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team2.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
 
 
 
@@ -98,8 +94,6 @@ País: <%= ISO3166::Country[@tops.country] %>
 <h5>
 	<% if !@tops.team3_id.nil? %>
 	Top4
-	<% @team3 = Team.find(@tops.team3_id) %>
-<% @player3 = Player.find(@team3.player_id) %>
 <% if @player3.nickname.blank? %>
 <%= link_to @player3.name, :controller => "players",:action => "show",:id => @player3.id %>
 <% else %>
@@ -107,12 +101,12 @@ País: <%= ISO3166::Country[@tops.country] %>
 (<%= link_to @player3.nickname, @player3 %>)
 <% end %>
 </h5>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team3.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team3.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team3.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team3.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team3.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team3.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team3.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team3.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team3.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team3.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team3.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team3.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
 	
 	<% end %>
 	
@@ -123,8 +117,6 @@ País: <%= ISO3166::Country[@tops.country] %>
 	<h5>
 	<% if !@tops.team4_id.nil? %>
 	Top4
-	<% @team4 = Team.find(@tops.team4_id) %>
-<% @player4 = Player.find(@team4.player_id) %>
 <% if @player4.nickname.blank? %>
 <%= link_to @player4.name, :controller => "players",:action => "show",:id => @player4.id %>
 <% else %>
@@ -132,12 +124,12 @@ País: <%= ISO3166::Country[@tops.country] %>
 (<%= link_to @player4.nickname, @player4 %>)
 <% end %>
 </h5>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team4.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team4.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team4.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team4.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team4.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team4.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team4.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team4.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team4.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team4.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team4.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team4.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
 	
 	<% end %>
 	
@@ -148,8 +140,6 @@ País: <%= ISO3166::Country[@tops.country] %>
 	<h5>
 	<% if !@tops.team5_id.nil? %>
 	Top8
-	<% @team5 = Team.find(@tops.team5_id) %>
-<% @player5 = Player.find(@team5.player_id) %>
 <% if @player5.nickname.blank? %>
 <%= link_to @player5.name, :controller => "players",:action => "show",:id => @player5.id %>
 <% else %>
@@ -157,12 +147,12 @@ País: <%= ISO3166::Country[@tops.country] %>
 (<%= link_to @player5.nickname, @player5 %>)
 <% end %>
 </h5>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team5.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team5.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team5.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team5.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team5.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team5.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team5.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team5.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team5.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team5.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team5.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team5.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
 	
 	<% end %>
 	
@@ -173,8 +163,6 @@ País: <%= ISO3166::Country[@tops.country] %>
 
 	<% if !@tops.team6_id.nil? %>
 	<h5>Top8
-	<% @team6 = Team.find(@tops.team6_id) %>
-<% @player6 = Player.find(@team6.player_id) %>
 <% if @player6.nickname.blank? %>
 <%= link_to @player6.name, :controller => "players",:action => "show",:id => @player6.id %>
 <% else %>
@@ -182,12 +170,12 @@ País: <%= ISO3166::Country[@tops.country] %>
 (<%= link_to @player6.nickname, @player6 %>)
 <% end %>
 </h5>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team6.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team6.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team6.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team6.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team6.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team6.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team6.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team6.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team6.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team6.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team6.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team6.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
 	
 
 	<% end %>
@@ -197,8 +185,6 @@ País: <%= ISO3166::Country[@tops.country] %>
 	<h5>
 	<% if !@tops.team7_id.nil? %>
 	Top8
-	<% @team7 = Team.find(@tops.team7_id) %>
-<% @player7 = Player.find(@team7.player_id) %>
 <% if @player7.nickname.blank? %>
 <%= link_to @player7.name, :controller => "players",:action => "show",:id => @player7.id %>
 <% else %>
@@ -206,12 +192,12 @@ País: <%= ISO3166::Country[@tops.country] %>
 (<%= link_to @player7.nickname, @player7 %>)
 <% end %>
 </h5>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team7.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team7.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team7.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team7.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team7.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team7.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team7.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team7.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team7.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team7.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team7.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team7.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
 	
 	<% end %>
 
@@ -221,8 +207,6 @@ País: <%= ISO3166::Country[@tops.country] %>
 	<h5>
 	<% if !@tops.team8_id.nil? %>
 	Top8
-	<% @team8 = Team.find(@tops.team8_id) %>
-<% @player8 = Player.find(@team8.player_id) %>
 <% if @player8.nickname.blank? %>
 <%= link_to @player8.name, :controller => "players",:action => "show",:id => @player8.id %>
 <% else %>
@@ -230,12 +214,12 @@ País: <%= ISO3166::Country[@tops.country] %>
 (<%= link_to @player8.nickname, @player8 %>)
 <% end %>
 </h5>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team8.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team8.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team8.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team8.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team8.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => @team8.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team8.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team8.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team8.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team8.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team8.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "http://en.vgcsets.com/sprites/"+Pokemon.find_by(:pokemon_species_id => @team8.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
 	
 <% end %><br>
 		http://vgcsets.com

@@ -3,8 +3,7 @@
  Descripción breve:
   <%= text_field(:team, :desc) %>
 <br>
-<% @Pokes = Pokemon.all.english.order('name') %>
-<% @Players = Player.all.order('name') %>
+
 1st Place
 <%= select_tag "player", options_from_collection_for_select(@Players, "id", "name"), :include_blank => true %>
 <br>

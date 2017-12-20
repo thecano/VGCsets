@@ -54,8 +54,7 @@ end
      
     @sets = Pokemonset.where(:formato=>'VGC17')
     @unique_index = @sets.map{|t| t.specie}.uniq 
-    @existing_pokemon= Pokemon.where(:pokemon_species_id => @unique_index).where(:local_language_id => 9).order(:pokemon_species_id => :asc).page(params[:page]).per(43)
-
+    @existing_pokemon= Pokemon.where(:pokemon_species_id => @unique_index).order(:pokemon_species_id => :asc).page(params[:page]).per(43)
   end
 
   def process_search
@@ -72,19 +71,6 @@ end
   end
 
   def specie
-    if params[:specie] == "Mr-Mime" or params[:specie] == "Mr-mime" or params[:specie] == "mr-mime"
-      params[:specie] = "Mr. Mime"
-    elsif params[:specie] == "Mime-Jr" or params[:specie] == "Mime-jr" or params[:specie] == "mime-jr"
-    params[:specie] = "Mime Jr."  
-    elsif params[:specie] == "Farfetchd" or params[:specie] == "farfetchd"
-    params[:specie] = "Farfetch'd"  
-    elsif params[:specie] == "Flabebe" or params[:specie] == "flabebe"
-    params[:specie] = "Flabébé"
-  elsif params[:specie] == "Nidoran-f" or params[:specie] == "nidoran-f"
-    params[:specie]= "Nidoran♀"
-  elsif params[:specie] == "Nidoran-m" or params[:specie] == "nidoran-m"
-    params[:specie]= "Nidoran♂"     
-    end
     newname = params[:specie].slice(0,1).capitalize + params[:specie].slice(1..-1)
     @pk_index=Pokemon.where(:name => newname).first
     if @pk_index.nil?

@@ -47,12 +47,12 @@ Top8 -
 <% end %>
 
  <br>
- <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => team.pokemon1_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => team.pokemon2_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => team.pokemon3_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => team.pokemon4_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => team.pokemon5_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => team.pokemon6_id).name.downcase.tr(" ", "-").tr(".", "").tr("'", "").tr("é", "e")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => team.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => team.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => team.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => team.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => team.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => team.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
  <br>
 <% @recursos=Recurso.where(:team_id=>team.id) %>
  <% @recursos.each do |recurso| %>

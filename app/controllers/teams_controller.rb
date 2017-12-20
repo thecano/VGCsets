@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
   def new
-  	
+  	@Pokes = Pokemon.all.english.order('name')
+    @Players = Player.all.order('name')
   end
 
   def index
@@ -15,7 +16,25 @@ class TeamsController < ApplicationController
 
   def show
   @tops=Top.find(params[:id])
-    respond_to do |format|
+  @team1 = Team.find(@tops.team1_id)
+  @player1 = Player.find(@team1.player_id)
+  @team2 = Team.find(@tops.team2_id)
+  @player2 = Player.find(@team2.player_id)
+  @team3 = Team.find(@tops.team3_id)
+  @player3 = Player.find(@team3.player_id)
+  @team4 = Team.find(@tops.team4_id)
+  @player4 = Player.find(@team4.player_id)
+    if !@tops.team5_id.nil?
+    @team5 = Team.find(@tops.team5_id)
+    @player5 = Player.find(@team5.player_id)
+    @team6 = Team.find(@tops.team6_id)
+    @player6 = Player.find(@team6.player_id)
+    @team7 = Team.find(@tops.team7_id)
+    @player7 = Player.find(@team7.player_id)
+    @team8 = Team.find(@tops.team8_id)
+    @player8 = Player.find(@team8.player_id)
+    end
+   respond_to do |format|
       format.html
       format.png do
         kit = IMGKit.new render_to_string, width: 810
@@ -35,6 +54,7 @@ class TeamsController < ApplicationController
     @teams=@teams.to_a.sort_by(&:fecha).reverse unless params[:pokemon].blank?
     @teams = Kaminari.paginate_array(@teams).page(params[:page]).per(10)
     elsif params[:search].present?
+    #casos de busqueda usuales
     aux = params[:search]
       if params[:search].start_with?("alolan","alola","Alola","Alolan")
         aux = aux.gsub 'alolan ', ''
@@ -52,7 +72,7 @@ class TeamsController < ApplicationController
     search = search.gsub ' fini', ' Fini'
     search = search.gsub ' bulu', ' Bulu'
     search = search.gsub ' lele', ' Lele'
-    @nombre = Pokemon.find_by(:local_language_id => 9, :name => search)
+    @nombre = Pokemon.find_by(:name => search)
       if @nombre.blank?
       redirect_to '/teams'
       flash[:notice]="yes"
@@ -79,7 +99,7 @@ class TeamsController < ApplicationController
   def update  
       @team=Team.find(params[:id])
       if @team.update(team_params)
-         redirect_to '/teams', notice: 'Player was successfully created.'
+         redirect_to '/teams', notice: 'Jugador exitosamente actualizado.'
       else
         render :edit
       end
@@ -139,11 +159,13 @@ class TeamsController < ApplicationController
   end
 
   def new_single
+    @Pokes = Pokemon.all.english.order('name')
+    @Players = Player.all.order('name')
   end
 
 
   def create_top
-  	 redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
+  	 redirect_to "/teams" if !current_user or (!current_user.admin and !current_user.mod)
 	@team1=""
 	@team2=""
 	@team3=""
