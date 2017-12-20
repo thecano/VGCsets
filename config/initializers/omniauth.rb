@@ -1,5 +1,5 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
- 		provider :facebook, Rails.application.secrets.facebook_key, Rails.application.secrets.facebook_secret,
+ 		provider :facebook, ENV['facebook_key'], ENV['facebook_secret'],
     client_options: {
       site: 'https://graph.facebook.com/v2.9',
       authorize_url: "https://www.facebook.com/v2.9/dialog/oauth"
@@ -7,6 +7,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     token_params: {
       parse: :json
     }
- 		provider :twitter, Rails.application.secrets.twitter_key, Rails.application.secrets.twitter_secret
+ 		provider :twitter, ENV['twitter_key'], ENV['twitter_secret']
       
 end
