@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  search_msg: Search Pokémon in top cuts
+  players: Players
   home: Home
   login_required: You need lo login to create a new set
   top_rated: Top Rated

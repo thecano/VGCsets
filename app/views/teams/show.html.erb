@@ -20,12 +20,13 @@ País: <%= ISO3166::Country[@tops.country] %>
 <% end %>
 </h5>
 
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team1.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team1.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team1.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team1.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team1.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team1.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= cl_image_tag(@team1.pokemon1_id.to_s+".png") %>
+ <%= cl_image_tag(@team1.pokemon2_id.to_s+".png") %>
+ <%= cl_image_tag(@team1.pokemon3_id.to_s+".png") %>
+ <%= cl_image_tag(@team1.pokemon4_id.to_s+".png") %>
+ <%= cl_image_tag(@team1.pokemon5_id.to_s+".png") %>
+ <%= cl_image_tag(@team1.pokemon6_id.to_s+".png") %>
+
 <br>
 <% if current_user and (current_user.admin  or current_user.mod) %> 
 <%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team1.id  %>
@@ -43,12 +44,12 @@ País: <%= ISO3166::Country[@tops.country] %>
 (<%= link_to @player2.nickname, @player2 %>)
 <% end %>
 </h5>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team2.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team2.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team2.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team2.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team2.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team2.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= cl_image_tag(@team2.pokemon1_id.to_s+".png") %>
+ <%= cl_image_tag(@team2.pokemon2_id.to_s+".png") %> 
+ <%= cl_image_tag(@team2.pokemon3_id.to_s+".png") %>
+ <%= cl_image_tag(@team2.pokemon4_id.to_s+".png") %>
+ <%= cl_image_tag(@team2.pokemon5_id.to_s+".png") %>
+ <%= cl_image_tag(@team2.pokemon6_id.to_s+".png") %>
 <br>
 <% if current_user and (current_user.admin  or current_user.mod) %> 
 <%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team2.id  %>
@@ -67,13 +68,13 @@ País: <%= ISO3166::Country[@tops.country] %>
 (<%= link_to @player3.nickname, @player3 %>)
 <% end %>
 </h5>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team3.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team3.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team3.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team3.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team3.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team3.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
-	<br>
+ <%= cl_image_tag(@team3.pokemon1_id.to_s+".png") %>
+ <%= cl_image_tag(@team3.pokemon2_id.to_s+".png") %>
+ <%= cl_image_tag(@team3.pokemon3_id.to_s+".png") %>
+ <%= cl_image_tag(@team3.pokemon4_id.to_s+".png") %>
+ <%= cl_image_tag(@team3.pokemon5_id.to_s+".png") %>
+ <%= cl_image_tag(@team3.pokemon6_id.to_s+".png") %>
+ <br>
 	<% if current_user and (current_user.admin  or current_user.mod) %> 
 <%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team3.id  %>
 <% end %>
@@ -94,12 +95,12 @@ País: <%= ISO3166::Country[@tops.country] %>
 (<%= link_to @player4.nickname, @player4 %>)
 <% end %>
 </h5>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team4.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team4.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team4.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team4.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team4.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team4.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= cl_image_tag(@team4.pokemon1_id.to_s+".png") %> 
+ <%= cl_image_tag(@team4.pokemon2_id.to_s+".png") %>
+ <%= cl_image_tag(@team4.pokemon3_id.to_s+".png") %>
+ <%= cl_image_tag(@team4.pokemon4_id.to_s+".png") %>
+  <%= cl_image_tag(@team4.pokemon5_id.to_s+".png") %>
+   <%= cl_image_tag(@team4.pokemon6_id.to_s+".png") %>
 	<br>
 	<% if current_user and (current_user.admin  or current_user.mod) %> 
 <%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team4.id  %>
@@ -121,12 +122,12 @@ País: <%= ISO3166::Country[@tops.country] %>
 (<%= link_to @player5.nickname, @player5 %>)
 <% end %>
 </h5>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team5.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team5.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team5.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team5.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team5.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team5.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
+ <%= cl_image_tag(@team5.pokemon1_id.to_s+".png") %>
+ <%= cl_image_tag(@team5.pokemon2_id.to_s+".png") %>
+ <%= cl_image_tag(@team5.pokemon3_id.to_s+".png") %>
+ <%= cl_image_tag(@team5.pokemon4_id.to_s+".png") %>
+ <%= cl_image_tag(@team5.pokemon5_id.to_s+".png") %>
+ <%= cl_image_tag(@team5.pokemon6_id.to_s+".png") %>
 	<br>
 	<% if current_user and (current_user.admin  or current_user.mod) %> 
 <%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team5.id  %>
@@ -148,13 +149,13 @@ País: <%= ISO3166::Country[@tops.country] %>
 (<%= link_to @player6.nickname, @player6 %>)
 <% end %>
 </h5>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team6.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team6.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team6.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team6.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team6.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team6.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
-	<br>
+ <%= cl_image_tag(@team6.pokemon1_id.to_s+".png") %>
+<%= cl_image_tag(@team6.pokemon2_id.to_s+".png") %>
+<%= cl_image_tag(@team6.pokemon3_id.to_s+".png") %>
+<%= cl_image_tag(@team6.pokemon4_id.to_s+".png") %>
+<%= cl_image_tag(@team6.pokemon5_id.to_s+".png") %>
+<%= cl_image_tag(@team6.pokemon6_id.to_s+".png") %>
+ <br>
 	<% if current_user and (current_user.admin  or current_user.mod) %> 
 <%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team6.id  %>
 <% end %>
@@ -174,13 +175,14 @@ País: <%= ISO3166::Country[@tops.country] %>
 (<%= link_to @player7.nickname, @player7 %>)
 <% end %>
 </h5>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team7.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team7.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team7.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team7.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team7.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team7.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
-	<br>
+ <%= cl_image_tag(@team7.pokemon1_id.to_s+".png") %>
+ <%= cl_image_tag(@team7.pokemon2_id.to_s+".png") %>
+ <%= cl_image_tag(@team7.pokemon3_id.to_s+".png") %>
+ <%= cl_image_tag(@team7.pokemon4_id.to_s+".png") %>
+ <%= cl_image_tag(@team7.pokemon5_id.to_s+".png") %>
+ <%= cl_image_tag(@team7.pokemon6_id.to_s+".png") %>
+
+ 	<br>
 
 	<% if current_user and (current_user.admin  or current_user.mod) %> 
 <%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team7.id  %>
@@ -201,13 +203,14 @@ País: <%= ISO3166::Country[@tops.country] %>
 (<%= link_to @player8.nickname, @player8 %>)
 <% end %>
 </h5>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team8.pokemon1_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team8.pokemon2_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team8.pokemon3_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team8.pokemon4_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team8.pokemon5_id).name.downcase.tr(" ", "-")+".png" %>
- <%= image_tag "/sprites/"+Pokemon.find_by(:pokemon_species_id => @team8.pokemon6_id).name.downcase.tr(" ", "-")+".png" %>
-	<br>
+ <%= cl_image_tag(@team8.pokemon1_id.to_s+".png") %>
+  <%= cl_image_tag(@team8.pokemon2_id.to_s+".png") %>
+ <%= cl_image_tag(@team8.pokemon3_id.to_s+".png") %>
+ <%= cl_image_tag(@team8.pokemon4_id.to_s+".png") %>
+ <%= cl_image_tag(@team8.pokemon5_id.to_s+".png") %>
+ <%= cl_image_tag(@team8.pokemon6_id.to_s+".png") %>
+
+ 	<br>
 	<% if current_user and (current_user.admin  or current_user.mod) %> 
 <%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team8.id  %>
 	<% end %>
