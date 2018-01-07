@@ -109,12 +109,12 @@ class TeamsController < ApplicationController
 
     if params.has_key?(:teams)
       if params[:teams][:range].to_i==0
-        teams = Top.where(:formato => 'VGC17')
+        teams = Top.where(:formato => 'VGC18')
       else
-        teams = Top.where(:formato => 'VGC17').where(:fecha=>DateTime.now-params[:teams][:range].to_i..DateTime.now)
+        teams = Top.where(:formato => 'VGC18').where(:fecha=>DateTime.now-params[:teams][:range].to_i..DateTime.now)
       end
     else 
-        teams = Top.where(:formato => 'VGC17')
+        teams = Top.where(:formato => 'VGC18')
     end
     if params.has_key?(:teams) and params[:teams][:country].present? and !params[:teams][:country].blank?
     teams = teams.where(:country=>params[:teams][:country])
