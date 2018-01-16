@@ -20,11 +20,13 @@ class TeamsController < ApplicationController
   @player1 = Player.find(@team1.player_id)
   @team2 = Team.find(@tops.team2_id)
   @player2 = Player.find(@team2.player_id)
-  @team3 = Team.find(@tops.team3_id)
-  @player3 = Player.find(@team3.player_id)
-  @team4 = Team.find(@tops.team4_id)
-  @player4 = Player.find(@team4.player_id)
-    if !@tops.team5_id.nil?
+  if !@tops.team3_id.nil?
+    @team3 = Team.find(@tops.team3_id)
+    @player3 = Player.find(@team3.player_id)
+    @team4 = Team.find(@tops.team4_id)
+    @player4 = Player.find(@team4.player_id)
+  end
+  if !@tops.team5_id.nil?
     @team5 = Team.find(@tops.team5_id)
     @player5 = Player.find(@team5.player_id)
     @team6 = Team.find(@tops.team6_id)
@@ -33,7 +35,7 @@ class TeamsController < ApplicationController
     @player7 = Player.find(@team7.player_id)
     @team8 = Team.find(@tops.team8_id)
     @player8 = Player.find(@team8.player_id)
-    end
+  end
    respond_to do |format|
       format.html
       format.png do

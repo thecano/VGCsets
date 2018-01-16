@@ -2,5 +2,6 @@ class Player < ActiveRecord::Base
   def to_param
     [id, nickname.parameterize].join("-")
   end
-  belongs_to :user, :foreign_key = "author"
+  alias_attribute :user_id, :author
+  belongs_to :user
 end

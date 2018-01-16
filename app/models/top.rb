@@ -1,4 +1,4 @@
 class Top < ActiveRecord::Base
-belongs_to :user, :foreign_key = "author"
-
+alias_attribute :user_id, :author
+belongs_to :user
 end
