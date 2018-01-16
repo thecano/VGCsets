@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221023626) do
+ActiveRecord::Schema.define(version: 20180116191045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ability_names", id: false, force: :cascade do |t|
+    t.integer "ability_id"
+    t.integer "local_language_id"
+    t.text "name"
+  end
+
+  create_table "item_names", id: false, force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "local_language_id"
+    t.text "name"
+  end
+
+  create_table "move_names", id: false, force: :cascade do |t|
+    t.integer "move_id"
+    t.integer "local_language_id"
+    t.text "name"
+  end
+
+  create_table "nature_names", id: false, force: :cascade do |t|
+    t.integer "nature_id"
+    t.integer "local_language_id"
+    t.text "name"
+  end
 
   create_table "players", id: :serial, force: :cascade do |t|
     t.string "name"
@@ -25,6 +49,21 @@ ActiveRecord::Schema.define(version: 20161221023626) do
     t.string "blog"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer "author"
+  end
+
+  create_table "pokemon_species_names", id: false, force: :cascade do |t|
+    t.integer "pokemon_species_id"
+    t.integer "local_language_id"
+    t.text "name"
+    t.text "genus"
+  end
+
+  create_table "pokemon_stats", id: false, force: :cascade do |t|
+    t.integer "pokemon_id"
+    t.integer "stat_id"
+    t.integer "base_stat"
+    t.integer "effort"
   end
 
   create_table "pokemonsets", id: :serial, force: :cascade do |t|
@@ -103,6 +142,7 @@ ActiveRecord::Schema.define(version: 20161221023626) do
     t.datetime "updated_at"
     t.string "formato"
     t.date "fecha"
+    t.integer "author"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|

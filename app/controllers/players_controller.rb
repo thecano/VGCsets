@@ -47,7 +47,7 @@ class PlayersController < ApplicationController
   def create
      redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
     @player = Player.new(player_params)
-
+    @player.author = current_user.id
     respond_to do |format|
       if @player.save
         format.html { redirect_to @player, notice: 'Jugador correctamente agregado.' }
