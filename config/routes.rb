@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :players
-  resources "contacts", only: [:new, :create]
-  resources :pokemons
-  resources :tops
-  resources :teams
+
 
   root 'teams#stats'
 
@@ -40,7 +36,11 @@ Rails.application.routes.draw do
   get '/teams/show/:id' => 'teams#show', as: 'id'
   get '/top/new' => 'teams#create_top'
   
-
+  resources :players
+  resources "contacts", only: [:new, :create]
+  resources :pokemons
+  resources :tops
+  resources :teams
   # Example of regular route:
 
   #   get 'products/:id' => 'catalog#view'
