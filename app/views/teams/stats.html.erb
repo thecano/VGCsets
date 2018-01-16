@@ -15,7 +15,7 @@
 
 
  <%= cl_image_tag(poke[0].to_s+".png") %>
-<h4><%= link_to Pokemon.find(poke[0]).name, '/teams/filter?utf8=✓&pokemon='+poke[0] %>, Total: <%=  poke[1] %> (<%= (poke[1]*100/@tamanio.to_f).round(2) %>%)</h4>
+<h4><%= link_to Pokemon.find(poke[0]).name, '/teams/filter?utf8=✓&pokemon='+poke[0].to_s %>, Total: <%=  poke[1] %> (<%= (poke[1]*100/@tamanio.to_f).round(2) %>%)</h4>
 </div>
 
        
