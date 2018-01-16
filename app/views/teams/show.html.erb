@@ -6,7 +6,10 @@ Fecha: <%= @tops.fecha %>
 Formato: <%= @tops.formato %>
 <br>
 País: <%= ISO3166::Country[@tops.country] %> 
-
+<br>
+<% if current_user and (current_user.admin  or current_user.mod) %> 
+<%= link_to 'Editar información de torneo',:controller=>'teams',:action=>'edit_top',:id=>@tops.id  %>
+<% end %>
 
 
 <h5>1er lugar

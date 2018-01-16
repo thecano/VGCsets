@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :players
   resources "contacts", only: [:new, :create]
   resources :pokemons
+  resources :tops
+  resources :teams
 
   root 'teams#stats'
 
@@ -30,6 +32,7 @@ Rails.application.routes.draw do
   get '/teams/create_single' => 'teams#create_single' 
   get '/teams/stats' => 'teams#stats'
   get '/teams/edit/:id' => 'teams#edit'
+  get '/teams/edit_top/:id' => 'teams#edit_top'
   get 'teams/index' => 'teams#index'
   get 'teams/new'
   get 'teams/create'
@@ -87,5 +90,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-    resources :teams
 end

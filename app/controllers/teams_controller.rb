@@ -96,12 +96,18 @@ class TeamsController < ApplicationController
   def edit
   redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
   @team=Team.find(params[:id])
+  render :edit_top
   end
   
+  def edit_top
+  redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
+  @top=Top.find(params[:id])
+  end
+
   def update  
       @team=Team.find(params[:id])
       if @team.update(team_params)
-         redirect_to '/teams', notice: 'Jugador exitosamente actualizado.'
+         redirect_to '/teams', notice: 'Equipo exitosamente actualizado.'
       else
         render :edit
       end

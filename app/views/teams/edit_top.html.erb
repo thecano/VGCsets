@@ -1,0 +1,17 @@
+<%= simple_form_for(@top) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs col-md-5">
+    <%= f.input :nombre_torneo %>
+    <%= f.input :tipo_torneo, collection: ['Premier','MSS','Special Event','Regional','Nacional','Continental','Otro'] %>
+    <%= f.input :country, priority: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"] %>
+    <%= f.input :formato, collection: ['VGC18','VGC17','VGC16','VGC15'] %>
+    <%= f.input :fecha %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to 'Volver', :back, :class => 'btn btn-default' %>
+
+  </div>
+<% end %>
+
