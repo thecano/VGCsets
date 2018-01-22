@@ -98,7 +98,6 @@ class TeamsController < ApplicationController
   def edit
   redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
   @team=Team.find(params[:id])
-  render :edit_top
   end
   
   def edit_top
