@@ -2,10 +2,10 @@
 <%= form_tag("/top/new", method: "get") do %>
 
    Nombre torneo:
-  <%= text_field(:top, :nombre_torneo) %>
+  <%= text_field(:top, :nombre_torneo, :required => true) %>
 <br>
   Tipo torneo:
-   <%= select(:top, :tipo_torneo, [['Premier', 'Premier'], ['MSS', 'MSS'], ['Special Event', 'Special Event'], ['Regional', 'Regional'], ['Nacional', 'Nacional'], ['Continental', 'Contintental'], ['Otro', 'Otro']]) %>
+   <%= select(:top, :tipo_torneo, [['Premier', 'Premier'], ['MSS', 'MSS'], ['Special Event', 'Special Event'], ['Regional', 'Regional'], ['Nacional', 'Nacional'], ['Continental', 'Contintental'], ['Otro', 'Otro']], { :include_blank => true }, :required => true) %>
 <br>
   Formato:
  <%= select(:top, :formato, [['VGC18', 'VGC18'], ['VGC17', 'VGC17'], ['VGC16', 'VGC16'], ['VGC15', 'VGC15']]) %>
@@ -13,7 +13,8 @@
  <br>Fecha:
  <%= select_date Date.today, prefix: :top %><br>
 <br>
-<%= country_select("top", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"]) %>
+País:
+<%= country_select("top", "country", {priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"]}, class: 'required-field', required: true , include_blank: true) %>
 <br>
 
 1st Place
