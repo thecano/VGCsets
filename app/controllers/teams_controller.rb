@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   def new
+    redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
   	@Pokes = Pokemon.all.english.order('name')
     @Players = Player.all.order('name')
   end
@@ -48,7 +49,6 @@ class TeamsController < ApplicationController
   end
 
   def filter_pokemon
-    puts "wena"
     if params[:pokemon].present?
     @nombre = Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => params[:pokemon])
     @teams=Team.where(:pokemon1_id=>params[:pokemon])+Team.where(:pokemon2_id=>params[:pokemon]) unless params[:pokemon].blank?
@@ -184,7 +184,7 @@ class TeamsController < ApplicationController
 
 
   def create_top
-  	 redirect_to "/teams" if !current_user or (!current_user.admin and !current_user.mod)
+  redirect_to "/teams" if !current_user or (!current_user.admin and !current_user.mod)
 	@team1=""
 	@team2=""
 	@team3=""
@@ -306,7 +306,12 @@ class TeamsController < ApplicationController
 	@top.team7_id = @team7
 	@top.team8_id = @team8
   @top.author = current_user.id
-	redirect_to('/teams') if @top.save
+	  if @top.save
+  redirect_to(team_path(@top))
+    else 
+  redirect_to '/teams/new'
+    end
+
   end
 
   def team_params
