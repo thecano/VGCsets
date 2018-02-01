@@ -21,7 +21,7 @@ Filtrar:
       <tr>
         <td><%= player.name %></td>
         <td><%= player.nickname %></td>
-        <td><%= ISO3166::Country[player.country] %></td>
+        <td><%= image_tag("/flags/"+player.country.downcase+".png") %> <%= ISO3166::Country[player.country] %></td>
         <td><%= link_to 'Ver más', player, :class => 'btn btn-primary' %></td>        
       </tr>
     <% end %>

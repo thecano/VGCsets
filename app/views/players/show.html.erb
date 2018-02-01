@@ -12,7 +12,7 @@
 <% if !@player.country.blank? %>
 <p>
   <strong>País:</strong>
-  <%= ISO3166::Country[@player.country] %>
+  <%= image_tag("/flags/"+@player.country.downcase+".png") %> <%= ISO3166::Country[@player.country] %>
 </p>
 <% end %>
 <% if !@player.facebook.blank? %>
