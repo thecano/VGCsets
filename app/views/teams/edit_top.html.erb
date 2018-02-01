@@ -1,4 +1,4 @@
-<%= simple_form_for(@top) do |f| %>
+<%= simple_form_for @top, :url => '/update_top/'+params[:id] do |f| %>
   <%= f.error_notification %>
   <div class="form-inputs col-md-5">
     <%= f.input :nombre_torneo %>

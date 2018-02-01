@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get '/teams' => 'teams#index'
   get '/teams/show/:id' => 'teams#show', as: 'id'
   get '/top/new' => 'teams#create_top'
+  patch '/update_top/:id' => 'teams#update_top'
   
   resources :players
   resources "contacts", only: [:new, :create]

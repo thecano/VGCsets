@@ -114,6 +114,16 @@ class TeamsController < ApplicationController
       end
   end
 
+  def update_top  
+      redirect_to "/" if !current_user or (!current_user.admin and !current_user.mod)
+      @top=Top.find(params[:id])
+      if @top.update(top_params)
+         redirect_to '/teams', notice: 'Torneo exitosamente actualizado.'
+      else
+        render :edit_top
+      end
+  end
+
   def stats
 
     if params.has_key?(:teams)
@@ -301,6 +311,10 @@ class TeamsController < ApplicationController
 
   def team_params
       params.require(:team).permit(:player_id, :pokemon1_id, :pokemon2_id, :pokemon3_id, :pokemon4_id, :pokemon5_id, :pokemon6_id)
+    end
+
+  def top_params
+      params.require(:top).permit(:nombre_torneo, :tipo_torneo, :formato, :fecha)
     end
 
 end
