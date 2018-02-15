@@ -12,4 +12,8 @@ class ContactsController < ApplicationController
   	end 
   		
   end
+
+  def faq 
+
+  end
 end
