@@ -95,17 +95,6 @@ Top8 -
  <%= cl_image_tag(team.pokemon5_id.to_s+".png") %>
  <%= cl_image_tag(team.pokemon6_id.to_s+".png") %>
  
-<% @recursos=Recurso.where(:team_id=>team.id) %>
- <% @recursos.each do |recurso| %>
-   <%= link_to recurso.descripcion,recurso.url%>
-   <br>
- <% end %>
-
-
-<% if current_user and (current_user.admin  or current_user.mod) %> 
- <br>
-<%= link_to 'Agregar recurso',:controller=>'players',:action=>'recursos_new',:id=>team.id  %>
-<% end %>
 <br>
  <% end %>
 <% if current_user and (current_user.admin or current_user.mod) %> 

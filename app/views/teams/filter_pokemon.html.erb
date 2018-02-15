@@ -1,14 +1,14 @@
-<h3>Teams con <%= @nombre.name %>
+<h3><%= t('filter_pokemon.teams_with') %> <%= @nombre.name %>
 </h3>
 <% @teams.each do |team| %>
  
 <% if !Top.where(:team1_id=>team.id).empty? %>
-1er Lugar - 
+<%= t('first') %> - 
 <% @nom = Top.where(:team1_id=>team.id).first %>
 <%= link_to @nom.country+' '+@nom.nombre_torneo, :controller => "teams",:action => "show",:id => @nom.id %>
 <%= @nom.fecha %>
 <% elsif  !Top.where(:team2_id=>team.id).empty? %>
-2do Lugar - 
+<%= t('second') %> - 
 <% @nom = Top.where(:team2_id=>team.id).first %>
 <%= link_to @nom.country+' '+@nom.nombre_torneo, :controller => "teams",:action => "show",:id => @nom.id %>
 <%= @nom.fecha %>
@@ -55,18 +55,7 @@ Top8 -
  <%= cl_image_tag(team.pokemon5_id.to_s+".png") %>
  <%= cl_image_tag(team.pokemon6_id.to_s+".png") %>
 <br>
-<% @recursos=Recurso.where(:team_id=>team.id) %>
- <% @recursos.each do |recurso| %>
-   <%= link_to recurso.descripcion,recurso.url%>
-   <br>
- <% end %>
 
-
-<% if current_user and (current_user.admin  or current_user.mod) %> 
- <br>
-<%= link_to 'Agregar recurso',:controller=>'players',:action=>'recursos_new',:id=>team.id  %>
-<% end %>
-<br>
  <% end %>
 
  <%= paginate @teams , :pagination_class => "pagination-centered" %>

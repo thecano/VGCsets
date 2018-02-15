@@ -1,21 +1,20 @@
-<h1>Agregar Top</h1>
+<h1><%=t('add_top.title')%></h1>
 <%= form_tag("/top/new", method: "get") do %>
 
-   Nombre torneo:
+   <%=t('add_top.name')%>:
   <%= text_field(:top, :nombre_torneo, :required => true) %>
 <br>
-  Tipo torneo:
+  <%=t('type')%>:
    <%= select(:top, :tipo_torneo, [['Premier', 'Premier'], ['MSS', 'MSS'], ['Special Event', 'Special Event'], ['Regional', 'Regional'], ['Nacional', 'Nacional'], ['Continental', 'Contintental'], ['Otro', 'Otro']], { :include_blank => true }, :required => true) %>
 <br>
-  Formato:
+  <%=t('format')%>:
  <%= select(:top, :formato, [['VGC18', 'VGC18'], ['VGC17', 'VGC17'], ['VGC16', 'VGC16'], ['VGC15', 'VGC15']]) %>
 
- <br>Fecha:
+ <br><%=t('date1')%>:
  <%= select_date Date.today, prefix: :top %><br>
-<br>
-País:
+<%=t('country')%>:
 <%= country_select("top", "country", {priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"]}, class: 'required-field', required: true , include_blank: true) %>
-<br>
+<br><br>
 
 1st Place
 <%= select_tag "player1", options_from_collection_for_select(@Players, "id", "name"), :include_blank => true %>
@@ -81,5 +80,5 @@ País:
 <%= select_tag "pokemon84", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name"), :include_blank => true %>
 <%= select_tag "pokemon85", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name"), :include_blank => true %>
 <%= select_tag "pokemon86", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name"), :include_blank => true %>
-  <br><%= submit_tag("Enviar") %>
+  <br><%= submit_tag(t("submit")) %>
 <% end %>
