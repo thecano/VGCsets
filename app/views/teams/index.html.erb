@@ -20,9 +20,9 @@
 <% end %>
 <%= t('tour_list.stats')%>:
 <%= form_tag '/teams/stats', :method => 'get' do %>
-<%= t('country')%>:<%= country_select("teams", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"], :include_blank => 'Todo Latam') %>
-<%=t('date')%>:<%= select("teams", "range", [['Toda la temporada', 0], ['Ultimos 30 días', 30]]) %>
-<%=t('category')%>:<%= select("teams", "category", [['Todos los torneos', 0], ['MSS o superior', 1]]) %>
+<%= t('country')%>:<%= country_select("teams", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"], :include_blank => t('tour_list.all_latam')) %>
+<%=t('date1')%>:<%= select("teams", "range", [[t('tour_list.all_season'), 0], [t('tour_list.last_days'), 30]]) %>
+<%=t('category')%>:<%= select("teams", "category", [[t('tour_list.all_tours'), 0], [t('tour_list.mss_plus'), 1]]) %>
  <br> <%= submit_tag t('tour_list.calc') , :name => nil, :class => "search-me btn btn-primary"  %>
 <% end %>
 <% if current_user and (current_user.admin  or current_user.mod) %>

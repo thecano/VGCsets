@@ -75,12 +75,14 @@ es:
     q3: <h4>¿Cómo puedo subir un torneo?</h4>Si eres OT o colaborador con acceso a los equipos de top cut, envíanos un mensaje privado a nuestra <b><a href='https://www.facebook.com/vgcsets/'>fanpage de facebook</a></b> preguntando por una cuenta con permisos para subir torneos, lo único que pedimos es que a futuro continúes subiendo torneos al sitio.
   playerstab:
     filter: Filtrar por país
+    add: Agregar jugador
+    new: Nuevo Jugador
   more: Ver más
   country: País
   name: Nombre
   first: 1er Lugar
   second: 2do Lugar
-  date: Fecha
+  date1: Fecha
   format: Formato
   type: Tipo
   category: Categoría
@@ -98,3 +100,9 @@ es:
     see_top: Ver más
     add_top: Agregar Top Cut
     calc: Calcular
+    all_season: Toda la temporada
+    last_days: Últimos 30 días
+    all_tours: Todos los torneos
+    mss_plus: MSS o superior
+    all_tours: Todos los torneos
+    all_latam: Todo Latinoamérica
