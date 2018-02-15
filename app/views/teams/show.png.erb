@@ -45,15 +45,15 @@ body{ padding-left: 10px; }
 <h2><%= @tops.nombre_torneo %></h2>
 
 <h4></h4>
-Fecha: <%= @tops.fecha %>
+<%= t('date')%>: <%= @tops.fecha %>
 <br>
-Formato: <%= @tops.formato %>
+<%= t('format')%>: <%= @tops.formato %>
 <br>
-País: <%= ISO3166::Country[@tops.country] %> 
+<%= t('country')%>: <%= ISO3166::Country[@tops.country] %> 
 
 
 
-<h5>1er lugar
+<h5><%= t('first')%>
 
 <% if @player1.nickname.blank? %>
 <%= link_to @player1.name, :controller => "players",:action => "show",:id => @player1.id %>
@@ -72,7 +72,7 @@ País: <%= ISO3166::Country[@tops.country] %>
 
 
 <h5>
-2do lugar
+<%= t('second')%>
 <% if @player2.nickname.blank? %>
 <%= link_to @player2.name, :controller => "players",:action => "show",:id => @player2.id %>
 <% else %>
@@ -214,8 +214,9 @@ País: <%= ISO3166::Country[@tops.country] %>
  <%= cl_image_tag(@team8.pokemon4_id.to_s+".png") %>
  <%= cl_image_tag(@team8.pokemon5_id.to_s+".png") %>
  <%= cl_image_tag(@team8.pokemon6_id.to_s+".png") %>
-<% end %><br>
-		http://vgcsets.com
+<br><% end %>
+
+http://vgcsets.com
 
 
   </body>

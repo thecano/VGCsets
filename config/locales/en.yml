@@ -95,3 +95,28 @@ en:
     q1: <h4>What is this website?</h4>It's an image generator for top cut teams, a player database and a tournament stats calculator!
     q2: <h4>A tournament I played is not here</h4>We are humans and as we try to get as many tournaments results, it's very difficult to have them all.
     q3: <h4>How can I upload a tournament?</h4>If you are a TO or collaborator with access to top cuts teams, send us a private message to our <a href='https://www.facebook.com/vgcsets/'>facebook fanpage</a> asking for an uploader account, the only requirement we ask is that you upload future tournaments to the website.
+  playerstab:
+    filter: Filter by country
+  country: Country
+  name: Name
+  more: More
+  first: 1st Place
+  second: 2nd Place
+  date: Date
+  format: Format
+  type: Type
+  category: Category
+  topcut:
+    edit_tournament: Edit tournament information
+    edit_team: Edit team
+    download: Download PNG image
+    back: Back to Tournaments list
+  tour_list:
+    error: Pokémon not found, did you write it right?
+    tours: Tournaments
+    search_tour_by: Search tops by
+    search_pokemon: Search teams with
+    stats: Calc. statistics
+    see_top: See More
+    add_top: Add Top Cut
+    calc: Calculate

@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nombre:</strong>
+  <strong><%= t('name') %>:</strong>
   <%= @player.name %>
 </p>
 
 <p>
-  <strong>Nick:</strong>
+  <strong>Nickname:</strong>
   <%= @player.nickname %>
 </p>
 <% if !@player.country.blank? %>
 <p>
-  <strong>País:</strong>
+  <strong><%= t('country') %>:</strong>
   <%= image_tag("/flags/"+@player.country.downcase+".png") %> <%= ISO3166::Country[@player.country] %>
 </p>
 <% end %>
@@ -43,12 +43,12 @@
 <% @teams.each do |team| %>
  
 <% if !Top.where(:team1_id=>team.id).empty? %>
-1er Lugar - 
+<%= t('first')%> - 
 <% @nom = Top.where(:team1_id=>team.id).first %>
 <%= link_to @nom.country+' '+@nom.nombre_torneo, :controller => "teams",:action => "show",:id => @nom.id %>
 <%= @nom.fecha %>
 <% elsif  !Top.where(:team2_id=>team.id).empty? %>
-2do Lugar - 
+<%= t('second')%> - 
 <% @nom = Top.where(:team2_id=>team.id).first %>
 <%= link_to @nom.country+' '+@nom.nombre_torneo, :controller => "teams",:action => "show",:id => @nom.id %>
 <%= @nom.fecha %>

@@ -1,18 +1,18 @@
 <h2><%= @tops.nombre_torneo %></h2>
 
 <h4></h4>
-Fecha: <%= @tops.fecha %>
+<%= t('date')%>: <%= @tops.fecha %>
 <br>
-Formato: <%= @tops.formato %>
+<%= t('format')%>: <%= @tops.formato %>
 <br>
-País: <%= ISO3166::Country[@tops.country] %> 
+<%= t('country')%>: <%= ISO3166::Country[@tops.country] %> 
 <br>
 <% if current_user and (current_user.admin  or current_user.mod) %> 
-<%= link_to 'Editar información de torneo',:controller=>'teams',:action=>'edit_top',:id=>@tops.id  %>
+<%= link_to t('topcut.edit_tournament'),:controller=>'teams',:action=>'edit_top',:id=>@tops.id  %>
 <% end %>
 
 
-<h5>1er lugar
+<h5><%= t('first')%>
 
 
 <% if @player1.nickname.blank? %>
@@ -32,13 +32,13 @@ País: <%= ISO3166::Country[@tops.country] %>
 
 <br>
 <% if current_user and (current_user.admin  or current_user.mod) %> 
-<%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team1.id  %>
+<%= link_to t('topcut.edit_team'),:controller=>'teams',:action=>'edit',:id=>@team1.id  %>
 <% end %>
 
 
 
 <h5>
-2do lugar
+<%= t('second')%>
 
 <% if @player2.nickname.blank? %>
 <%= link_to @player2.name, :controller => "players",:action => "show",:id => @player2.id %>
@@ -55,7 +55,7 @@ País: <%= ISO3166::Country[@tops.country] %>
  <%= cl_image_tag(@team2.pokemon6_id.to_s+".png") %>
 <br>
 <% if current_user and (current_user.admin  or current_user.mod) %> 
-<%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team2.id  %>
+<%= link_to t('topcut.edit_team'),:controller=>'teams',:action=>'edit',:id=>@team2.id  %>
 <% end %>
 
 
@@ -79,7 +79,7 @@ País: <%= ISO3166::Country[@tops.country] %>
  <%= cl_image_tag(@team3.pokemon6_id.to_s+".png") %>
  <br>
 	<% if current_user and (current_user.admin  or current_user.mod) %> 
-<%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team3.id  %>
+<%= link_to t('topcut.edit_team'),:controller=>'teams',:action=>'edit',:id=>@team3.id  %>
 <% end %>
 	<% end %>
 	
@@ -106,7 +106,7 @@ País: <%= ISO3166::Country[@tops.country] %>
    <%= cl_image_tag(@team4.pokemon6_id.to_s+".png") %>
 	<br>
 	<% if current_user and (current_user.admin  or current_user.mod) %> 
-<%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team4.id  %>
+<%= link_to t('topcut.edit_team'),:controller=>'teams',:action=>'edit',:id=>@team4.id  %>
 <% end %>
 	<% end %>
 	
@@ -133,7 +133,7 @@ País: <%= ISO3166::Country[@tops.country] %>
  <%= cl_image_tag(@team5.pokemon6_id.to_s+".png") %>
 	<br>
 	<% if current_user and (current_user.admin  or current_user.mod) %> 
-<%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team5.id  %>
+<%= link_to t('topcut.edit_team'),:controller=>'teams',:action=>'edit',:id=>@team5.id  %>
 <% end %>
 	<% end %>
 	
@@ -160,7 +160,7 @@ País: <%= ISO3166::Country[@tops.country] %>
 <%= cl_image_tag(@team6.pokemon6_id.to_s+".png") %>
  <br>
 	<% if current_user and (current_user.admin  or current_user.mod) %> 
-<%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team6.id  %>
+<%= link_to t('topcut.edit_team'),:controller=>'teams',:action=>'edit',:id=>@team6.id  %>
 <% end %>
 
 	<% end %>
@@ -188,7 +188,7 @@ País: <%= ISO3166::Country[@tops.country] %>
  	<br>
 
 	<% if current_user and (current_user.admin  or current_user.mod) %> 
-<%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team7.id  %>
+<%= link_to t('topcut.edit_team'),:controller=>'teams',:action=>'edit',:id=>@team7.id  %>
 <% end %>
 	<% end %>
 
@@ -215,10 +215,10 @@ País: <%= ISO3166::Country[@tops.country] %>
 
  	<br>
 	<% if current_user and (current_user.admin  or current_user.mod) %> 
-<%= link_to 'Editar team',:controller=>'teams',:action=>'edit',:id=>@team8.id  %>
+<%= link_to t('topcut.edit_team'),:controller=>'teams',:action=>'edit',:id=>@team8.id  %>
 	<% end %>
 <% end %>
 <h4>
 	<br>
-<%= link_to "Exportar en .png", request.original_url+'.png' , :class => 'btn btn-primary'  %>
-<%= link_to 'Volver a lista de torneos', teams_path, :class => 'btn btn-primary' %></h4>
+<%= link_to t('topcut.download'), request.original_url+'.png' , :class => 'btn btn-primary'  %>
+<%= link_to t('topcut.back'), teams_path, :class => 'btn btn-primary' %></h4>

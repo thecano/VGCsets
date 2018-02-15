@@ -73,3 +73,28 @@ es:
     q1: <h4>¿De qué trata este sitio?</h4>Somos un generador de imágenes de torneos, una base de datos de jugadores, y una calculadora de estadísticas de torneos!
     q2: <h4>Un torneo que jugué no está subido</h4>Si bien tratamos de tener la mayoría de torneos, es difícil cubrir todos los torneos que se realizan.
     q3: <h4>¿Cómo puedo subir un torneo?</h4>Si eres OT o colaborador con acceso a los equipos de top cut, envíanos un mensaje privado a nuestra <b><a href='https://www.facebook.com/vgcsets/'>fanpage de facebook</a></b> preguntando por una cuenta con permisos para subir torneos, lo único que pedimos es que a futuro continúes subiendo torneos al sitio.
+  playerstab:
+    filter: Filtrar por país
+  more: Ver más
+  country: País
+  name: Nombre
+  first: 1er Lugar
+  second: 2do Lugar
+  date: Fecha
+  format: Formato
+  type: Tipo
+  category: Categoría
+  topcut:
+    edit_tournament: Editar información de torneo
+    edit_team: Editar team
+    download: Descargar imágen en PNG
+    back: Volver a lista de torneos
+  tour_list:
+    error: No se encontró el pokémon que ingresaste, lo escribiste bien?
+    tours: Torneos
+    search_tour_by: Buscar tops por
+    search_pokemon: Buscar teams con
+    stats: Calcular estadísticas
+    see_top: Ver más
+    add_top: Agregar Top Cut
+    calc: Calcular

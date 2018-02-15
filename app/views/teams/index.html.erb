@@ -1,37 +1,37 @@
  <% if flash[:notice] == 'yes'%>
 <div class="alert alert-danger" role="alert">
-  <strong>Error:</strong> No se encontró el pokémon que ingresaste, lo escribiste bien?
+  <strong>Error:</strong> <%= t('tour_list.error') %>
 </div>
 <% end %>
-<h3>Torneos</h3>
-Buscar tops por:
+<h3><%= t('tour_list.tours') %></h3>
+<%= t('tour_list.search_tour_by')%>:
 <%= form_tag '/teams', :method => 'get' do %>
-País:<%= country_select("teams", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"], :include_blank => '') %>
-Formato:<%= select("teams", "formato", [['VGC18', 'VGC18'],['VGC17', 'VGC17'], ['VGC16', 'VGC16'], ['VGC15', 'VGC15']], :include_blank => '') %>
-Tipo Torneo:<%= select("teams", "tipo_torneo", [['Premier', 'Premier'], ['MSS', 'MSS'], ['Special Event', 'Special Event'], ['Regional', 'Regional'], ['Nacional', 'Nacional'], ['Continental', 'Contintental'], ['Otro', 'Otro']], :include_blank => '') %>
+<%= t('country') %>:<%= country_select("teams", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"], :include_blank => '') %>
+<%= t('format')%>:<%= select("teams", "formato", [['VGC18', 'VGC18'],['VGC17', 'VGC17'], ['VGC16', 'VGC16'], ['VGC15', 'VGC15']], :include_blank => '') %>
+<%= t('type') %>:<%= select("teams", "tipo_torneo", [['Premier', 'Premier'], ['MSS', 'MSS'], ['Special Event', 'Special Event'], ['Regional', 'Regional'], ['Nacional', 'Nacional'], ['Continental', 'Contintental'], ['Otro', 'Otro']], :include_blank => '') %>
 <br>
   <%= submit_tag t("search_desc.filter") , :name => nil, :class => "search-me btn btn-primary"  %>
 <% end %>
 <%= form_tag '/teams/filter', :method => 'get' do %>
-Buscar teams con: <br>
+<%= t('tour_list.search_pokemon') %>: <br>
 <%= select_tag "pokemon", options_from_collection_for_select(@Pokes, "pokemon_species_id", "name") %>
 <br>
 <%= submit_tag t("search_desc.filter") , :name => nil, :class => "search-me btn btn-primary"  %> 
 <% end %>
-Calcular estadisticas:
+<%= t('tour_list.stats')%>:
 <%= form_tag '/teams/stats', :method => 'get' do %>
-País:<%= country_select("teams", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"], :include_blank => 'Todo Latam') %>
-Fecha:<%= select("teams", "range", [['Toda la temporada', 0], ['Ultimos 30 días', 30]]) %>
-Categóría:<%= select("teams", "category", [['Todos los torneos', 0], ['MSS o superior', 1]]) %>
- <br> <%= submit_tag 'Calcular' , :name => nil, :class => "search-me btn btn-primary"  %>
+<%= t('country')%>:<%= country_select("teams", "country", priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"], :include_blank => 'Todo Latam') %>
+<%=t('date')%>:<%= select("teams", "range", [['Toda la temporada', 0], ['Ultimos 30 días', 30]]) %>
+<%=t('category')%>:<%= select("teams", "category", [['Todos los torneos', 0], ['MSS o superior', 1]]) %>
+ <br> <%= submit_tag t('tour_list.calc') , :name => nil, :class => "search-me btn btn-primary"  %>
 <% end %>
 <% if current_user and (current_user.admin  or current_user.mod) %>
-<%= link_to "Agregar Top8",{ :controller=>"teams",:action=>"new"}, :class => 'btn btn-primary'  %>
+<%= link_to t('tour_list.add_top'),{ :controller=>"teams",:action=>"new"}, :class => 'btn btn-primary'  %>
 <br>
 <% end %>
  <% @tops.each do |top| %>
  <h5>
-<%= top.fecha %> <%=  image_tag("/flags/"+top.country.downcase+".png") %> <%= top.nombre_torneo %> <%= link_to "Ver Top8", {:controller=>"teams",:action=>"show",:id=>top.id}, :class => 'btn btn-primary' %>
+<%= top.fecha %> <%=  image_tag("/flags/"+top.country.downcase+".png") %> <%= top.nombre_torneo %> <%= link_to t('tour_list.see_top'), {:controller=>"teams",:action=>"show",:id=>top.id}, :class => 'btn btn-primary' %>
  </h5>
  <% end %>
  <%= paginate @tops , :pagination_class => "pagination-centered" %>
