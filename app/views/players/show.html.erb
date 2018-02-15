@@ -40,6 +40,11 @@
 </p>
 <% end %>
 
+<% if current_user and (current_user.admin or current_user.mod) %> 
+<%= link_to 'Editar', edit_player_path(@player), :class => 'btn btn-primary' %> 
+<br>
+<% end %>
+
 <% @teams.each do |team| %>
  
 <% if !Top.where(:team1_id=>team.id).empty? %>
@@ -97,9 +102,7 @@ Top8 -
  
 <br>
  <% end %>
-<% if current_user and (current_user.admin or current_user.mod) %> 
-<%= link_to 'Editar', edit_player_path(@player), :class => 'btn btn-primary' %> 
-<% end %>
+
  <%= paginate @teams , :pagination_class => "pagination-centered" %>
 
 <%= link_to 'Volver a lista de jugadores', players_path, :class => 'btn btn-primary' %>
