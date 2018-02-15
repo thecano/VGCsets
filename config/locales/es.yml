@@ -72,4 +72,4 @@ es:
   faq_desc:
     q1: <h4>De que trata este sitio?</h4><br>Somos un generador de imágenes de torneos, una base de datos de jugadores, y una calculadora de estadísticas de torneos.
     q2: <h4>Un torneo que jugué no está subido</h4><br>Si bien tratamos de tener la mayoría de torneos, es difícil cubrir todos los torneos que se realizan.
-    q3: <h4>Cómo puedo subir un torneo?</h4><br>Si eres OT o colaborador con acceso a los equipos de top cut, envianos un mensaje privado a nuestra <%= link_to('fanpage de facebook','https://www.facebook.com/vgcsets/') preguntando por una cuenta con permisos para subr torneos, lo único que pedimos es que a futuro continues subiendo torneos al sitio.
+    q3: <h4>Cómo puedo subir un torneo?</h4><br>Si eres OT o colaborador con acceso a los equipos de top cut, envianos un mensaje privado a nuestra <a href='https://www.facebook.com/vgcsets/'>fanpage de facebook</a> preguntando por una cuenta con permisos para subr torneos, lo único que pedimos es que a futuro continues subiendo torneos al sitio.
