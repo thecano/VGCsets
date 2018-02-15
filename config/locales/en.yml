@@ -94,4 +94,4 @@ en:
   faq_desc:
     q1: <h4>What is this website?</h4><br>It's an image generator for top cut teams, a player database and a tournament stats calculator!
     q2: <h4>A tournament I played is not here</h4><br>We are humans and as we try to get as many tournaments results, it's very difficult to have them all.
-    q3: <h4>How can I upload a tournament?</h4><br>If you are a TO or collaborator with access to top cuts teams, send us a private message to our facebook fanpage asking for an uploader account, the only requirement we ask is that you upload future tournaments to the website.
+    q3: <h4>How can I upload a tournament?</h4><br>If you are a TO or collaborator with access to top cuts teams, send us a private message to our <%= link_to('facebook fanpage','https://www.facebook.com/vgcsets/') %> asking for an uploader account, the only requirement we ask is that you upload future tournaments to the website.
