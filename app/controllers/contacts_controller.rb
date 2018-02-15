@@ -14,6 +14,6 @@ class ContactsController < ApplicationController
   end
 
   def faq 
-
+  render :faq
   end
 end
