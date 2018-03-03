@@ -28,7 +28,7 @@ end
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 
 group :development do
-gem 'mysql2', '~> 0.3.17'
+#gem 'mysql2', '~> 0.3.17'
 gem 'spring'
 gem 'web-console', '~> 3.0'
 gem "better_errors"

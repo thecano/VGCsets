@@ -160,7 +160,6 @@ GEM
     multi_json (1.12.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    mysql2 (0.3.21)
     nested_form (0.3.2)
     netrc (0.11.0)
     nio4r (2.1.0)
@@ -262,6 +261,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    scout_apm (2.4.8)
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -327,7 +327,6 @@ DEPENDENCIES
   json (~> 1.8.6)
   kaminari
   mail_form
-  mysql2 (~> 0.3.17)
   omniauth
   omniauth-facebook
   omniauth-twitter
@@ -340,6 +339,7 @@ DEPENDENCIES
   rails_admin
   responders (~> 2.0)
   sass-rails (~> 5.0.6)
+  scout_apm
   sdoc (~> 0.4.0)
   simple_form
   spring
@@ -349,4 +349,4 @@ DEPENDENCIES
   web-console (~> 3.0)
 
 BUNDLED WITH
-   1.15.4
+   1.16.1
