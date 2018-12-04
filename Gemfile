@@ -35,11 +35,13 @@ gem "better_errors"
 gem "binding_of_caller"
 end
 
+
 #para rails 5
 gem 'responders', '~> 2.0'
 gem 'popper_js', '~> 1.11', '>= 1.11.1'
 #gem 'seed_dump'
 #gem 'acts_as_votable', '~> 0.10.0'
+#gem 'sprockets', '>=3.7.2'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
@@ -51,7 +53,7 @@ gem 'jquery-turbolinks'
 gem 'font-awesome-rails'
 gem 'mail_form'
 gem 'simple_form'
-gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
+#gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 group :production do
 gem 'rails_12factor'
 gem 'puma'
@@ -59,9 +61,9 @@ gem 'pg'
 end
 
 # gem 'unicorn', group: :production
-gem 'rack'
+gem 'rack', '>=2.0.6'
 #gem 'passenger', '~>  4.0.18'
- gem 'rails_admin'
+ gem 'rails_admin', '>=1.3.0'
  #gem "chartkick"
  #gem 'composite_primary_keys', '~> 10'
  #gem 'disqus_rails'
