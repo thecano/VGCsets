@@ -51,11 +51,7 @@ class TeamsController < ApplicationController
   def filter_pokemon
     if params[:pokemon].present?
     @nombre = Pokemon.find_by(:local_language_id => 9, :pokemon_species_id => params[:pokemon])
-    @teams=Team.where(:pokemon1_id=>params[:pokemon])+Team.where(:pokemon2_id=>params[:pokemon]) unless params[:pokemon].blank?
-    @teams=@teams+Team.where(:pokemon3_id=>params[:pokemon])+Team.where(:pokemon4_id=>params[:pokemon]) unless params[:pokemon].blank?
-    @teams=@teams+Team.where(:pokemon5_id=>params[:pokemon])+Team.where(:pokemon6_id=>params[:pokemon]) unless params[:pokemon].blank?
-    @teams=@teams.to_a.sort_by(&:fecha).reverse unless params[:pokemon].blank?
-    @teams = Kaminari.paginate_array(@teams).page(params[:page]).per(10)
+    @teams=Team.where(:pokemon1_id=>params[:pokemon]).or(Team.where(:pokemon2_id=>params[:pokemon])).or(Team.where(:pokemon3_id=>params[:pokemon])).or(Team.where(:pokemon4_id=>params[:pokemon])).or(Team.where(:pokemon5_id=>params[:pokemon])).or(Team.where(:pokemon6_id=>params[:pokemon])).order(fecha: :desc).page(params[:page]).per(10) unless params[:pokemon].blank?
     elsif params[:search].present?
     #casos de busqueda usuales
     aux = params[:search]
@@ -81,11 +77,7 @@ class TeamsController < ApplicationController
       flash[:notice]="yes"
       return          
       end
-    @teams=Team.where(:pokemon1_id=>@nombre.id)+Team.where(:pokemon2_id=>@nombre.id) unless params[:search].blank?
-    @teams=@teams+Team.where(:pokemon3_id=>@nombre.id)+Team.where(:pokemon4_id=>@nombre.id) unless params[:search].blank?
-    @teams=@teams+Team.where(:pokemon5_id=>@nombre.id)+Team.where(:pokemon6_id=>@nombre.id) unless params[:search].blank?
-    @teams=@teams.to_a.sort_by(&:fecha).reverse unless params[:search].blank?
-    @teams = Kaminari.paginate_array(@teams).page(params[:page]).per(10)
+    @teams = Team.where(:pokemon1_id=>@nombre.id).or(Team.where(:pokemon2_id=>@nombre.id)).or(Team.where(:pokemon3_id=>@nombre.id)).or(Team.where(:pokemon4_id=>@nombre.id)).or(Team.where(:pokemon5_id=>@nombre.id)).or(Team.where(:pokemon6_id=>@nombre.id)).order(fecha: :desc).page(params[:page]).per(10) unless params[:search].blank? 
     render :filter_pokemon
     else  
     redirect_to '/teams'      
