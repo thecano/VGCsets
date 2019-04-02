@@ -186,7 +186,7 @@ class TeamsController < ApplicationController
 	@team7=""
 	@team8=""
 
-  if !params[:player1].blank?
+  if !params[:player1].blank? and !params[:player2].blank?
   	@team = Team.new
   	@team.player_id = params[:player1]
   	@team.pokemon1_id = params[:pokemon11]
@@ -197,8 +197,7 @@ class TeamsController < ApplicationController
   	@team.pokemon6_id = params[:pokemon16]
     @team.save
     @team1=@team.id
-    end
-    if !params[:player2].blank?
+
     @team = Team.new	
 	@team.player_id = params[:player2]
   	@team.pokemon1_id = params[:pokemon21]
@@ -210,7 +209,7 @@ class TeamsController < ApplicationController
 	@team.save
 	@team2=@team.id
 	end
-	if !params[:player3].blank?
+     if !params[:player3].blank? and !params[:player4].blank?
 	@team = Team.new
 	@team.player_id = params[:player3]
   	@team.pokemon1_id = params[:pokemon31]
@@ -221,8 +220,6 @@ class TeamsController < ApplicationController
   	@team.pokemon6_id = params[:pokemon36]
     @team.save
     @team3=@team.id
-    end
-    if !params[:player4].blank?
 	@team = Team.new
 	@team.player_id = params[:player4]
   	@team.pokemon1_id = params[:pokemon41]
@@ -234,7 +231,7 @@ class TeamsController < ApplicationController
 	@team.save
 	@team4=@team.id
 	end
-	if !params[:player5].blank?
+	if !params[:player5].blank? and !params[:player6].blank? and !params[:player7].blank? and !params[:player8].blank?
 	@team = Team.new
 	@team.player_id = params[:player5]
   	@team.pokemon1_id = params[:pokemon51]
@@ -245,8 +242,7 @@ class TeamsController < ApplicationController
   	@team.pokemon6_id = params[:pokemon56]
 	@team.save
 	@team5=@team.id
-	end
-	if !params[:player6].blank?
+
   	@team = Team.new
   	@team.player_id = params[:player6]
   	@team.pokemon1_id = params[:pokemon61]
@@ -257,8 +253,7 @@ class TeamsController < ApplicationController
   	@team.pokemon6_id = params[:pokemon66]
 	@team.save
 	@team6=@team.id
-	end
-	if !params[:player7].blank?
+
 	@team = Team.new
 	@team.player_id = params[:player7]
   	@team.pokemon1_id = params[:pokemon71]
@@ -269,8 +264,7 @@ class TeamsController < ApplicationController
   	@team.pokemon6_id = params[:pokemon76]
   	@team.save
   	@team7=@team.id
-  	end
-  	if !params[:player8].blank?
+
 	@team = Team.new
 	@team.player_id = params[:player8]
   	@team.pokemon1_id = params[:pokemon81]
