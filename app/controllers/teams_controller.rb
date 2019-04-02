@@ -208,7 +208,9 @@ class TeamsController < ApplicationController
   	@team.pokemon6_id = params[:pokemon26]
 	@team.save
 	@team2=@team.id
-	end
+  else
+	  redirect_to "/teams"
+  end
      if !params[:player3].blank? and !params[:player4].blank?
 	@team = Team.new
 	@team.player_id = params[:player3]
