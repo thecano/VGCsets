@@ -8,7 +8,7 @@
    <%= select(:top, :tipo_torneo, [['Premier', 'Premier'], ['MSS', 'MSS'], ['Special Event', 'Special Event'], ['Regional', 'Regional'], ['Nacional', 'Nacional'], ['Continental', 'Contintental'], ['Otro', 'Otro']], { :include_blank => true }, :required => true) %>
 <br>
   <%=t('format')%>:
- <%= select(:top, :formato, [['VGC19-Ultra', 'VGC19-Ultra'], ['VGC19-Moon', 'VGC19-Moon'], ['VGC19-Sun', 'VGC19-Sun'], ['VGC18', 'VGC18'], ['VGC17', 'VGC17'], ['VGC16', 'VGC16'], ['VGC15', 'VGC15']]) %>
+ <%= select(:top, :formato, [['VGC20', 'VGC20'], ['VGC19-Ultra', 'VGC19-Ultra'], ['VGC19-Moon', 'VGC19-Moon'], ['VGC19-Sun', 'VGC19-Sun'], ['VGC18', 'VGC18'], ['VGC17', 'VGC17'], ['VGC16', 'VGC16'], ['VGC15', 'VGC15']]) %>
 
  <br><%=t('date1')%>:
  <%= select_date Date.today, prefix: :top %><br>
