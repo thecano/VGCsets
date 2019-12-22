@@ -67,6 +67,8 @@ class TeamsController < ApplicationController
     search = search.gsub ' Alolan', '-Alola'
     search = search.gsub ' alola', '-Alola'
     search = search.gsub ' Alola', '-Alola'
+    search = search.gsub ' Galar', '-Galar'
+    search = search.gsub ' galar', '-Galar'
     search = search.gsub ' koko', ' Koko'
     search = search.gsub ' fini', ' Fini'
     search = search.gsub ' bulu', ' Bulu'
@@ -120,12 +122,12 @@ class TeamsController < ApplicationController
 
     if params.has_key?(:teams)
       if params[:teams][:range].to_i==0
-        teams = Top.where(:formato => 'VGC19-Ultra').where.not(:tipo_torneo => 'Otro')
+        teams = Top.where(:formato => 'VGC20').where.not(:tipo_torneo => 'Otro')
       else
-        teams = Top.where(:formato => 'VGC19-Ultra').where.not(:tipo_torneo => 'Otro').where(:fecha=>DateTime.now-params[:teams][:range].to_i..DateTime.now)
+        teams = Top.where(:formato => 'VGC20').where.not(:tipo_torneo => 'Otro').where(:fecha=>DateTime.now-params[:teams][:range].to_i..DateTime.now)
       end
     else 
-        teams = Top.where(:formato => 'VGC19-Ultra').where.not(:tipo_torneo => 'Otro')
+        teams = Top.where(:formato => 'VGC20').where.not(:tipo_torneo => 'Otro')
     end
     if params.has_key?(:teams) and params[:teams][:country].present? and !params[:teams][:country].blank?
     teams = teams.where(:country=>params[:teams][:country])
