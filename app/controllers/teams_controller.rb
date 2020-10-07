@@ -41,7 +41,7 @@ class TeamsController < ApplicationController
       format.html
       format.png do
         kit = IMGKit.new render_to_string, width: 810
-        kit.stylesheets << Rails.root.join('public','assets/application-4f3e266c1dda651ee2064cc92670eb8e7fa2e57905e11ce4595606c0e3d7d4ef.css').to_s
+        kit.stylesheets << Rails.root.join('public','/assets/application-d148f484e77abd44a91affcae5fccfb7e31c2b49f70f7aceb2ca07ac80c07636.css').to_s
         kit.javascripts << Rails.root.join('app','assets/javascripts/application.js').to_s
         send_data kit.to_png, type: "image/png", disposition: "default", layout: "screenshot"
       end
