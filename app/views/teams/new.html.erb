@@ -13,7 +13,7 @@
  <br><%=t('date1')%>:
  <%= select_date Date.today, prefix: :top %><br>
 <%=t('country')%>:
-<%= country_select("top", "country", {priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"]}, class: 'required-field', required: true , include_blank: true) %>
+<%= country_select("top", "country", {priority_countries: ["CL", "AR", "PE", "CO", "EC","MX","CR","BO","BR","GT","PY","UY","SV"]}, include_blank: true) %>
 <br><br>
 
 1st Place
