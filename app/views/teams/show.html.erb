@@ -4,8 +4,10 @@
 <%= t('date1')%>: <%= @tops.fecha %>
 <br>
 <%= t('format')%>: <%= @tops.formato %>
+<% if @tops.country != "" %>
 <br>
 <%= t('country')%>: <%= ISO3166::Country[@tops.country] %> 
+<% end %>
 <br>
 <% if current_user and (current_user.admin  or current_user.mod) %> 
 <%= link_to t('topcut.edit_tournament'),:controller=>'teams',:action=>'edit_top',:id=>@tops.id  %>
