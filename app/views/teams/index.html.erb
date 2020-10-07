@@ -32,7 +32,7 @@
  <% @tops.each do |top| %>
  <h5>
 <%= top.fecha %> 
-<% if top.country %>
+<% if top.country != '' %>
 <%=  image_tag("/flags/"+top.country.downcase+".png") %> 
 <% end %>
 <%= top.nombre_torneo %> <%= link_to t('tour_list.see_top'), {:controller=>"teams",:action=>"show",:id=>top.id}, :class => 'btn btn-primary' %>
