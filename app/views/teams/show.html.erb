@@ -12,9 +12,11 @@
 <% end %>
 
 
-<h5><%= t('first')%>
 
 
+<h5>
+<%= image_tag("/flags/"+@player1.country.downcase+".png") %>
+<%= t('first')%>
 <% if @player1.nickname.blank? %>
 <%= link_to @player1.name, :controller => "players",:action => "show",:id => @player1.id %>
 <% else %>
@@ -38,8 +40,8 @@
 
 
 <h5>
+<%= image_tag("/flags/"+@player2.country.downcase+".png") %>
 <%= t('second')%>
-
 <% if @player2.nickname.blank? %>
 <%= link_to @player2.name, :controller => "players",:action => "show",:id => @player2.id %>
 <% else %>
@@ -62,8 +64,8 @@
 
 <h5>
 	<% if !@tops.team3_id.nil? %>
+<%= image_tag("/flags/"+@player3.country.downcase+".png") %>
 	Top4
-	
 <% if @player3.nickname.blank? %>
 <%= link_to @player3.name, :controller => "players",:action => "show",:id => @player3.id %>
 <% else %>
@@ -89,8 +91,8 @@
 
 	<h5>
 	<% if !@tops.team4_id.nil? %>
+<%= image_tag("/flags/"+@player4.country.downcase+".png") %>
 	Top4
-	
 <% if @player4.nickname.blank? %>
 <%= link_to @player4.name, :controller => "players",:action => "show",:id => @player4.id %>
 <% else %>
@@ -116,8 +118,8 @@
 
 	<h5>
 	<% if !@tops.team5_id.nil? %>
+<%= image_tag("/flags/"+@player5.country.downcase+".png") %>
 	Top8
-	
 <% if @player5.nickname.blank? %>
 <%= link_to @player5.name, :controller => "players",:action => "show",:id => @player5.id %>
 <% else %>
@@ -143,8 +145,9 @@
 
 
 	<% if !@tops.team6_id.nil? %>
-	<h5>Top8
-	
+<h5>
+<%= image_tag("/flags/"+@player6.country.downcase+".png") %>
+	Top8
 <% if @player6.nickname.blank? %>
 <%= link_to @player6.name, :controller => "players",:action => "show",:id => @player6.id %>
 <% else %>
@@ -169,8 +172,8 @@
 
 	<h5>
 	<% if !@tops.team7_id.nil? %>
+<%= image_tag("/flags/"+@player7.country.downcase+".png") %>
 	Top8
-	
 <% if @player7.nickname.blank? %>
 <%= link_to @player7.name, :controller => "players",:action => "show",:id => @player7.id %>
 <% else %>
@@ -197,8 +200,8 @@
 
 	<h5>
 	<% if !@tops.team8_id.nil? %>
+<%= image_tag("/flags/"+@player8.country.downcase+".png") %>
 	Top8
-
 <% if @player8.nickname.blank? %>
 <%= link_to @player8.name, :controller => "players",:action => "show",:id => @player8.id %>
 <% else %>
